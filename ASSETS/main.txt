@@ -1,0 +1,8 @@
+/////
+Main
+////
+
+
+show options for creating new test
+create new test from variables
+	create new exam object

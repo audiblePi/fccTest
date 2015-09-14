@@ -1,0 +1,33 @@
+//////////////////////////////////////////
+Use Cases
+///////////////////////////////////////////
+//Register
+//Log-in
+//Start New Study Session
+	//Simulated Mode
+		//even selection from all topics
+		counts on profile page
+	//Study Mode
+		//unseen questions first
+		//Choose topics	
+		//Missed Retake
+		//Show Answers
+		//Show Question Numbers
+		Focus on Unseen
+//Resume Previous Exam
+//View Exam History
+
+
+element 8 diagrams:
+	Fig. 8A1: 7A1, 7a6, 20C5, 21C3, 24C6
+	Fig. 8A2: 9a2, 9a4, 10A5
+	Fig. 8A3: 9a5
+	Fig. 8A4: 10a1
+	Fig. 8A5: 10A2
+	Fig. 8A6: 10A3
+	Fig. 8A7: 10A4
+	Fig. 8A8: 10A6
+	Fig. 8C9: 20C1 
+	Fig. 8C10: 26c3
+	Fig. 8C11: 26c4, 26c6
+	Fig. 8F12: 45f1, 45f4

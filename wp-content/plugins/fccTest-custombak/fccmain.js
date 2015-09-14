@@ -1,0 +1,503 @@
+jQuery(function($){
+	var user_id;
+    var exam_id = 0;
+    var element_id;
+    var subtopics;
+    var current_question_index = 0;
+    var exam_length = 0;
+    var correct = 0;
+    var incorrect = 0;
+    var skipped = 0;
+    var num_answered = 0;
+    var current_score = 0;
+    var show_numbers;
+    var show_answers;
+    var simulated;
+    var weak_areas;
+    var date;
+    var start_time;
+    var questions = [];
+    var status = -1;
+    var missed_retake = 0;
+    var resume = 0;
+    var prev_time = 0;
+    var seen;
+
+    $( "#dialog" ).dialog({ modal: true, show: { effect: "fadeIn", duration: 500 }, autoOpen:false });
+    $('.ui-dialog-titlebar').css('display', 'none');
+
+    $('.simulated').change(function(){ 
+        var value = $(this).val();
+        if (value == '1'){
+            $('.study-mode-options').css('display', 'none');
+            
+            //reset defaults for simulated mode
+            $('.settings-option .subtopic').val('All');
+            $('.settings-option .show-numbers').val('0');
+            $('.settings-option .show-answers').val('0');
+            $('.settings-option .weak-areas').val('0');
+        }
+        if (value == '0'){
+            $('.study-mode-options').css('display', 'block');
+            $('.subtopic').css('display', 'none');
+            $('.E1.subtopic').css('display', 'block');
+            $('.settings-option .element-id').val('E1');
+        }
+    });
+
+    $('.element-id').change(function(){ 
+        var value = $(this).val();
+        switch(value){
+            case "E1":
+                $('.E1.subtopic').css('display', 'block');
+                $('.E3.subtopic').css('display', 'none');
+                $('.E6.subtopic').css('display', 'none');
+                $('.E7.subtopic').css('display', 'none');
+                $('.E7R.subtopic').css('display', 'none');
+                $('.E8.subtopic').css('display', 'none');
+                $('.E9.subtopic').css('display', 'none');
+                break;
+            case "E3":
+                $('.E1.subtopic').css('display', 'none');
+                $('.E3.subtopic').css('display', 'block');
+                $('.E6.subtopic').css('display', 'none');
+                $('.E7.subtopic').css('display', 'none');
+                $('.E7R.subtopic').css('display', 'none');
+                $('.E8.subtopic').css('display', 'none');
+                $('.E9.subtopic').css('display', 'none');                
+                break;
+            case "E6":
+                $('.E1.subtopic').css('display', 'none');
+                $('.E3.subtopic').css('display', 'none');
+                $('.E6.subtopic').css('display', 'block');
+                $('.E7.subtopic').css('display', 'none');
+                $('.E7R.subtopic').css('display', 'none');
+                $('.E8.subtopic').css('display', 'none');
+                $('.E9.subtopic').css('display', 'none');                
+                break;
+            case "E7":
+                $('.E1.subtopic').css('display', 'none');
+                $('.E3.subtopic').css('display', 'none');
+                $('.E6.subtopic').css('display', 'none');
+                $('.E7.subtopic').css('display', 'block');
+                $('.E7R.subtopic').css('display', 'none');
+                $('.E8.subtopic').css('display', 'none');
+                $('.E9.subtopic').css('display', 'none');                
+                break;
+            case "E7R":
+                $('.E1.subtopic').css('display', 'none');
+                $('.E3.subtopic').css('display', 'none');
+                $('.E6.subtopic').css('display', 'none');
+                $('.E7.subtopic').css('display', 'none');
+                $('.E7R.subtopic').css('display', 'block');
+                $('.E8.subtopic').css('display', 'none');
+                $('.E9.subtopic').css('display', 'none');                
+                break;
+            case "E8":
+                $('.E1.subtopic').css('display', 'none');
+                $('.E3.subtopic').css('display', 'none');
+                $('.E6.subtopic').css('display', 'none');
+                $('.E7.subtopic').css('display', 'none');
+                $('.E7R.subtopic').css('display', 'none');
+                $('.E8.subtopic').css('display', 'block');
+                $('.E9.subtopic').css('display', 'none');                
+                break;    
+            case "E9":
+                $('.E1.subtopic').css('display', 'none');
+                $('.E3.subtopic').css('display', 'none');
+                $('.E6.subtopic').css('display', 'none');
+                $('.E7.subtopic').css('display', 'none');
+                $('.E7R.subtopic').css('display', 'none');
+                $('.E8.subtopic').css('display', 'none');
+                $('.E9.subtopic').css('display', 'block');                
+                break; 
+            default: 
+                $('.E1.subtopic').css('display', 'block');
+                $('.E3.subtopic').css('display', 'none');
+                $('.E6.subtopic').css('display', 'none');
+                $('.E7.subtopic').css('display', 'none');
+                $('.E7R.subtopic').css('display', 'none');
+                $('.E8.subtopic').css('display', 'none');
+                $('.E9.subtopic').css('display', 'none');
+        }
+    });
+
+    $(document).on("click",".exam-start",function(e){
+        e.preventDefault();	
+		startExam();
+    });
+
+    $(document).on("click",".resume-no",function(e){
+        e.preventDefault();
+        $('#dialog').dialog('close');
+    });
+
+    $(document).on("click",".resume-exam",function(e){
+        e.preventDefault();
+        $('#dialog').dialog('close');
+        resume = 1;
+        startExam();
+    });
+
+    $(document).on("click",".retake",function(e){
+        e.preventDefault(); 
+        resetData();
+        missed_retake = 1;
+        $('.exam-container').fadeOut();
+        startExam();
+    });
+
+    $(document).on("click",".question-container .question .answer-box",function(e){
+        $(this).children().children('input').prop('checked', true);
+        if(show_answers == "1"){
+            showAnswer($(this));
+            $('.exam-controls .next-question').attr('disabled', false);
+            $('.question-container .question.' + current_question_index).css('pointer-events', 'none');
+        }
+        else{
+            if(checkAnswer()==1)
+                updateScore('right');  
+            else if (checkAnswer() == 0)
+                updateScore('wrong');
+            else
+                updateScore('skipped');
+            proceed();
+            //setTimeout(function(){proceed();}, 500 );
+        }
+    });
+
+    $(document).on("click",".exam-container .next-question",function(e){
+        if(checkAnswer()==1)
+            updateScore('right');  
+        else if (checkAnswer() == 0)
+            updateScore('wrong');
+        else
+            updateScore('skipped');
+        proceed();
+    });
+
+    function startExam(){
+        // console.log('startExam()');
+
+        user_id = $('.hidden-id').html();
+        simulated = $('.simulated').val();
+        element_id = $('.element-id').val();
+        subtopics = $('.study-mode-options .settings-option .' + element_id).val();
+        show_numbers = $('.show-numbers').val();
+        show_answers = $('.show-answers').val();
+        weak_areas = $('.weak-areas').val();
+        
+        post_data = {
+            'myAction'      : 'start',
+            'user_id'       : user_id,
+            'element_id'    : element_id,
+            'subtopics'     : subtopics,
+            'simulated'     : simulated,
+            'weak_areas'    : weak_areas,
+            'missed_retake' : missed_retake,
+            'resume'        : resume            
+        };
+
+        $.ajax({
+           type: 'post',
+           url: 'ajax.php',
+           data: post_data,
+           dataType: "text",
+           success: function (text) {
+                $('.pre-loader').fadeOut();
+                setTimeout(function(){
+                    printExam(text);
+                    if(resume==0)
+                        saveExam(0); //0 = init
+                    else{
+                        exam_id = $('.exam-id').html();
+                        getQuestionsArray();
+                        resumeExam();
+                    }
+                }, 400);
+           }
+        });
+        // }).done(function (text) {
+        //             $('.pre-loader').fadeOut(100);
+        //             //printExam(text);
+        //             setTimeout(function(){printExam(text);}, 100 );
+        //             if(resume==0)
+        //                 saveExam(0); //0 = init
+        //             else{
+        //                 exam_id = $('.exam-id').html();
+        //                 getQuestionsArray();
+        //                 resumeExam();
+        //             }
+        //         });
+        $('.exam-options').fadeOut();
+        $('.pre-loader').delay(400).fadeIn();
+        $('.exam-details .current_question').html(current_question_index);
+    }
+
+    function saveExam(i){
+        // console.log('saveExam(' + i + ')');
+        var action;
+        if (i==0)
+            action = "init";
+        else
+            action = "update";
+
+        date = $('.date').html();
+        start_time = $('.start_time').html();
+        post_data = {
+            'myAction'          : action,
+            'exam_id'           : exam_id,
+            'user_id'           : user_id,
+            'current_score'     : current_score,
+            'element_id'        : element_id,
+            'subtopics'         : subtopics,
+            'incorrect'         : incorrect,
+            'correct'           : correct,
+            'skipped'           : skipped,
+            'current_question'  : current_question_index,
+            'exam_length'       : exam_length,          
+            'simulated'         : simulated,
+            'show_numbers'      : show_numbers,
+            'show_answers'      : show_answers,
+            'weak_areas'        : weak_areas,
+            'missed_retake'     : missed_retake,
+            'resume'            : resume,
+            'date'              : date,
+            'prev_time'         : prev_time,
+            'start_time'        : start_time,
+            'status'            : status, 
+            'questions'         : questions
+        };
+
+        if (i==0){
+            $.ajax({
+                type: 'post',
+                url: 'ajax.php',
+                data: post_data,
+                dataType: "text",
+                success: function (data) {
+                    exam_id = parseInt(data);
+                    updateHTML();
+                    //console.log(data);
+                }
+            });
+        }
+        else{
+            $.ajax({
+                type: 'post',
+                url: 'ajax.php',
+                data: post_data,
+                dataType: "text",
+                success: function (data) {
+                    //console.log(data);
+                }
+            });
+        }
+    }
+
+    function printExam(data){
+        // console.log('printExam()');
+        $('.exam-container').html(data).fadeIn();
+        if (show_answers == "0"){
+            $('.exam-controls .next-question').css('display', 'none');
+        }
+        if (resume == 0){
+            exam_length = $('.question-container .question').length - 1;
+            $('.exam-details .total_questions').html(exam_length);
+            updateHTML();
+        }
+        if( show_numbers == '0')
+            $('.question-container .question-number').css('display', 'none');
+        if (simulated == 1)
+            $('.exam-controls .next-question').attr('disabled', true);
+        seen = $('.seen').text();
+        createQuestionsArray();
+    }
+
+    function updateHTML(){
+        // console.log('updateHTML()');
+        $('.exam-details .exam-id').html(exam_id);
+        $('.exam-details .simulated').html(simulated);
+        $('.exam-details .show_numbers').html(show_numbers);
+        $('.exam-details .show_answers').html(show_answers);
+        $('.exam-details .current_question').html(current_question_index + 1);
+        $('.exam-details .correct').html(correct);
+        $('.exam-details .incorrect').html(incorrect);
+        $('.exam-details .current_score').html(current_score);
+        $('.exam-details .skipped').html(skipped);
+        $('.exam-details .status').html(status);
+        $('.exam-details .missed-retake').html(missed_retake);
+        $('.exam-details .weak-areas').html(weak_areas);
+        $('.exam-details .resume').html(resume);
+    }
+
+    function checkAnswer(){
+        //console.log('checkAnswer()');
+        var temp = $('.question-container .question.' + current_question_index + " input[name=answer]:checked").val();
+        var correct_answer = $('.question-container .question.' + current_question_index + ' .correct-answer').text();
+        if (temp == correct_answer)
+            return 1;        
+        else if(temp)
+            return 0;
+        else
+            return -1;
+    }
+
+    function updateScore($s){
+        //console.log('updateScore()' + $s);
+        if ($s == 'right'){
+            questions[current_question_index].grade = 1;
+            correct++;
+            $('.exam-details .correct').html(correct);
+        }
+        else if ($s == 'wrong'){
+            questions[current_question_index].grade = 0;
+            incorrect++;
+            $('.exam-details .incorrect').html(incorrect);
+        }
+        else if ($s == 'skipped'){
+            questions[current_question_index].grade = -1;
+            skipped++;
+            $('.exam-details .skipped').html(skipped);
+        }
+        num_answered++;
+        current_score = (correct/num_answered*100).toFixed(0);
+        $('.exam-details .current_score').html(current_score);
+    }
+
+    function proceed(){
+        // console.log('proceed()');
+        if(current_question_index < exam_length - 1){
+            $('.question-container .question.' + current_question_index).delay(200).fadeOut(200);
+            current_question_index++;
+            $('.question-container .question.' + current_question_index).delay(410).fadeIn(200);
+            updateHTML();
+            if (simulated == 1)
+                $('.exam-controls .next-question').attr('disabled', true);
+            saveExam(1);
+        }
+        else if(current_question_index < exam_length){
+            //last question has been answered
+            $('.question-container .question.' + current_question_index).delay(200).fadeOut(200);
+            $('.question-container .exam-ended').delay(410).fadeIn(200);
+            $('.exam-controls .next-question').attr('disabled', true);
+            $('.exam-controls .stop-exam').attr('disabled', true);
+            current_question_index = 0;
+            status = 1;
+            saveExam(1);
+            updateHTML();
+        }
+        if(seen < exam_length){
+            seen++;
+            $('.seen').html(seen);
+        }
+    }
+
+    function showAnswer(o){
+        // console.log('showAnswer()');
+
+        if(o.is('#correct'))
+            o.children().children('.icon-ok').css('display', 'inline-block');
+        else{
+            //$(".question-container .question." + current_question_index + " form div#correct.answer-box .answer").css('border-color', 'green');
+            $(".question-container .question." + current_question_index + " form div#correct.answer-box .icon-ok ").css('display', 'inline-block');
+            o.children().children('.icon-remove').css('display', 'inline-block');
+        }
+    }
+
+    function createQuestionsArray(){
+        // console.log('createQuestionsArray()');
+        questions = [];
+        $(".exam-container .exam-details .question-container .question .question-number").each(function(){
+            var data = {};
+            data.question_number = $(this).text();
+            data.grade = -777;
+            questions.push(data);
+        });
+        //console.log(questions);
+    }
+
+
+    function resetData(){
+        // console.log('resetData()');
+        correct = 0;
+        incorrect = 0;
+        skipped = 0;
+        num_answered = 0;
+        current_score = 0;
+        status = -1;
+        missed_retake = 0;
+        resume = 0;
+        prev_time = 0;
+        seen = 0;
+    }
+
+    function getQuestionsArray(){
+        // console.log('getQuestionsArray()');        
+        post_data = {
+            'myAction'  : 'getArray',
+            'exam_id'   : exam_id
+        };
+
+        $.ajax({
+           type: 'post',
+           url: 'ajax.php',
+           data: post_data,
+           dataType: "json",
+           success: function (data) {
+                questions = data;
+                //console.log(questions);
+           }
+        });
+    }
+
+    function resumeExam(){
+        element_id = $('.exam-details .element-id').html();
+        simulated = $('.exam-details .simulated').html();
+        weak_areas = $('.exam-details .weak-areas').html();
+        subtopics = $('.exam-details .subtopics').html();
+        show_numbers = $('.exam-details .show_numbers').html();
+        show_answers = $('.exam-details .show_answers').html();
+        correct = $('.exam-details .correct').html();
+        incorrect = $('.exam-details .incorrect').html();
+        exam_length = $('.exam-details .total_questions').html();
+        skipped = $('.exam-details .skipped').html();
+        num_answered = parseInt(correct) + parseInt(incorrect); 
+        current_score = $('.exam-details .current_score').html();
+        current_question_index = $('.exam-details .current_question').html() - 1;
+        status = $('.exam-details .status').html();
+        missed_retake = $('.exam-details .missed-retake').html();
+        prev_time = $('.exam-details .prev_time').html();
+
+        // console.log(
+        //     "user_id: " + user_id
+        //     + " exam_id: " + exam_id
+        //     + " element_id: " + element_id
+        //     + " subtopics: " + subtopics
+        //     + " current_question_index: " + current_question_index
+        //     + " exam_length: " + exam_length
+        //     + " correct: " + correct
+        //     + " incorrect: " + incorrect
+        //     + " skipped: " + skipped
+        //     + " num_answered: " + num_answered
+        //     + " current_score: " + current_score
+        //     + " show_numbers: " + show_numbers
+        //     + " show_answers: " + show_answers
+        //     + " simulated: " + simulated
+        //     + " weak_areas: " + weak_areas
+        //     //+ "date: " + date
+        //     //+ "start_time: " + start_time
+        //     //+ " questions: " + questions
+        //     + " status: " + status
+        //     + " missed_retake: " + missed_retake
+        //     + " resume: " + resume
+        //     + " prev_time: " + prev_time
+        // );
+
+        $('.question-container .question.0').css('display', 'none');
+        $('.question-container .question.' + current_question_index).fadeIn(100);
+        if (show_answers == 1)
+            $('.exam-controls .next-question').css('display', 'inline-block');
+
+    }
+});

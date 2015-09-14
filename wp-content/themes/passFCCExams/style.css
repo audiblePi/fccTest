@@ -1,0 +1,159 @@
+/* Theme Name: passFCCExams
+Author: Pippin Design
+Author URI: http://www.pippindesign.com
+Version: 1.0
+License:GNU General Public License
+License URI:https://www.gnu.org/licenses/gpl.html
+Tags:black, blue, white, light, one-column, fluid-layout, responsive-layout, custom-menu, featured-images, microformats, sticky-post, threaded-comments
+Text Domain:conure
+NinJawP is distributed under the terms of the GNU GPL */
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font-size:100%;vertical-align:baseline}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+body{line-height:1}
+ol,ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}
+table{border-collapse:collapse;border-spacing:0}
+body{font-family: "Droid Sans","Arial",Verdana; color: #8B8B8B;}
+h1, h2, h3, h4 {font-family: "Droid Sans",Verdana,Arial;}
+h1{font-size:2em}
+h2{font-size:1.5em}
+h3{font-size:1.25em}
+a{text-decoration:none !important;color:#fff}
+p{color:#000;line-height:1.375;margin-bottom:20px}
+.container{max-width:1180px;margin:0 auto; }
+.row{min-width:inherit !important;}
+.container .row{margin: 0px;}
+.container .entry-content{/*padding:20px;*/}
+
+/*Header1*/
+.header1 {background-color:#27558A;}
+.header1 .admin-nav{float:right;margin:0px;font-size: .8em;color: #9EBDD4;padding:10px 0px;}
+.header1 .admin-nav li:first-of-type a{border-left:none;}
+.header1 .admin-nav li{display:inline-block; text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5); cursor:pointer;}
+.header1 .admin-nav li a{border-left: 1px solid #9EBDD4;padding:0px 10px;color: #9EBDD4;}
+.header1 .admin-nav a:hover{color:white;}
+.header1 .admin-nav .welcome-msg{display:none; padding:0px 10px;border-right: 1px solid #9EBDD4; cursor:inherit;}
+
+/*Header2*/
+.header2 {font-size: 1.2em;background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%);border-top: 1px solid #88B2D6;border-bottom: 1px solid #88B2D6;box-shadow: 0 -1px 11px rgba(0,0,0,.5);margin-bottom: 10px;}
+.header2 .menu-wrapper .menu{float:right;margin:0px;}
+.header2 .menu-wrapper .menu li{display:inline-block;border-left: 1px solid #88B2D6;color:#fff;text-shadow: 1px 1px #3C6689;margin-left: -5px;}
+.header2 .menu-wrapper .menu li:last-of-type{border-right: 1px solid #88B2D6;}
+.header2 .menu-wrapper .menu li a{color:#fff;padding:30px 25px;display:block;}
+.header2 .menu-wrapper .menu li:hover a{background: linear-gradient(to bottom, #6B9DD0 0%, #27558A 100%);}
+.header2 .menu-wrapper .menu .menu-icon {margin-right:10px;}
+.header2 .logo img{width: 100%;padding-top: 20px;}
+.header2 .mobile-menu-wrapper{display:none;float:right; padding: 15px;font-size: 1.5em;color: #C0D2E3;text-shadow: 1px 1px #436A8B;cursor:pointer;}
+
+/*Membership Levels*/
+#pmpro_levels_table {margin:auto;}
+
+/*Login*/
+body.page-template-login{background: transparent url("assets/images/back-pattern.png") repeat scroll 0% 0%;}
+.page-template-login .header1{/*visibility:hidden;*/display:none;}
+.page-template-login .header2{visibility:hidden;/*display:none;*/}
+.page-template-login .footer{/*visibility:hidden;*/display:none;}
+.page-template-login .logo img{margin: 20px auto;width: 280px;display: block;}
+.page-template-login .login-wrapper{width: 280px;margin: auto;border: 1px solid #CCC;border-radius: 4px;background: #fff;}
+.page-template-login .login-wrapper .login-title{border-bottom: 1px solid #CCC;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);border-top-left-radius: 4px;border-top-right-radius: 4px;box-shadow: 0px 0px 0px 1px #FFF inset;padding: 15px 20px;}
+.page-template-login .login-wrapper #loginform{background-color: #fff !important;padding:15px;}
+.page-template-login .login-wrapper p{margin:0px;}
+.page-template-login .login-wrapper #loginform label{display:none;}
+.page-template-login .login-wrapper #loginform #user_login, .page-template-login .login-wrapper #loginform #user_pass{max-width:100%;width:100%;border-radius:4px;    border: 1px solid #D0D0D0;box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2) inset, 1px 2px 3px 0px rgba(0, 0, 0, 0.1); padding: 10px; color: #565656;}
+.page-template-login .login-wrapper #loginform .forgetmenot{display:none;}
+.page-template-login .login-wrapper #loginform #wp-submit{box-shadow: 0px 1px 0px 0px #78C3E3 inset; border-radius: 4px; border: 1px solid #2386AA; display: inline-block; color: #FFF; padding: 10px; text-shadow: 1px 1px 0px #1B7297; background: linear-gradient(to bottom, #4AAED9 0%, #1683B1 100%);}
+.page-template-login .login-wrapper #loginform #wp-submit:hover{background: linear-gradient(to bottom, #1683B1 0%,  #4AAED9 100%);color: rgba(255,255,255,0.8);}
+.page-template-login .login-wrapper .tml-action-links{display:none;}
+.page-template-login .login-links{width: 250px;margin: auto; padding:15px;}
+.page-template-login .login-links li{padding:5px 0px;}
+.page-template-login .login-links li a{text-shadow: 1px 1px #FFF;color: #9C9C9C;}
+.page-template-login .login-links li a:hover{color: #5081B5;}
+.page-template-login .login-wrapper .message {margin: 15px 15px -10px 15px;position: relative;}
+
+/*Dashboard*/
+.my-account-wrapper {padding-top: 20px;}
+.my-account-wrapper .sidebar-menu{padding-right: 10px; margin-bottom:40px;}
+.my-account-wrapper .sidebar-menu li:first-of-type{border-top: 1px solid #CCC;}
+.my-account-wrapper .sidebar-menu li{border-right: 1px solid #CCC; border-left: 1px solid #CCC; border-bottom: 1px solid #CCC; box-shadow: 0px 0px 0px 1px #FFF inset;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);}
+.my-account-wrapper .sidebar-menu li a{padding: 15px;display: block;color: #5A5A5A;}
+.my-account-wrapper .sidebar-menu li a:hover{background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%); color:white;text-shadow: 1px 1px #436A8B;}
+.my-account-wrapper .sidebar-menu li a:hover .menu-icon{color:#C0D2E3;}
+.my-account-wrapper .sidebar-menu li.current-menu-item a{background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%); color:white;text-shadow: 1px 1px #436A8B;}
+.my-account-wrapper .sidebar-menu li.current-menu-item a .menu-icon{color:#C0D2E3;}
+.my-account-wrapper .sidebar-menu li:last-of-type{border-bottom-left-radius: 4px;border-bottom-right-radius: 4px;}
+.my-account-wrapper .sidebar-menu li .menu-icon{float:right;}
+.fcc-panel {border: 1px solid #CCC; border-radius: 4px;margin-left: 10px; margin-bottom:40px;color: #5A5A5A;}
+.fcc-panel .row{padding:15px !important;}
+.fcc-panel .title{border-radius: 4px 4px 0px 0px;border-bottom: 1px solid #CCC;box-shadow: 0px 0px 0px 1px #FFF inset;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);padding: 15px;color: #5A5A5A;}
+.fcc-panel .section-collapse {float:right;cursor:pointer;color:#999;}
+.fcc-panel .section-collapse:hover{color:#5A5A5A;}
+.fcc-panel .section-collapse i{display:inline-block;font-size: .7em;}
+.fcc-panel.collapsed {overflow: hidden;}
+.fcc-panel .settings-title{padding:0px;}
+.fcc-panel button{border-radius: 4px; border: 1px solid #D9D9D9; color: #525252;font-family: arial; padding: 7px 12px; text-shadow: 1px 1px 0px #D1D1D1; box-shadow: 0px 1px 0px 0px #FFF inset; background: linear-gradient(to bottom, #FFF 0%, #EEE 100%); }
+.fcc-panel button:hover{background: linear-gradient(to bottom, #EEE 0%, #FFF 100%);color:#000;}
+
+/*My Account*/
+
+/*Exam*/
+.fcc-panel.exam-panel{overflow: visible;margin-bottom:300px;}
+.exam-container .exam-details {overflow: visible;}
+.exam-container .exam-details .question-container .question .row{}
+.exam-container .exam-details .question-container .question .image-container{text-align:center;}
+.exam-container .exam-details .exam-dashboard {width: 80%; margin: auto; text-align: center;border: 1px solid #CCC;border-radius: 6px;margin-bottom:-55px;}
+.exam-container .exam-details .exam-dashboard .number{font-weight: 600;font-size: 1.4em;}
+.exam-container .exam-details .exam-dashboard .text{text-transform: uppercase;font-size: .7em;}
+.exam-container .exam-details .exam-dashboard .percent.positive{font-weight: bold;color: #74AC12;}
+.exam-container .exam-details .exam-dashboard .percent.negative{font-weight: bold;color:#c61e1e;}
+.exam-container .exam-details .exam-dashboard .row{padding: 0px !important;border-radius: 6px;}
+.exam-container .exam-details .exam-dashboard .columns{box-shadow: 0px 0px 0px 1px #FFF inset;border-right: 1px solid #CCC;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);padding: 10px;}
+.exam-container .exam-details .exam-dashboard .columns:last-of-type{border-right: none;}
+.exam-container .exam-details .exam-controls{padding: 0px 0px 20px 20px;}
+.exam-container .question-container .question.exam-ended{text-align:center; padding-top:100px;font-size: 1.5em;font-weight: 600;}
+#dialog {text-align: center;font-size: 1.5em;}
+#dialog p{color: #5A5A5A;;}
+#dialog button{margin: 10px;border-radius: 4px; border: 1px solid #D9D9D9; color: #525252;font-family: arial; padding: 7px 12px; text-shadow: 1px 1px 0px #D1D1D1; box-shadow: 0px 1px 0px 0px #FFF inset; background: linear-gradient(to bottom, #FFF 0%, #EEE 100%); }
+#dialog button:hover{background: linear-gradient(to bottom, #EEE 0%, #FFF 100%);color:#000;}
+
+/*LeaderBoard*/
+.leader-board .table-header .columns, .exam-history .table-header .columns {font-weight: 600;box-shadow: 0px 0px 0px 1px #FFF inset;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);color: #5A5A5A !important;}
+.leader-board .row, .exam-history .row{border-bottom: 1px solid #DDD;padding:0px !important;}
+.leader-board .row .columns, .exam-history .row .columns{border-right: 1px solid #DDD;padding: 10px 15px !important;color: #8B8B8B;}
+.leader-board .row .columns:last-of-type, .exam-history .row .columns:last-of-type{border-right:none;}
+
+/*Exam History*/
+
+
+/*Edit Profile*/
+#edit-profile .login form {background-color:#fff !important; color: #5A5A5A; padding:5px;}
+#edit-profile #login form p, #edit-profile .login label {color: #9C9C9C !important;font-weight: 400;}
+#edit-profile .login h3{display:none;}
+#edit-profile .show-admin-bar{display:none;}
+#edit-profile #your-profile .form-table {width:100%;}
+#edit-profile #your-profile .form-table th {width:30%;}
+#edit-profile #your-profile input, #edit-profile #your-profile textarea {width:100%; display:block !important;border: 1px solid #d0d0d0; border-radius: 4px; box-shadow: inset 0px 1px 3px 0 rgba(0,0,0,0.2), 1px 2px 3px 0 rgba(0,0,0,0.1); color: #565656; padding: 10px; /*height: 26px;*/}
+#edit-profile #your-profile textarea {height:100px;}
+#edit-profile #your-profile .description {color: #9C9C9C; margin-left: 10px; }
+#edit-profile #your-profile #pass-strength-result{width:100%;}
+#edit-profile #your-profile input[type=submit] {border-radius: 4px; border: 1px solid #D9D9D9; color: #525252;font-family: arial; padding: 7px 12px; text-shadow: 1px 1px 0px #D1D1D1; box-shadow: 0px 1px 0px 0px #FFF inset; background: linear-gradient(to bottom, #FFF 0%, #EEE 100%); width: 25%;}
+#edit-profile #your-profile input[type=submit]:hover{background: linear-gradient(to bottom, #EEE 0%, #FFF 100%);color:#000;}
+
+@media (max-width: 1200px) {
+	.header2 .logo img{padding-top: 25px;}
+}
+
+@media (max-width: 991px) {
+	.header2 .menu-wrapper{display:none;}
+	.header2 .mobile-menu-wrapper{display:block;}
+	.header2 .logo img{padding:0px;margin: 20px 0px;}
+	.my-account-wrapper .sidebar-menu {padding-right:0px;}
+	.fcc-panel {margin-left:0px;}
+}
+
+@media (max-width: 767px) {
+	.header1 .admin-nav{float:none;margin:0px;text-align: center;}
+	.header2 .logo {width:200px;}
+	.header2 .mobile-menu-wrapper{padding: 20px 0px;}
+	.header2 .logo img{/*width: 70%;margin: 20px auto;display: block;*/float:left;}
+}

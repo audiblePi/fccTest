@@ -1,0 +1,49 @@
+///////////////////////////////////////////
+Exam Class
+///////////////////////////////////////////
+exam_id
+user_id
+score
+element_id //E1, E3, E6, E7, E7R, , E8, E9
+subtopics[]
+size
+correct
+incorrect
+correct []
+incorrect [] 
+questions []
+current_question
+start_time
+end_time
+total_time
+
+
+constructor()
+calcScore()
+getQuestions() //filter by subtopic, missed, etc
+randomizeQuestions()
+saveExam()
+
+
+//////////////////////////////////////////////
+Question Class
+//////////////////////////////////////////////
+question_id
+element_id
+question_label
+question_text
+answers[]
+correct_answer
+subtopic
+
+getAnswers() //randomize
+showAnswers()
+
+
+//////////////////////////////////////////////
+User Class 
+//////////////////////////////////////////////
+user_id //wp id
+
+getExams() //get all exams users has taken
+displayExams() //display all exams taken with data

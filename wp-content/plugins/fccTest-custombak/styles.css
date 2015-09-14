@@ -1,0 +1,30 @@
+/*shortcodes options interface*/
+.pre-loader{position: relative; left: 0px; top: 0px; width: 100%; height: 400px;display:none; z-index: 9999; background: url(/wp-content/plugins/fccTest-custom/images/loadera64.gif) center no-repeat #fff;}
+.exam-options .row{padding:10px;}
+.exam-options .study-mode-options {/*display:none;*/}
+.exam-options .study-mode-options .settings-option .E1.subtopic{display:block;}
+.exam-options .study-mode-options .settings-option .subtopic{display:none;}
+.exam-options .hidden-id{display:none;}
+
+/*quiz interface*/
+.exam-container .row{margin-left:0px !important;}
+.exam-container .element-id{display:none;}
+.exam-container .question-container{min-height:400px;}
+.question-container .question{padding: 20px 10px 10px 10px;display:none;}
+.question-container .question:first-of-type{display:block;}
+.question-container .question form{padding-left:40px;}
+.question-container .correct-answer {visibility:hidden;}
+.question-container .question .question-number{margin-right:10px;}
+.question-container .question .question-text{margin-bottom:10px;margin-top: 20px;}
+.question-container .question .answer-box{cursor:pointer;text-indent: -30px;margin-left: 20px; padding:10px;}
+.question-container .question .answer-box .answer{border:2px solid white;}
+.question-container .question .answer-box:hover {/*color:green;*/}
+.question-container .question .answer-box input{margin: 7px;}
+.question-container .question .answer-box .check-marks {width:25px;}
+.question-container .question .answer-box .check-marks .icon-ok{display:none; color:green;}
+.question-container .question .answer-box .check-marks .icon-remove{display:none; color:red;}
+
+/*random TAKE OUT LATER/ theme specifc*/
+#primary.content-area{padding-top:0px;}
+.content-area .site-content{padding:20px;}
+.content-area .entry-content, .content-area .entry-header{padding:0px !important;max-width:none !important;}
