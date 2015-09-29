@@ -12,7 +12,7 @@
 	</div>
 	<div class="row">
 		<div class="feature-callouts">
-			<div class="three columns">
+			<div class="three columns callout">
 				<div>
 					<img src="/wp-content/themes/passFCCExams/assets/images/icon1.png">
 				</div>
@@ -23,7 +23,7 @@
 					<p>Drill on missed questions, until you know the answers.</p>
 				</div>
 			</div>
-			<div class="three columns">
+			<div class="three columns callout">
 				<div>
 					<img src="/wp-content/themes/passFCCExams/assets/images/icon2.png">
 				</div>
@@ -34,7 +34,7 @@
 					<p>Study the exact questions and answers from the official FCC question pools.</p>
 				</div>
 			</div>
-			<div class="three columns">
+			<div class="three columns callout">
 				<div>
 					<img src="/wp-content/themes/passFCCExams/assets/images/icon3.png">
 				</div>
@@ -45,7 +45,7 @@
 					<p>Tracks your answer history and helps you focus on weak areas.</p>
 				</div>
 			</div>
-			<div class="three columns">
+			<div class="three columns callout">
 				<div>
 					<img src="/wp-content/themes/passFCCExams/assets/images/icon4.png">
 				</div>
@@ -67,7 +67,7 @@
 		<p>Our test prep website prepares you to take the FCC commercial licencse exam elements 1, 3, 6, 7, 7R, 8 and 9.</p>
 	</div>
 	<div class="row">
-		<div class="six columns">
+		<div class="six columns topics">
 			<ul>
 				<li>
 					<h3><span class="check-mark"><img src="/wp-content/themes/passFCCExams/assets/images/checkmark.png"></span>General Radiotelegraph Operator License (GROL)</h3>
@@ -89,7 +89,7 @@
 				</li>			
 			</ul>
 		</div>
-		<div class="six columns">
+		<div class="six columns image">
 			<img src="/wp-content/themes/passFCCExams/assets/images/desk.png">
 		</div>
 	</div>
@@ -110,8 +110,8 @@
 
 <div class="container testimonials">
 	<div class="row">
-		<div class="seven columns">
-			<img src="/wp-content/themes/passFCCExams/assets/images/desk2.png">
+		<div class="seven columns image">
+			<!-- <img src="/wp-content/themes/passFCCExams/assets/images/desk2.png"> --><br>
 		</div>
 		<div class="five columns testimonials-wrapper">
 			<h1>Student Reviews</h1>

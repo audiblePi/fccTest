@@ -16,7 +16,7 @@
 		</div>
 		<div class="row sub-footer">
 			<div class="eight columns">
-				<p>&copy; <?php echo date('Y'); ?> PassFCCExams.com. All Rights Reserved. <a href="www.pippindesign.com">Website Design & Development</a> by Pippin Design</p>
+				<p>&copy; <?php echo date('Y'); ?> PassFCCExams.com. All Rights Reserved. <a href="ttp://www.pippindesign.com">Website Design & Development</a> by Pippin Design</p>
 			</div>
 			<div class="four columns">
 				<ul class="social-icons">

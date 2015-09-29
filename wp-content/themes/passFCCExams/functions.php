@@ -32,7 +32,8 @@ function conure_setup()
 	register_nav_menus( array(
 	    	'main-menu' => __( 'Main Menu', 'conure' ),
 	    	'admin-menu' => __( 'Admin Menu', 'conure' ),
-	    	'dashboard-menu' => __( 'Dashboard Menu', 'conure' ) 
+	    	'dashboard-menu' => __( 'Dashboard Menu', 'conure' ),
+	    	'sidebar-menu' => __( 'Sidebar Menu', 'conure' ) 
 	    )
 	);
 	add_filter( 'wp_title', 'conure_filter_wp_title' );

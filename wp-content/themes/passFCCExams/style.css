@@ -25,16 +25,18 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 .row{min-width:inherit !important;max-width:inherit !important;}
 .container .row{margin: 0px !important;}
 #content-wrapper{padding-top:60px !important;}
+.page-template-login #content-wrapper {padding-top:0px !important;}
 
 /*Header1*/
 .header1 {}
 .header1 ul.social-icons li{display:inline;}
 .header1 .admin-nav{float:right;margin:0px;color:#14578b;padding:10px 0px;}
-.header1 .admin-nav li:first-of-type a{border-left:none;}
+.header1 .admin-nav #menu-admin-menu li:last-of-type a{border-right:none;}
 .header1 .admin-nav li{display:inline-block; cursor:pointer;}
-.header1 .admin-nav li a{border-left: 1px solid #14578b;padding:0px 10px;color:#14578b;}
-.header1 .admin-nav a:hover{color:white;}
+.header1 .admin-nav li a{border-right: 1px solid #14578b;padding:0px 10px;color:#14578b;}
+.header1 .admin-nav a:hover{color:#6B9DD0;}
 .header1 .admin-nav .welcome-msg{display:none; padding:0px 10px;border-right: 1px solid #14578b; cursor:inherit;}
+#menu-admin-menu li:nth-child(1) {display:none;}
 
 /*Header2*/
 .header2 {font-size: 1.2em;background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%);border-top: 10px solid #27558A;z-index: 3000;position: relative;}
@@ -50,11 +52,24 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 .header2 .mobile-menu-wrapper{display:none;float:right; padding: 15px;font-size: 1.5em;color: #C0D2E3;text-shadow: 1px 1px #436A8B;cursor:pointer;}
 
 /*Header 3*/
-.header3{background-color:#27558A;font-size: 1.2em;display:none;box-shadow: 0 -3px 12px rgba(0,0,0,.2) inset;}
+.header3{background-color:#27558A;font-size: 1.2em;display:none;box-shadow: 0 -3px 12px rgba(0,0,0,.2) inset;padding: 50px 30px 0px !important;}
 .header3 .mobile-menu-container ul {}
 .header3 .mobile-menu-container li{color:#fff;text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.7);}
 .header3 .mobile-menu-container li a{padding: 15px 0px;display: block;color:#fff;}
 .header3 .mobile-menu-container .menu-icon {margin-right:10px;}
+
+/*sidebar menu*/
+#sidr {display:none;}
+#sidr .menu-sidebar-menu-container {display:none;}
+#sidr .menu-main-menu-container > ul, #sidr .menu-sidebar-menu-container > ul{margin-bottom:0px;border-top:none; border-bottom:none;}
+#close-mobile-menu {text-shadow: 1px 1px #436A8B;color: #fff; font-weight: bold; text-transform: uppercase; padding: 16px; display: block; background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%);text-align:right; }
+.sidr ul li{border-top:none !important; /*border-bottom:none !important;*/border-bottom: 1px solid #CCC;}
+.sidr ul > li:hover {line-height:48px !important;}
+.sidr ul li:hover > a {box-shadow:none !important;}
+.sidr ul li a{background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);box-shadow: 0px 0px 0px 1px #FFF inset;}
+.sidr ul li ul li a {line-height:48px;}
+.sidr ul li.current-menu-item > a {background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%);color: white;text-shadow: 1px 1px #436A8B;box-shadow:none;}
+.sidr ul li a:hover{background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%); color:white;text-shadow: 1px 1px #436A8B;box-shadow:none !important;}
 
 /*slider container*/
 .slider-container {z-index:1;}
@@ -74,18 +89,20 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 .what-license .container-title {text-align:center;margin-bottom:40px !important;}
 .what-license .container-title h1 {background: url('/wp-content/themes/passFCCExams/assets/images/bg3.png');width:750px;}
 .what-license .container-title p{color:#003366 !important;}
+.what-license ul li h3 {margin-top:0px; margin-bottom:20px;}
 
 /*Logo Slider*/
-.logo-slider-wrapper {background:#fff;padding: 0px 40px !important;}
+.logo-slider-wrapper {background:#fff;padding: 0px 30px !important;}
 .logo-slider-wrapper .bx-wrapper .bx-viewport {box-shadow:none;width: 90% !important; margin-left: auto;margin-right: auto;}
-.logo-slider-wrapper .bx-wrapper .bx-prev {background: url(/wp-content/themes/passFCCExams/assets/images/left.png)}
-.logo-slider-wrapper .bx-wrapper .bx-next {background: url(/wp-content/themes/passFCCExams/assets/images/right.png)}
+.logo-slider-wrapper .bx-wrapper .bx-prev {background: url(/wp-content/themes/passFCCExams/assets/images/left.png); left:0px;}
+.logo-slider-wrapper .bx-wrapper .bx-next {background: url(/wp-content/themes/passFCCExams/assets/images/right.png); right:0px;}
 .logo-slider-wrapper .bx-wrapper .bx-next:hover{background-position:inherit;}
 
 /*Testimonials*/
 .testimonials {background:#DBE0E5;}
 .testimonials img{margin-left: -15px;}
-.testimonials .testimonials-wrapper {text-align:center;color:#003366;padding: 60px 20px 0px 0px;}
+.testimonials .image {background:url(/wp-content/themes/passFCCExams/assets/images/desk2.png);height:500px;background-size: cover;}
+.testimonials .testimonials-wrapper {text-align:center;color:#003366;padding: 60px 20px 0px 20px;}
 .testimonials .testimonials-wrapper h1{border-bottom: 3px solid #003366;width: 240px;margin-left: auto;margin-right: auto;padding: 20px 0px;margin-bottom: 20px;}
 .testimonials .testimonials-wrapper i{color:#A3A3A3;font-size: 2.5em;margin-bottom:20px;display:block;}
 .testimonials .testimonials-wrapper .bx-wrapper .bx-viewport {background:none; box-shadow:none;border:none;}
@@ -202,21 +219,41 @@ footer p{color:#FAFBFD;}
 .sub-footer ul.social-icons {float:right;}
 .sub-footer ul.social-icons li{display:inline;}
 
+
 @media (max-width: 1200px) {
 	.header2 .logo img{padding-top: 25px;}
 }
 
 @media (max-width: 991px) {
+	.container {width:100% !important;}
+
 	.header2 .menu-wrapper{display:none;}
 	.header2 .mobile-menu-wrapper{display:block;}
 	.header2 .logo img{padding:0px;margin: 20px 0px;}
+	.container-title h1 {width:70% !important;}
+
+	.what-license .topics{width:100% !important;}
+	.what-license .topics ul{width:500px;margin:0px auto;}
+	.what-license .image{display:none;}
+
+	.testimonials .image img{width:100%;}
+	.testimonials .testimonials-wrapper {padding:40px 20px 0px 20px;}
+
 	.my-account-wrapper .sidebar-menu {padding-right:0px;display:none;}
 	.fcc-panel {margin-left:0px;}
 }
 
+@media (max-width: 991px) {
+
+
 @media (max-width: 767px) {
 	.header1 .admin-nav{float:none;margin:0px;text-align: center;}
+	.header1 .admin-nav .social-container {display: block;margin-bottom: 10px;}
 	.header2 .logo {width:200px;}
 	.header2 .mobile-menu-wrapper{}
 	.header2 .logo img{float:left;}
+	.feature-callouts .callout {width:50% !important; float:left !important;margin-bottom:30px;}
+	.get-started {text-align:center;}
+	#footer {text-align:center;}
+	#footer .social-icons {float:inherit;}
 }

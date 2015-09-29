@@ -8,10 +8,10 @@ get_header(); ?>
 
 <section id="content-wrapper" class="container my-account-wrapper" role="main">
 	<div class="row">
-		<div class="fcc-panel side-bar-collapse">
+		<!-- <div class="fcc-panel side-bar-collapse">
 			<div class="title">Dashboard <div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
 			</div>
-		</div>
+		</div> -->
 		<div class="three columns dashboard-sidebar">
 			<div class="sidebar-menu">
 				<?php wp_nav_menu( array( 'theme_location' => 'dashboard-menu') ); ?>

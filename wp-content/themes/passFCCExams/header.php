@@ -14,7 +14,7 @@
 		<div class="row">
 			<div class="twelve columns">
 				<ul class="admin-nav">
-					<li>
+					<li class="social-container">
 						<ul class="social-icons">
 							<li> <img src="/wp-content/themes/passFCCExams/assets/images/linkedin1.png"> </li>
 							<li> <img src="/wp-content/themes/passFCCExams/assets/images/googleplus1.png"> </li>
@@ -29,7 +29,10 @@
 							?>
 							<script>
 								jQuery(function($){
-									$('.welcome-msg').css('display', 'inline-block');	
+									$('.welcome-msg').css('display', 'inline-block');
+									$('#sidr .menu-sidebar-menu-container').css('display', 'block');
+									$('#menu-admin-menu li:nth-child(1)').css('display', 'inline-block');
+									$('#menu-admin-menu li:nth-child(2)').css('display', 'none');
 								});
 							</script>
 							<?
@@ -64,15 +67,21 @@
 		</div>
 </div>
 
-<div class="header3">
-	<div class="container">
+<!-- <div class="header3 container">
+	<div class="">
 		<div class="row">
 			<div class="twelve columns">
 				<div class="mobile-menu-container">
-					<?php wp_nav_menu( array( 'theme_location' => 'main-menu') ); ?>
+					<?php #wp_nav_menu( array( 'theme_location' => 'main-menu') ); ?>
 				</div>
 			</div>
 		</div>
 	</div>
+</div> -->
+
+<div id="sidr">
+	<a href="" id="close-mobile-menu"> Close Menu &gt;&gt;</a>
+	<?php wp_nav_menu( array( 'theme_location' => 'main-menu') ); ?>
+	<?php wp_nav_menu( array( 'theme_location' => 'sidebar-menu' ) ); ?>
 </div>
 <body <?php body_class(); ?>>

@@ -36,7 +36,12 @@ jQuery(function($){
     $('.footer').css( 'opacity', 0 );
     fade();
     $(window).scroll(function() {fade();});
+	jQuery('.icon-menu').sidr({side: 'right'});
 
+	$('#close-mobile-menu').click(function(e){
+		e.preventDefault();
+		$.sidr('close', 'sidr');
+	});
 
 	$('.logo-slider').bxSlider({
 		minSlides: 5,
@@ -56,7 +61,8 @@ jQuery(function($){
 		moveSlides: 1,
 		pager: 1
 	});
-	$('.icon-menu').click(function(e){$('.header3').slideToggle(200);});
+
+	//$('.icon-menu').click(function(e){$('.header3').slideToggle(200);});
 
 	function adjustColumns() {
         if ($(window).width() <= 991) {
