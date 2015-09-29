@@ -14,37 +14,92 @@ ol,ul{list-style:none}
 blockquote,q{quotes:none}
 blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}
 table{border-collapse:collapse;border-spacing:0}
-body{font-family: "Droid Sans","Arial",Verdana; color: #8B8B8B;}
-h1, h2, h3, h4 {font-family: "Droid Sans",Verdana,Arial;}
-h1{font-size:2em}
-h2{font-size:1.5em}
-h3{font-size:1.25em}
+body{font-family: 'Cantarell', sans-serif !important; color: #8B8B8B;background: url('/wp-content/themes/passFCCExams/assets/images/bg.png');}
+h1, h2, h3, h4 {font-family: 'Fjalla One', sans-serif !important;}
+h1{/*font-size:2em !important*/;}
+h2{/*font-size:1.5em !important;*/}
+h3{/*font-size:1.25em !important;*/}
 a{text-decoration:none !important;color:#fff}
 p{color:#000;line-height:1.375;margin-bottom:20px}
-.container{max-width:1180px;margin:0 auto; }
-.row{min-width:inherit !important;}
-.container .row{margin: 0px;}
-.container .entry-content{/*padding:20px;*/}
+.container{margin:0 auto !important; padding:0 !important;/*width:1200px;*/}
+.row{min-width:inherit !important;max-width:inherit !important;}
+.container .row{margin: 0px !important;}
+#content-wrapper{padding-top:60px !important;}
 
 /*Header1*/
-.header1 {background-color:#27558A;}
-.header1 .admin-nav{float:right;margin:0px;font-size: .8em;color: #9EBDD4;padding:10px 0px;}
+.header1 {}
+.header1 ul.social-icons li{display:inline;}
+.header1 .admin-nav{float:right;margin:0px;color:#14578b;padding:10px 0px;}
 .header1 .admin-nav li:first-of-type a{border-left:none;}
-.header1 .admin-nav li{display:inline-block; text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5); cursor:pointer;}
-.header1 .admin-nav li a{border-left: 1px solid #9EBDD4;padding:0px 10px;color: #9EBDD4;}
+.header1 .admin-nav li{display:inline-block; cursor:pointer;}
+.header1 .admin-nav li a{border-left: 1px solid #14578b;padding:0px 10px;color:#14578b;}
 .header1 .admin-nav a:hover{color:white;}
-.header1 .admin-nav .welcome-msg{display:none; padding:0px 10px;border-right: 1px solid #9EBDD4; cursor:inherit;}
+.header1 .admin-nav .welcome-msg{display:none; padding:0px 10px;border-right: 1px solid #14578b; cursor:inherit;}
 
 /*Header2*/
-.header2 {font-size: 1.2em;background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%);border-top: 1px solid #88B2D6;border-bottom: 1px solid #88B2D6;box-shadow: 0 -1px 11px rgba(0,0,0,.5);margin-bottom: 10px;}
+.header2 {font-size: 1.2em;background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%);border-top: 10px solid #27558A;z-index: 3000;position: relative;}
+.header2 .row .columns {padding:0px;}
 .header2 .menu-wrapper .menu{float:right;margin:0px;}
 .header2 .menu-wrapper .menu li{display:inline-block;border-left: 1px solid #88B2D6;color:#fff;text-shadow: 1px 1px #3C6689;margin-left: -5px;}
-.header2 .menu-wrapper .menu li:last-of-type{border-right: 1px solid #88B2D6;}
+.header2 .menu-wrapper .menu li:last-of-type{}
 .header2 .menu-wrapper .menu li a{color:#fff;padding:30px 25px;display:block;}
 .header2 .menu-wrapper .menu li:hover a{background: linear-gradient(to bottom, #6B9DD0 0%, #27558A 100%);}
 .header2 .menu-wrapper .menu .menu-icon {margin-right:10px;}
+.header2 .logo{position: absolute; background: #fff; z-index: 1; width: 35%; padding: 10px 20px 20px 20px;}
 .header2 .logo img{width: 100%;padding-top: 20px;}
 .header2 .mobile-menu-wrapper{display:none;float:right; padding: 15px;font-size: 1.5em;color: #C0D2E3;text-shadow: 1px 1px #436A8B;cursor:pointer;}
+
+/*Header 3*/
+.header3{background-color:#27558A;font-size: 1.2em;display:none;box-shadow: 0 -3px 12px rgba(0,0,0,.2) inset;}
+.header3 .mobile-menu-container ul {}
+.header3 .mobile-menu-container li{color:#fff;text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.7);}
+.header3 .mobile-menu-container li a{padding: 15px 0px;display: block;color:#fff;}
+.header3 .mobile-menu-container .menu-icon {margin-right:10px;}
+
+/*slider container*/
+.slider-container {z-index:1;}
+
+/*Exam Features*/
+.exam-features {padding: 30px !important;background: url('/wp-content/themes/passFCCExams/assets/images/bg2.png');border-top:10px solid #14578B;text-align:center;color:#fff !important;}
+.exam-features .container-title {margin-bottom:40px !important;}
+.container-title .title-divider {background-color:#14578B; height:2px;margin-top:25px;}
+.container-title h1 {margin-top: -20px; width: 470px; margin-left: auto; margin-right: auto; background: url('/wp-content/themes/passFCCExams/assets/images/bg2.png'); }
+.container-title p{color:#fff !important;font-size:20px;}
+.feature-callouts img{height: 100px;}
+.feature-callouts p{color:#fff;}
+
+/*What License?*/
+.what-license{color:#003366;background: linear-gradient(to bottom, #fff 0%, #E6EEF8 100%);padding:30px !important;background: url('/wp-content/themes/passFCCExams/assets/images/bg3.png');background-size: contain;}
+.what-license .check-mark {margin-right: 20px;padding-bottom: 10px;}
+.what-license .container-title {text-align:center;margin-bottom:40px !important;}
+.what-license .container-title h1 {background: url('/wp-content/themes/passFCCExams/assets/images/bg3.png');width:750px;}
+.what-license .container-title p{color:#003366 !important;}
+
+/*Logo Slider*/
+.logo-slider-wrapper {background:#fff;padding: 0px 40px !important;}
+.logo-slider-wrapper .bx-wrapper .bx-viewport {box-shadow:none;width: 90% !important; margin-left: auto;margin-right: auto;}
+.logo-slider-wrapper .bx-wrapper .bx-prev {background: url(/wp-content/themes/passFCCExams/assets/images/left.png)}
+.logo-slider-wrapper .bx-wrapper .bx-next {background: url(/wp-content/themes/passFCCExams/assets/images/right.png)}
+.logo-slider-wrapper .bx-wrapper .bx-next:hover{background-position:inherit;}
+
+/*Testimonials*/
+.testimonials {background:#DBE0E5;}
+.testimonials img{margin-left: -15px;}
+.testimonials .testimonials-wrapper {text-align:center;color:#003366;padding: 60px 20px 0px 0px;}
+.testimonials .testimonials-wrapper h1{border-bottom: 3px solid #003366;width: 240px;margin-left: auto;margin-right: auto;padding: 20px 0px;margin-bottom: 20px;}
+.testimonials .testimonials-wrapper i{color:#A3A3A3;font-size: 2.5em;margin-bottom:20px;display:block;}
+.testimonials .testimonials-wrapper .bx-wrapper .bx-viewport {background:none; box-shadow:none;border:none;}
+.testimonials-slider li {}
+.testimonials-slider p{color:#003366;font-size: 20px;font-style: italic;}
+.testimonials-slider .author{font-style:normal;font-weight: bold;margin-top:40px;}
+.testimonials-slider .from{font-style:normal;font-weight: bold;}
+.testimonials-wrapper .bx-wrapper .bx-pager.bx-default-pager a.active{background:#fff !important;}
+.testimonials-wrapper .bx-wrapper .bx-pager.bx-default-pager a{background:#E8EAEE !important;width: 15px !important;height: 15px !important;border-radius:10px;}
+
+/*Get Started*/
+.get-started{margin-bottom:400px !important;padding:50px !important;background:url(http://teslathemes.com/demo/html/levelup/img/call-to-action-bg.jpg);background-size: cover;border-top: 1px solid #fff;border-bottom: 1px solid #fff;}
+.get-started h1{margin-top:5px; margin-bottom:5px;text-transform:uppercase; color:#fff;}
+.get-started button{background:#9ABF01;color:#fff;border: none;border:none;padding:15px 40px;border-radius:4px;margin-top: 20px;}
 
 /*Membership Levels*/
 #pmpro_levels_table {margin:auto;}
@@ -72,7 +127,7 @@ body.page-template-login{background: transparent url("assets/images/back-pattern
 .page-template-login .login-wrapper .message {margin: 15px 15px -10px 15px;position: relative;}
 
 /*Dashboard*/
-.my-account-wrapper {padding-top: 20px;}
+.my-account-wrapper {/*padding-top: 20px;*/}
 .my-account-wrapper .sidebar-menu{padding-right: 10px; margin-bottom:40px;}
 .my-account-wrapper .sidebar-menu li:first-of-type{border-top: 1px solid #CCC;}
 .my-account-wrapper .sidebar-menu li{border-right: 1px solid #CCC; border-left: 1px solid #CCC; border-bottom: 1px solid #CCC; box-shadow: 0px 0px 0px 1px #FFF inset;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);}
@@ -83,7 +138,7 @@ body.page-template-login{background: transparent url("assets/images/back-pattern
 .my-account-wrapper .sidebar-menu li.current-menu-item a .menu-icon{color:#C0D2E3;}
 .my-account-wrapper .sidebar-menu li:last-of-type{border-bottom-left-radius: 4px;border-bottom-right-radius: 4px;}
 .my-account-wrapper .sidebar-menu li .menu-icon{float:right;}
-.fcc-panel {border: 1px solid #CCC; border-radius: 4px;margin-left: 10px; margin-bottom:40px;color: #5A5A5A;}
+.fcc-panel {border: 1px solid #CCC; border-radius: 4px;margin-left: 10px; margin-bottom:40px;color: #5A5A5A;background:#fff;}
 .fcc-panel .row{padding:15px !important;}
 .fcc-panel .title{border-radius: 4px 4px 0px 0px;border-bottom: 1px solid #CCC;box-shadow: 0px 0px 0px 1px #FFF inset;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);padding: 15px;color: #5A5A5A;}
 .fcc-panel .section-collapse {float:right;cursor:pointer;color:#999;}
@@ -124,7 +179,6 @@ body.page-template-login{background: transparent url("assets/images/back-pattern
 
 /*Exam History*/
 
-
 /*Edit Profile*/
 #edit-profile .login form {background-color:#fff !important; color: #5A5A5A; padding:5px;}
 #edit-profile #login form p, #edit-profile .login label {color: #9C9C9C !important;font-weight: 400;}
@@ -139,6 +193,15 @@ body.page-template-login{background: transparent url("assets/images/back-pattern
 #edit-profile #your-profile input[type=submit] {border-radius: 4px; border: 1px solid #D9D9D9; color: #525252;font-family: arial; padding: 7px 12px; text-shadow: 1px 1px 0px #D1D1D1; box-shadow: 0px 1px 0px 0px #FFF inset; background: linear-gradient(to bottom, #FFF 0%, #EEE 100%); width: 25%;}
 #edit-profile #your-profile input[type=submit]:hover{background: linear-gradient(to bottom, #EEE 0%, #FFF 100%);color:#000;}
 
+/*footer*/
+.footer{position: fixed; width: 100%; bottom: 0; left: 0; z-index: -1;opacity:0;}
+footer.container{background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%);padding: 0px 20px !important;}
+footer p{color:#FAFBFD;}
+.sub-footer {border-top:1px solid #FAFBFD;padding: 10px 0px 0px 0px;}
+.sub-footer a{color:#fff;}
+.sub-footer ul.social-icons {float:right;}
+.sub-footer ul.social-icons li{display:inline;}
+
 @media (max-width: 1200px) {
 	.header2 .logo img{padding-top: 25px;}
 }
@@ -147,13 +210,13 @@ body.page-template-login{background: transparent url("assets/images/back-pattern
 	.header2 .menu-wrapper{display:none;}
 	.header2 .mobile-menu-wrapper{display:block;}
 	.header2 .logo img{padding:0px;margin: 20px 0px;}
-	.my-account-wrapper .sidebar-menu {padding-right:0px;}
+	.my-account-wrapper .sidebar-menu {padding-right:0px;display:none;}
 	.fcc-panel {margin-left:0px;}
 }
 
 @media (max-width: 767px) {
 	.header1 .admin-nav{float:none;margin:0px;text-align: center;}
 	.header2 .logo {width:200px;}
-	.header2 .mobile-menu-wrapper{padding: 20px 0px;}
-	.header2 .logo img{/*width: 70%;margin: 20px auto;display: block;*/float:left;}
+	.header2 .mobile-menu-wrapper{}
+	.header2 .logo img{float:left;}
 }
