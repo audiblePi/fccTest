@@ -85,7 +85,6 @@ jQuery(function($){
 	$('.section-collapse').click(function(){
 		if ($(this).closest('.fcc-panel').hasClass('collapsed')){
 			var restoreHeight = $(this).attr('id');
-			
 			$(this).closest('.fcc-panel').animate({height:restoreHeight+'px'}, function() {   
 				$(this).removeClass('collapsed');
 			});
@@ -104,34 +103,27 @@ jQuery(function($){
 
 	$('.side-bar-collapse .section-collapse').click(function(){
 		$('.my-account-wrapper .sidebar-menu').slideToggle(200);
-		// if ($(this).closest('.fcc-panel').hasClass('collapsed')){
-		// 	var restoreHeight = $(this).attr('id');
-			
-		// 	$(this).closest('.fcc-panel').animate({height:restoreHeight+'px'}, function() {   
-		// 		$(this).removeClass('collapsed');
-		// 	});
-		// 	$(this).children('i').removeClass('icon-chevron-down');
-		// 	$(this).children('i').addClass('icon-chevron-up');
-			
-		// }else{
-		// 	var currentHeight = $(this).closest('.fcc-panel').height();
-			
-		// 	$(this).attr('id', currentHeight);
-		// 	$(this).closest('.fcc-panel').addClass('collapsed').animate({height:'52px'}, function(){		});
-		// 	$(this).children('i').removeClass('icon-chevron-up');
-		// 	$(this).children('i').addClass('icon-chevron-down');
-		// }
 	});
-
 
 	$('.exam-start').click(function(){
 		var panel = $('.fcc-panel.exam-options-panel');
 		var currentHeight = panel.height();
-		
-		panel.attr('id', currentHeight);
+
+		panel.children().children('.section-collapse').attr('id', currentHeight);
 		panel.addClass('collapsed').animate({height:'52px'}, function(){		});
 		$('.fcc-panel.exam-options-panel .section-collapse i').removeClass('icon-chevron-up');
 		$('.fcc-panel.exam-options-panel .section-collapse i').addClass('icon-chevron-down');
+
+		var exam_panel = $('.fcc-panel.exam-panel');
+		var examRestoreHeight = exam_panel.children().children('.section-collapse').attr('id');
+		exam_panel.animate({height:examRestoreHeight+'px'}, function() {   
+			exam_panel.removeClass('collapsed');
+		});
+		console.log(exam_panel.children('i'));
+		$('.fcc-panel.exam-panel .section-collapse i').removeClass('icon-chevron-down');
+		$('.fcc-panel.exam-panel .section-collapse i').addClass('icon-chevron-up');
+
+		$('.exam-container').css('display', 'none');
 	}); 
 
 	if($('.sidebar-menu').length){

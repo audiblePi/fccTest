@@ -14,7 +14,7 @@ function showInterface($atts){
 		checkForPendingExam($current_user_id);
 ?>	
 	<div class="fcc-panel exam-options-panel">
-		<div class="title">Exam Options<!-- <div class="section-collapse">collapse <i class="icon-chevron-up"></i></div> --></div>
+		<div class="title">Exam Options<div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
 		<div class="exam-options">
 			<div class="row" style="display:none">
 				<div class="hidden-id"><?php echo $current_user_id; ?></div>
@@ -170,8 +170,8 @@ function showInterface($atts){
 			</div>
 		</div>
 	</div>
-	<div class="fcc-panel exam-panel">
-		<div class="title">Exam<!--<div class="section-collapse">collapse <i class="icon-chevron-down"></i></div>--></div>
+	<div class="fcc-panel exam-panel collapsed" style="height:52px">
+		<div class="title"><span class="the-title">Exam</span><div class="section-collapse" id="500">collapse <i class="icon-chevron-down"></i></div></div>
 		<div class="pre-loader"></div>
 		<div class="exam-container" style="display:none"></div>
 	</div>

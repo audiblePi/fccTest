@@ -208,7 +208,6 @@ jQuery(function($){
            data: post_data,
            dataType: "text",
            success: function (text) {
-                console.log("text" + text);
                 $('.pre-loader').fadeOut();
                 setTimeout(function(){
                     printExam(text);
@@ -222,21 +221,10 @@ jQuery(function($){
                 }, 400);
            }
         });
-        // }).done(function (text) {
-        //             $('.pre-loader').fadeOut(100);
-        //             //printExam(text);
-        //             setTimeout(function(){printExam(text);}, 100 );
-        //             if(resume==0)
-        //                 saveExam(0); //0 = init
-        //             else{
-        //                 exam_id = $('.exam-id').html();
-        //                 getQuestionsArray();
-        //                 resumeExam();
-        //             }
-        //         });
-        $('.exam-options').fadeOut();
+        //$('.exam-options').fadeOut();
         $('.pre-loader').delay(400).fadeIn();
         $('.exam-details .current_question').html(current_question_index);
+        $('.exam-panel .title .the-title').html($('.element-id option:selected').text());
     }
 
     function saveExam(i){
@@ -382,7 +370,7 @@ jQuery(function($){
         if(current_question_index < exam_length - 1){
             $('.question-container .question.' + current_question_index).delay(200).fadeOut(200);
             current_question_index++;
-            $('.question-container .question.' + current_question_index).delay(410).fadeIn(200);
+            $('.question-container .question.' + current_question_index).delay(500).fadeIn(200);
             updateHTML();
             if (simulated == 1)
                 $('.exam-controls .next-question').attr('disabled', true);
