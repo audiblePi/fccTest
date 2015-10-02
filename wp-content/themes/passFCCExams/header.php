@@ -67,18 +67,6 @@
 		</div>
 </div>
 
-<!-- <div class="header3 container">
-	<div class="">
-		<div class="row">
-			<div class="twelve columns">
-				<div class="mobile-menu-container">
-					<?php #wp_nav_menu( array( 'theme_location' => 'main-menu') ); ?>
-				</div>
-			</div>
-		</div>
-	</div>
-</div> -->
-
 <div id="sidr">
 	<a href="" id="close-mobile-menu"> Close Menu &gt;&gt;</a>
 	<?php wp_nav_menu( array( 'theme_location' => 'main-menu') ); ?>

@@ -22,8 +22,9 @@ function start(){
     $weak_areas = $_POST['weak_areas'];
     $missed_retake = $_POST['missed_retake'];
     $resume = $_POST['resume'];
+    $quick50 = $_POST['quick50'];
 
-    $newExam = new Exam($user_id, $element_id, $subtopics, $simulated, $weak_areas, $missed_retake, $resume);
+    $newExam = new Exam($user_id, $element_id, $subtopics, $simulated, $weak_areas, $missed_retake, $resume, $quick50);
 
     ?>
    	 	<div class="row exam-details">
@@ -149,13 +150,22 @@ function start(){
                         <span class="current_score"><?php echo $newExam->score ?></span>%
                     </div>
                 </div>
-                <div class="four columns">
-                    <div class="number">
-                        <span class="skipped"><?php echo $newExam->skipped ?></span>
-                    </div>
-                    <div class="text">
-                        Skipped
-                    </div>
+                <div class="four columns last">
+                    <?php if ($newExam->simulated == 1) : ?>
+                       <div class="number">
+                            <span class="score-to-beat"><?php echo $newExam->scoreToBeat ?>%</span>
+                        </div>
+                        <div class="text">
+                            Best Score
+                        </div>
+                    <?php else : ?>
+                        <div class="number">
+                            <span class="skipped"><?php echo $newExam->skipped ?></span>
+                        </div>
+                        <div class="text">
+                            Skipped
+                        </div>
+                    <?php endif; ?>
                     <div class="percent" style="visibility:hidden">
                         <span class="current_score"><?php echo $newExam->score ?></span>%
                     </div>
@@ -235,7 +245,8 @@ function mySave($i){
                                         FROM wp_fccTest_custom_exams 
                                         WHERE wp_fccTest_custom_exams.user_id = '$user_id' 
                                         ORDER BY exam_id 
-                                        DESC LIMIT 1;") OR DIE(mysqli_error($conn));
+                                        DESC LIMIT 1;") 
+                                        OR DIE(mysqli_error($conn));
         $row = mysqli_fetch_array(@$result, MYSQLI_ASSOC);
         if($row) {
             do
@@ -256,7 +267,8 @@ function getArray(){
     $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
     $result = $conn->query("SELECT questions 
                             FROM wp_fccTest_custom_exams 
-                            WHERE exam_id = $current_exam;");
+                            WHERE exam_id = $current_exam;")
+                            OR DIE(mysqli_error($conn));
     $row = $result->fetch_array();
     $questionArray = $row['questions'];
     $sArray = unserialize($questionArray);

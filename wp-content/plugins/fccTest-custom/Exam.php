@@ -30,8 +30,10 @@ class Exam
 	public $seenQuestions = array();
 	public $weakAreas = array();
 	public $seen = 0;
+	public $scoreToBeat =0;
+	public $quick50; 
 	
-	public function __construct($id, $e, $s, $sim, $wa, $mr, $r){
+	public function __construct($id, $e, $s, $sim, $wa, $mr, $r, $q){
 		$this->user_id = $id;
 		$this->element_id = $e;
 		$this->subtopics = $s;
@@ -39,6 +41,7 @@ class Exam
 		$this->weak_areas = $wa;
 		$this->missed_retake = $mr;
 		$this->resume = $r;
+		$this->quick50 = $q;
 		$this->getQuestions($e);
 		$this->date = date("Y/m/d");
 	}
@@ -50,6 +53,8 @@ class Exam
 			$this->createSimulatedExam();
 		else if($this->weak_areas==1)
 			$this->focusOnWeakAreas();
+		else if ($this->quick50==1)
+			$this->createSimulatedExam();
 		else if($this->resume==1)
 			$this->resumeExam();
 		else
@@ -154,7 +159,8 @@ class Exam
 		$result = $conn->query("SELECT * FROM wp_fccTest_custom_exams 
 								WHERE user_id = $this->user_id 
 								ORDER BY date 
-								DESC LIMIT 1;");
+								DESC LIMIT 1;")
+								OR DIE(mysqli_error($conn));
 		$row = $result->fetch_array();
 		$this->exam_id = $row['exam_id'];
 
@@ -178,6 +184,7 @@ class Exam
 	}
 
 	/* can be updated to reflect % of each subelement */
+	/*quick50 same as simulated exam, with exam_size == 50*/
 	public function createSimulatedExam(){
 		$num_subtopics;
 		switch($this->element_id) {
@@ -189,6 +196,8 @@ class Exam
 	        case 'E8' : $this->exam_size = 50;$num_subtopics = 6;break;
 	        case 'E9' : $this->exam_size = 50;$num_subtopics = 7;break;                      
 	    }
+	    if ($this->quick50 ==1 )
+	    	$this->exam_size = 50;
 	    $questions_per_element = floor($this->exam_size/$num_subtopics);
 	    $subtopic_array = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q');
 		$conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
@@ -202,12 +211,14 @@ class Exam
 									WHERE wp_fccTest_custom_questions.subelement_id = '$subtopic_id' 
 									AND wp_fccTest_custom_questions.element_id = '$this->element_id'
 									ORDER BY rand() 
-									LIMIT $questions_per_element;");
+									LIMIT $questions_per_element;")
+									OR DIE(mysqli_error($conn));
 			$row = $result->fetch_array();
 			do $this->questions[] = $row;
 			while ($row = $result->fetch_array());
 		}
 		$this->orderQuestions();
+		$this->getScoreToBeat();
 	}
 
 	public function loadExam($r){
@@ -276,6 +287,7 @@ class Exam
 			foreach ($temp as $v){
 	            $t = unserialize($v);
 	            foreach ($t as $s){
+	            	//var_dump($s['grade']);
 	            	if( $s['grade'] != -777){
 		            	$key = array_search($s['question_number'], array_column($this->seenQuestions, 'question_number'));
 
@@ -329,6 +341,22 @@ class Exam
 	public function focusOnWeakAreas(){
 		$this->determineSeenQuestions();
 		$this->determineWeakAreas();
+	}
+
+	public function getScoreToBeat(){
+		$conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+		$result = $conn->query("SELECT * FROM wp_fccTest_custom_exams 
+								WHERE user_id = $this->user_id 
+								AND element_id = '$this->element_id'
+								AND simulated = 1
+								AND missed_retake = 0
+								AND status = 1
+								ORDER BY score 
+								DESC;") 
+								OR DIE(mysqli_error($conn));
+		$row = $result->fetch_array();
+		if($row)
+			$this->scoreToBeat = $row['score'];
 	}
 }//end Class()
 ?>

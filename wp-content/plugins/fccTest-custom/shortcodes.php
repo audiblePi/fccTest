@@ -46,94 +46,89 @@ function showInterface($atts){
 				</div>
 			</div>
 			<div class="study-mode-options" <?php if ($a['type'] == "simulated") echo "style='display:none'"; ?>>
-				<div class="row">
+				<div class="row" style="">
+					<div class="settings-title three columns">Quick 50</div>
+					<div class="settings-option nine columns">
+						<select class="quick-50">
+							<option value="1">On</option>
+							<option value="0" selected="selected">Off</option>
+						</select>
+					</div>
+				</div>
+				<div class="row subtopics-wrapper">
 					<div class="settings-title three columns">Choose Study Topics</div>
 					<div class="settings-option nine columns">
-						<div>
-							<select class="E1 subtopic" multiple="multiple">
-								<option value="All" selected="selected">All</option>
-								<option value="A">Rules & Regulations</option>
-								<option value="B">Communications Procedures</option>
-								<option value="C">Equipment Operations</option>
-								<option value="D">Other Equipment</option>
-							</select>
+						<div class="E1 subtopic">
+							<input type="checkbox" value="All" class="all" checked>All<br>
+							<input type="checkbox" value="A" checked/>Rules & Regulations<br />
+							<input type="checkbox" value="B" checked/>Communications Procedures<br />
+							<input type="checkbox" value="C" checked/>Equipment Operations<br />
+							<input type="checkbox" value="D" checked/>Other Equipment<br />
 						</div>
-						<div>
-							<select class="E3 subtopic" multiple="multiple">
-								<option value="All" selected="selected">All</option>
-								<option value="A">Principles</option>
-								<option value="B">Electrical Math</option>
-								<option value="C">Components</option>
-								<option value="D">Circuits</option>
-								<option value="E">Digital Logic</option>
-								<option value="F">Receivers</option>
-								<option value="G">Transmitters</option>
-								<option value="H">Modulation</option>
-								<option value="I">Power Sources</option>
-								<option value="J">Antennas</option>
-								<option value="K">Aircraft</option>
-								<option value="L">Installation, Maintenance & Repair</option>
-								<option value="M">Communications Technology</option>
-								<option value="N">Marine</option>
-								<option value="O">RADAR</option>
-								<option value="P">Satellite</option>
-								<option value="Q">Safety</option>
-							</select>
+						<div class="E3 subtopic">
+								<input class="all" type="checkbox" value="All" checked>All<br>
+								<input type="checkbox" value="A" checked>Principles</br>
+								<input type="checkbox" value="B" checked>Electrical Math</br>
+								<input type="checkbox" value="C" checked>Components</br>
+								<input type="checkbox" value="D" checked>Circuits</br>
+								<input type="checkbox" value="E" checked>Digital Logic</br>
+								<input type="checkbox" value="F" checked>Receivers</br>
+								<input type="checkbox" value="G" checked>Transmitters</br>
+								<input type="checkbox" value="H" checked>Modulation</br>
+								<input type="checkbox" value="I" checked>Power Sources</br>
+								<input type="checkbox" value="J" checked>Antennas</br>
+								<input type="checkbox" value="K" checked>Aircraft</br>
+								<input type="checkbox" value="L" checked>Installation, Maintenance & Repair</br>
+								<input type="checkbox" value="M" checked>Communications Technology</br>
+								<input type="checkbox" value="N" checked>Marine</br>
+								<input type="checkbox" value="O" checked>RADAR</br>
+								<input type="checkbox" value="P" checked>Satellite</br>
+								<input type="checkbox" value="Q" checked>Safety</br>
 						</div>
-						<div>
-							<select class="E6 subtopic" multiple="multiple">
-								<option value="All" selected="selected">All</option>
-							</select>
+						<div class="E6 subtopic">
+							<input class="all" type="checkbox" value="All" checked>All<br>
 						</div>
-						<div>
-							<select class="E7 subtopic" multiple="multiple">
-								<option value="All" selected="selected">All</option>
-								<option value="A">General Information and System Overview</option>
-								<option value="B">Principles of Communications</option>
-								<option value="C">F.C.C. Rules & Regulations</option>
-								<option value="D">DSC & Alpha-Numeric ID</option>
-								<option value="E">Distress, Urgency & Safety Communications</option>
-								<option value="F">Survival Craft Equip & S.A.R.</option>
-								<option value="G">VHF-DSC Equipment & Communications</option>
-								<option value="H">Maritime Safety Information (M.S.I.)</option>
-								<option value="I">Inmarsat Equip. & Comms</option>
-								<option value="J">MF-HF Equip. and Comms</option>
-							</select>
+						<div class="E7 subtopic">
+							<input class="all" type="checkbox" value="All" checked>All<br>
+							<input type="checkbox" value="A" checked>General Information and System Overview<br>
+							<input type="checkbox" value="B" checked>Principles of Communications<br>
+							<input type="checkbox" value="C" checked>F.C.C. Rules & Regulations<br>
+							<input type="checkbox" value="D" checked>DSC & Alpha-Numeric ID<br>
+							<input type="checkbox" value="E" checked>Distress, Urgency & Safety Communications<br>
+							<input type="checkbox" value="F" checked>Survival Craft Equip & S.A.R.<br>
+							<input type="checkbox" value="G" checked>VHF-DSC Equipment & Communications<br>
+							<input type="checkbox" value="H" checked>Maritime Safety Information (M.S.I.)<br>
+							<input type="checkbox" value="I" checked>Inmarsat Equip. & Comms<br>
+							<input type="checkbox" value="J" checked>MF-HF Equip. and Comms<br>
 						</div>
-						<div>
-							<select class="E7R subtopic" multiple="multiple">
-								<option value="All" selected="selected">All</option>
-								<option value="A">General Information and System Overview</option>
-								<option value="B">F.C.C. Rules & Regulations</option>
-								<option value="C">DSC & Alpha-Numeric ID Systems</option>
-								<option value="D">Distress, Urgency & Safety Comms</option>
-								<option value="E">Survival Craft Equip & S.A.R.</option>
-								<option value="F">Maritime Safety Information (M.S.I.)</option>
-								<option value="G">VHF-DSC Equipment & Comms</option>
-							</select>
+						<div class="E7R subtopic">
+							<input class="all" type="checkbox" value="All" checked>All<br>
+							<input type="checkbox" value="A" checked>General Information and System Overview<br>
+							<input type="checkbox" value="B" checked>F.C.C. Rules & Regulations<br>
+							<input type="checkbox" value="C" checked>DSC & Alpha-Numeric ID Systems<br>
+							<input type="checkbox" value="D" checked>Distress, Urgency & Safety Comms<br>
+							<input type="checkbox" value="E" checked>Survival Craft Equip & S.A.R.<br>
+							<input type="checkbox" value="F" checked>Maritime Safety Information (M.S.I.)<br>
+							<input type="checkbox" value="G" checked>VHF-DSC Equipment & Comms<br>
 						</div>
-						<div>
-							<select class="E8 subtopic" multiple="multiple">
-								<option value="All" selected="selected">All</option>
-								<option value="A">RADAR Principles</option>
-								<option value="B">Transmitting Systems</option>
-								<option value="C">Receiving Systems</option>
-								<option value="D">Display & Control Systems</option>
-								<option value="E">Antenna Systems</option>
-								<option value="F">Installation, Maintenance & Repair</option>
-							</select>
+						<div class="E8 subtopic">
+							<input class="all" type="checkbox" value="All" checked>All<br>
+							<input type="checkbox" value="A" checked>RADAR Principles<br>
+							<input type="checkbox" value="B" checked>Transmitting Systems<br>
+							<input type="checkbox" value="C" checked>Receiving Systems<br>
+							<input type="checkbox" value="D" checked>Display & Control Systems<br>
+							<input type="checkbox" value="E" checked>Antenna Systems<br>
+							<input type="checkbox" value="F" checked>Installation, Maintenance & Repair<br>
 						</div>
-						<div>
-							<select class="E9 subtopic" multiple="multiple">
-								<option value="All" selected="selected">All</option>
-								<option value="A">VHF-DSC Equipment & Operation</option>
-								<option value="B">MF-HF-DSC-SITOR (NBDP) Equip. & Ops</option>
-								<option value="C">Satellite Systems</option>
-								<option value="D">Other GMDSS Equipment</option>
-								<option value="E">Power Sources</option>
-								<option value="F">Other Equipment and Networks</option>
-								<option value="G">Inspections, Installations and Instruments</option>
-							</select>
+						<div class="E9 subtopic">
+							<input class="all" type="checkbox" value="All" checked>All<br>
+							<input type="checkbox" value="A" checked>VHF-DSC Equipment & Operation<br>
+							<input type="checkbox" value="B" checked>MF-HF-DSC-SITOR (NBDP) Equip. & Ops<br>
+							<input type="checkbox" value="C" checked>Satellite Systems<br>
+							<input type="checkbox" value="D" checked>Other GMDSS Equipment<br>
+							<input type="checkbox" value="E" checked>Power Sources<br>
+							<input type="checkbox" value="F" checked>Other Equipment and Networks<br>
+							<input type="checkbox" value="G" checked>Inspections, Installations and Instruments<br>
 						</div>
 					</div>
 				</div>
@@ -179,14 +174,14 @@ function showInterface($atts){
 }//end main()
 
 function checkForPendingExam($id){
-	$link = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME );
-	$result = mysqli_query($link , "SELECT * FROM wp_fccTest_custom_exams 
+	$conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+	$result = $conn->query("SELECT * FROM wp_fccTest_custom_exams 
 									WHERE user_id = $id
 									AND simulated = 0
 									ORDER BY date 
 									DESC LIMIT 1;") 
-									OR DIE(mysqli_error());
-	$row = mysqli_fetch_array(@$result, MYSQLI_ASSOC);
+									OR DIE(mysqli_error($conn));
+	$row = $result->fetch_array();
 	if ($row){
 		if ($row['status'] == -1){
 		?>
@@ -196,7 +191,7 @@ function checkForPendingExam($id){
 		</div>
 		<script>
 			jQuery(function($){
-				setTimeout(function(){$( "#dialog" ).dialog( "open" )}, 500 );
+				setTimeout(function(){$( "#dialog" ).dialog( "open" )}, 1000 );
     		});
 		</script>
 		<?php }
@@ -204,19 +199,19 @@ function checkForPendingExam($id){
 }//end checkForPendingExam()
 
 function showProfileStats() {
-	$link = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME );
+	$conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 	$current_user = wp_get_current_user();
 	$current_user_id = $current_user->ID;
 	$current_user_display_name = $current_user->display_name;
-	$result = mysqli_query($link , "SELECT * FROM wp_fccTest_custom_exams 
+	$result = $conn->query("SELECT * FROM wp_fccTest_custom_exams 
 									WHERE user_id = $current_user_id 
 									AND simulated = 1
 									AND missed_retake = 0
 									AND status = 1
 									ORDER BY date 
 									DESC;") 
-									OR DIE(mysqli_error());
-	$row = mysqli_fetch_array(@$result, MYSQLI_ASSOC);
+									OR DIE(mysqli_error($conn));
+	$row = $result->fetch_array();
 
 	//echo '<div>'.$current_user_display_name.'<br><br></div>';
 	?>
@@ -279,36 +274,36 @@ function showProfileStats() {
 					</div>
 					<?php
 				} 
-				while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC));
+				while ($row = $result->fetch_array());
 			} else
-				 echo "No Results found...";
+				 echo "<div class='row'><div class='twelve columns'>No simulated exams found...</div></div>";
 		?>
 	</div>
 	<?php
 }//end showProfileStats()
 
 function showLeaderBoard() {
-	$link = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME );
+	$conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 	$elements =  array("E1", "E3", "E6", "E7", "E7R", "E8", "E9");
 	foreach ($elements as $e){
-		$result = mysqli_query($link , "SELECT * FROM wp_fccTest_custom_exams 
+		$result = $conn->query("SELECT * FROM wp_fccTest_custom_exams 
 										WHERE simulated = 1
 										AND missed_retake = 0
 										AND element_id = '$e'
 										ORDER BY score 
 										DESC LIMIT 5") 
-										OR DIE(mysqli_error());
-		$row = mysqli_fetch_array(@$result, MYSQLI_ASSOC);
-		if($row) { ?>
-			<div class="fcc-panel leader-board">
-				<div class="title">Element <?php echo substr($e, 1) ?><div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
-				<div class="row table-header">
-					<div class="two columns">User</div>
-					<!--<div class="one columns">Exam ID</div>-->
-					<!--<div class="two columns">Element</div>-->
-					<div class="two columns">Score</div>
-					<div class="eight columns">Time</div>
-				</div>
+										OR DIE(mysqli_error($conn));
+		$row = $result->fetch_array(); ?>
+		<div class="fcc-panel leader-board">
+			<div class="title">Element <?php echo substr($e, 1) ?><div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
+			<div class="row table-header">
+				<div class="two columns">User</div>
+				<!--<div class="one columns">Exam ID</div>-->
+				<!--<div class="two columns">Element</div>-->
+				<div class="two columns">Score</div>
+				<div class="eight columns">Time</div>
+			</div>
+			<?php if($row) { ?>
 				<?php do { ?>
 					<div class="row">
 						<div class="two columns">
@@ -324,12 +319,12 @@ function showLeaderBoard() {
 						<div class="eight columns"><?php echo $row["total_time"] ?></div>
 					</div>
 				<?php } 
-				while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)); ?>
-			</div>
+				while ($row = $result->fetch_array()); ?>
 		<?php 
 		} 
-		// else
-		// 	 echo "No Results found...";
+		else
+			echo "<div class='row'><div class='twelve columns'>No exams found...</div></div>";
+		echo "</div>";
 	}
 }//end showLeaderboard()
 

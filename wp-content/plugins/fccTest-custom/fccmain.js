@@ -24,7 +24,7 @@ jQuery(function($){
     var seen;
     var percent_progress = num_answered / exam_length;
 
-    $( "#dialog" ).dialog({ modal: true, show: { effect: "fadeIn", duration: 500 }, autoOpen:false });
+    $( "#dialog" ).dialog({ modal: true, show: { effect: "fadeIn", duration: 200 }, autoOpen:false });
     $('.ui-dialog-titlebar').css('display', 'none');
 
     $('.simulated').change(function(){ 
@@ -43,6 +43,20 @@ jQuery(function($){
             $('.subtopic').css('display', 'none');
             $('.E1.subtopic').css('display', 'block');
             $('.settings-option .element-id').val('E1');
+        }
+    });
+
+    $('.quick-50').change(function(){ 
+        var value = $(this).val();
+        if (value == '1'){
+            //turn subtopics off
+            $('.subtopic input').attr('disabled', true);
+            $('.subtopics-wrapper').css('opacity', '.5');
+        }
+        if (value == '0'){
+            //turn subtopics on
+            $('.subtopic input').attr('disabled', false);
+            $('.subtopics-wrapper').css('opacity', '1');
         }
     });
 
@@ -122,10 +136,39 @@ jQuery(function($){
                 $('.E9.subtopic').css('display', 'none');
         }
     });
+    
+    $(document).on("change",".subtopic .all",function(e){
+        e.preventDefault();
+        if(!this.checked)
+            $(this).parent().children(':checkbox').each(function () { $(this).prop('checked', false); });
+        else
+            $(this).parent().children(':checkbox').each(function () { $(this).prop('checked', true); });
+    });
+
+    $(document).on("change",".subtopic input",function(e){
+        e.preventDefault();
+        if(!$(this).hasClass('all')){
+            if($(this).parent().children('.all').is(':checked') || $(this).parent().parent().children('.all').is(':checked') ){
+                $(this).parent().children(':checkbox').each(function () { $(this).prop('checked', false); });
+                //$(this).parent().parent().children().children(':checkbox').each(function () { $(this).prop('checked', false); });
+                $(this).prop('checked', true);
+            }
+            else if ($(this).is(':checked'))
+                 $(this).prop('checked', true);
+            else if (!$(this).is(':checked'))
+                 $(this).prop('checked', false);
+            $(this).parent().children('.all').prop('checked', false);
+        }
+    });
+
 
     $(document).on("click",".exam-start",function(e){
         e.preventDefault();	
-		startExam();
+        resetData();
+        $('.exam-container').css('display', 'none');
+        $('.exam-container').empty();
+        //if (validates())
+		  startExam();
     });
 
     $(document).on("click",".resume-no",function(e){
@@ -137,6 +180,8 @@ jQuery(function($){
         e.preventDefault();
         $('#dialog').dialog('close');
         resume = 1;
+        $('.exam-container').css('display', 'none');
+        $('.exam-container').empty();
         startExam();
     });
 
@@ -144,7 +189,8 @@ jQuery(function($){
         e.preventDefault(); 
         resetData();
         missed_retake = 1;
-        $('.exam-container').fadeOut();
+        $('.exam-container').css('display', 'none');
+        $('.exam-container').empty();
         startExam();
     });
 
@@ -163,7 +209,6 @@ jQuery(function($){
             else
                 updateScore('skipped');
             proceed();
-            //setTimeout(function(){proceed();}, 500 );
         }
     });
 
@@ -179,11 +224,15 @@ jQuery(function($){
 
     function startExam(){
         // console.log('startExam()');
-
+        var quick_50 = $('.quick-50').val();
         user_id = $('.hidden-id').html();
         simulated = $('.simulated').val();
         element_id = $('.element-id').val();
-        subtopics = $('.study-mode-options .settings-option .' + element_id).val();
+        subtopics = $('.study-mode-options .settings-option .' + element_id + ' input[type=checkbox]:checked').map(function(_, el) {
+            return $(el).val();
+        }).get();
+        // console.log(quick_50);
+        // console.log(subtopics);
         show_numbers = $('.show-numbers').val();
         if (simulated == 1)
             show_answers = 0;
@@ -199,7 +248,8 @@ jQuery(function($){
             'simulated'     : simulated,
             'weak_areas'    : weak_areas,
             'missed_retake' : missed_retake,
-            'resume'        : resume            
+            'resume'        : resume,
+            'quick50'       : quick_50          
         };
 
         $.ajax({
@@ -208,23 +258,23 @@ jQuery(function($){
            data: post_data,
            dataType: "text",
            success: function (text) {
-                $('.pre-loader').fadeOut();
-                setTimeout(function(){
-                    printExam(text);
-                    if(resume==0)
-                        saveExam(0); //0 = init
-                    else{
-                        exam_id = $('.exam-id').html();
-                        getQuestionsArray();
-                        resumeExam();
-                    }
-                }, 400);
+                $('.pre-loader').css('display', 'none');
+                printExam(text);
+                if(resume==0){
+                    $('.exam-panel .title .the-title').html($('.element-id option:selected').text());
+                    saveExam(0); //0 = init
+                }
+                else{
+                    exam_id = $('.exam-id').html();
+                    getQuestionsArray();
+                    resumeExam();
+                    var temp = $(".element-id option[value='"+element_id+"']").text()
+                    $('.exam-panel .title .the-title').html(temp);
+                }
            }
         });
-        //$('.exam-options').fadeOut();
-        $('.pre-loader').delay(400).fadeIn();
+        $('.pre-loader').css('display', 'block');
         $('.exam-details .current_question').html(current_question_index);
-        $('.exam-panel .title .the-title').html($('.element-id option:selected').text());
     }
 
     function saveExam(i){
@@ -368,9 +418,9 @@ jQuery(function($){
     function proceed(){
         // console.log('proceed()');
         if(current_question_index < exam_length - 1){
-            $('.question-container .question.' + current_question_index).delay(200).fadeOut(200);
+            $('.question-container .question.' + current_question_index).fadeOut(100);
             current_question_index++;
-            $('.question-container .question.' + current_question_index).delay(500).fadeIn(200);
+            $('.question-container .question.' + current_question_index).delay(200).fadeIn(100);
             updateHTML();
             if (simulated == 1)
                 $('.exam-controls .next-question').attr('disabled', true);
@@ -378,8 +428,8 @@ jQuery(function($){
         }
         else if(current_question_index < exam_length){
             //last question has been answered
-            $('.question-container .question.' + current_question_index).delay(200).fadeOut(200);
-            $('.question-container .exam-ended').delay(410).fadeIn(200);
+            $('.question-container .question.' + current_question_index).fadeOut(100);
+            $('.question-container .exam-ended').delay(200).fadeIn(100);
             $('.exam-controls .next-question').attr('disabled', true);
             $('.exam-controls .stop-exam').attr('disabled', true);
             current_question_index++;
@@ -403,7 +453,6 @@ jQuery(function($){
 
     function showAnswer(o){
         // console.log('showAnswer()');
-
         if(o.is('#correct'))
             o.children().children('.icon-ok').fadeIn(100).css("display","inline-block");
         else{
@@ -424,7 +473,6 @@ jQuery(function($){
         });
         //console.log(questions);
     }
-
 
     function resetData(){
         // console.log('resetData()');
@@ -510,6 +558,12 @@ jQuery(function($){
         $('.question-container .question.' + current_question_index).fadeIn(100);
         if (show_answers == 1)
             $('.exam-controls .next-question').css('display', 'inline-block');
+    }
 
+    function validates(){
+        validation = false;
+
+        window.alert(validation);
+        return validation;
     }
 });
