@@ -157,7 +157,8 @@ class Exam
 	public function resumeExam(){
 		$conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 		$result = $conn->query("SELECT * FROM wp_fccTest_custom_exams 
-								WHERE user_id = $this->user_id 
+								WHERE user_id = $this->user_id
+								AND simulated = 0
 								ORDER BY date 
 								DESC LIMIT 1;")
 								OR DIE(mysqli_error($conn));

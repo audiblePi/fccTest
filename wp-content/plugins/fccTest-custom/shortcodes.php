@@ -14,7 +14,15 @@ function showInterface($atts){
 		checkForPendingExam($current_user_id);
 ?>	
 	<div class="fcc-panel exam-options-panel">
-		<div class="title">Exam Options<div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
+		<div class="title">
+			<?php 
+				if ($a['type'] == "simulated") :
+					echo "Simulated Exam Options"; 
+					else :
+						echo "Study Mode Options";
+				endif;
+			?>
+			<div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
 		<div class="exam-options">
 			<div class="row" style="display:none">
 				<div class="hidden-id"><?php echo $current_user_id; ?></div>
@@ -203,6 +211,7 @@ function checkForPendingExam($id){
 		?>
 		<div id="dialog" title="Resume" style="display:none">
 		  	<p>Would you like to resume Element <?php echo substr($row['element_id'], 1) ?>?</p>
+		  	<div class="hidden-id" style="display:none"><?php echo $row['exam_id'] ?></div>
 			<button class="resume-no">No</button><button class="resume-exam">Yes</button>
 		</div>
 		<script>

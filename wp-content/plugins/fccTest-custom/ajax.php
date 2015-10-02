@@ -10,6 +10,7 @@ if (isset($_POST['myAction']))
         case 'init'     : mySave(0);break;
         case 'update'   : mySave(1);break;
         case 'getArray' : getArray();break;
+        case 'dontResume': dontResume();break;
     }
 }
 
@@ -119,6 +120,7 @@ function start(){
             ?>
             <div class="question exam-ended">
                 <div>Exam Ended</div>
+                <div class="new-high-score"></div>
                 <button class="retake">Missed Retake</button> 
             </div> 
         </div>
@@ -153,7 +155,7 @@ function start(){
                 <div class="four columns last">
                     <?php if ($newExam->simulated == 1) : ?>
                        <div class="number">
-                            <span class="score-to-beat"><?php echo $newExam->scoreToBeat ?>%</span>
+                            <span class="score-to-beat"><?php echo $newExam->scoreToBeat ?></span><span>%</span>
                         </div>
                         <div class="text">
                             Best Score
@@ -258,6 +260,20 @@ function mySave($i){
         echo $current_exam;
     }
     
+    mysqli_close($conn);
+    exit();
+}
+
+function dontResume(){
+    $exam_id = $_POST['exam_id'];
+    $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+    $sql = "UPDATE wp_fccTest_custom_exams
+                            SET status = 1
+                            WHERE exam_id = $exam_id";
+    if($conn->query($sql))
+        echo "Exam ".$exam_id." updated";
+    else
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     mysqli_close($conn);
     exit();
 }

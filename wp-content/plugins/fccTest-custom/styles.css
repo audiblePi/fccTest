@@ -4,6 +4,7 @@
 .exam-options .study-mode-options {/*display:none;*/}
 .exam-options .study-mode-options .settings-option .E1.subtopic{display:block;}
 .exam-options .study-mode-options .settings-option .subtopic{display:none;}
+.exam-options .study-mode-options .subtopics-wrapper {border:2px solid #fff;}
 .exam-options .settings-option select {background: #fff;border-radius: 4px;padding: 5px;}
 .exam-options .settings-option input[type=checkbox]{margin-right:5px;}
 .exam-options .hidden-id{display:none;}
@@ -25,6 +26,7 @@
 .question-container .question .answer-box .check-marks {width:25px;}
 .question-container .question .answer-box .check-marks .icon-ok{display:none; color:green;}
 .question-container .question .answer-box .check-marks .icon-remove{display:none; color:red;}
+.question-container .question .new-high-score {color: #74AC12;}
 
 /*random TAKE OUT LATER/ theme specifc*/
 #primary.content-area{padding-top:0px;}

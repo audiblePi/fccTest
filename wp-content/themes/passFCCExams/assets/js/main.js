@@ -54,26 +54,6 @@ jQuery(function($){
 		}
 	});
 
-	$('.exam-start, .resume-exam').click(function(){
-		var panel = $('.fcc-panel.exam-options-panel');
-		var currentHeight = panel.height();
-		var exam_panel = $('.fcc-panel.exam-panel');
-		var examRestoreHeight = exam_panel.children().children('.section-collapse').attr('id');
-
-		//close options panel
-		panel.children().children('.section-collapse').attr('id', currentHeight);
-		panel.addClass('collapsed').animate({height:'52px'}, function(){		});
-		$('.fcc-panel.exam-options-panel .section-collapse i').removeClass('icon-chevron-up');
-		$('.fcc-panel.exam-options-panel .section-collapse i').addClass('icon-chevron-down');
-
-		//open exam panel
-		exam_panel.animate({height:examRestoreHeight+'px'}, function() {   
-			exam_panel.removeClass('collapsed');
-		});
-		$('.fcc-panel.exam-panel .section-collapse i').removeClass('icon-chevron-down');
-		$('.fcc-panel.exam-panel .section-collapse i').addClass('icon-chevron-up');
-	}); 
-
 	if($('.sidebar-menu').length){
 		var i =0;
 		$('.sidebar-menu #menu-dashboard-menu li a').each(function(){
@@ -81,14 +61,6 @@ jQuery(function($){
 			i++;
 		});
 	}
-
-	// if($('#menu-sidebar-menu').length){
-	// 	var i =0;
-	// 	$('#menu-sidebar-menu .sub-menu li a').each(function(){
-	// 		$(this).prepend( "<span class='menu-icon'><i class='"+sidebar_icons[i]+"'></i></span>" );
-	// 		i++;
-	// 	});
-	// }
 
 	if($('.header2').length){
 		var i =0;
@@ -141,5 +113,26 @@ jQuery(function($){
             $('.dashboard-main').addClass('nine columns');
         }
     }//end adjustColmns()
-
 });
+
+function openExam(){
+	jQuery(function($){
+		var panel = $('.fcc-panel.exam-options-panel');
+		var currentHeight = panel.height();
+		var exam_panel = $('.fcc-panel.exam-panel');
+		var examRestoreHeight = exam_panel.children().children('.section-collapse').attr('id');
+
+		//close options panel
+		panel.children().children('.section-collapse').attr('id', currentHeight);
+		panel.addClass('collapsed').animate({height:'52px'}, function(){		});
+		$('.fcc-panel.exam-options-panel .section-collapse i').removeClass('icon-chevron-up');
+		$('.fcc-panel.exam-options-panel .section-collapse i').addClass('icon-chevron-down');
+
+		//open exam panel
+		exam_panel.animate({height:examRestoreHeight+'px'}, function() {   
+			exam_panel.removeClass('collapsed');
+		});
+		$('.fcc-panel.exam-panel .section-collapse i').removeClass('icon-chevron-down');
+		$('.fcc-panel.exam-panel .section-collapse i').addClass('icon-chevron-up');
+	});
+}//global function for plugin access

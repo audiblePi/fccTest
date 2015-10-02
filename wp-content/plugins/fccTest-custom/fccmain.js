@@ -139,6 +139,7 @@ jQuery(function($){
     
     $(document).on("change",".subtopic .all",function(e){
         e.preventDefault();
+        $('.subtopics-wrapper').css('border', '2px solid white');
         if(!this.checked)
             $(this).parent().parent().find(':checkbox').each(function () { $(this).prop('checked', false); });
         else
@@ -147,6 +148,7 @@ jQuery(function($){
 
     $(document).on("change",".subtopic input",function(e){
         e.preventDefault();
+        $('.subtopics-wrapper').css('border', '2px solid white');
         if(!$(this).hasClass('all')){
             if($(this).parent().parent().find('.all').is(':checked') ){
                 $(this).parent().parent().find(':checkbox').each(function () { $(this).prop('checked', false); });
@@ -160,19 +162,21 @@ jQuery(function($){
         }
     });
 
-
     $(document).on("click",".exam-start",function(e){
         e.preventDefault();	
         resetData();
         $('.exam-container').css('display', 'none');
         $('.exam-container').empty();
-        //if (validates())
+        if (validates())
 		  startExam();
+        else
+            $('.subtopics-wrapper').css('border', '2px solid red');
     });
 
     $(document).on("click",".resume-no",function(e){
         e.preventDefault();
         $('#dialog').dialog('close');
+        dontResume($('#dialog .hidden-id').html());
     });
 
     $(document).on("click",".resume-exam",function(e){
@@ -223,6 +227,7 @@ jQuery(function($){
 
     function startExam(){
         // console.log('startExam()');
+        openExam();
         var quick_50 = $('.quick-50').val();
         user_id = $('.hidden-id').html();
         simulated = $('.simulated').val();
@@ -230,8 +235,6 @@ jQuery(function($){
         subtopics = $('.study-mode-options .settings-option .' + element_id + ' input[type=checkbox]:checked').map(function(_, el) {
             return $(el).val();
         }).get();
-        // console.log(quick_50);
-        // console.log(subtopics);
         show_numbers = $('.show-numbers').val();
         if (simulated == 1)
             show_answers = 0;
@@ -337,6 +340,26 @@ jQuery(function($){
         }
     }
 
+    function dontResume(id){
+        //console.log('dontResume(' + id + ')');
+        var action = "dontResume";
+      
+        post_data = {
+            'myAction'          : action,
+            'exam_id'           : id,
+        };
+
+        $.ajax({
+            type: 'post',
+            url: 'ajax.php',
+            data: post_data,
+            dataType: "text",
+            success: function (data) {
+                //console.log(data);
+            }
+        });
+    }
+
     function printExam(data){
         // console.log('printExam()');
         $('.exam-container').html(data).fadeIn();
@@ -435,6 +458,8 @@ jQuery(function($){
             status = 1;
             saveExam(1);
             updateHTML();
+            if (simulated == 1)
+                checkHighScore();
         }
         if(seen < exam_length){
             seen++;
@@ -561,8 +586,20 @@ jQuery(function($){
 
     function validates(){
         validation = false;
-
-        window.alert(validation);
+        this_element_id = $('.element-id').val();
+        $('.study-mode-options .settings-option .' + this_element_id ).find(':checkbox').each(function () { 
+            if ($(this).is(':checked'))
+                validation = true;
+        });
         return validation;
+    }
+
+    function checkHighScore(){
+        score_to_beat = $('.score-to-beat').html();
+        if (current_score > score_to_beat){
+            $('.new-high-score').html("<br>You have achieved a new high score!");
+            $('.score-to-beat').html(current_score);
+            $('.score-to-beat').parent().css('color', '#74AC12');
+        }
     }
 });
