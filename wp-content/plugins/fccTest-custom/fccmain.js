@@ -140,24 +140,23 @@ jQuery(function($){
     $(document).on("change",".subtopic .all",function(e){
         e.preventDefault();
         if(!this.checked)
-            $(this).parent().children(':checkbox').each(function () { $(this).prop('checked', false); });
+            $(this).parent().parent().find(':checkbox').each(function () { $(this).prop('checked', false); });
         else
-            $(this).parent().children(':checkbox').each(function () { $(this).prop('checked', true); });
+            $(this).parent().parent().find(':checkbox').each(function () { $(this).prop('checked', true); });
     });
 
     $(document).on("change",".subtopic input",function(e){
         e.preventDefault();
         if(!$(this).hasClass('all')){
-            if($(this).parent().children('.all').is(':checked') || $(this).parent().parent().children('.all').is(':checked') ){
-                $(this).parent().children(':checkbox').each(function () { $(this).prop('checked', false); });
-                //$(this).parent().parent().children().children(':checkbox').each(function () { $(this).prop('checked', false); });
+            if($(this).parent().parent().find('.all').is(':checked') ){
+                $(this).parent().parent().find(':checkbox').each(function () { $(this).prop('checked', false); });
                 $(this).prop('checked', true);
             }
             else if ($(this).is(':checked'))
                  $(this).prop('checked', true);
             else if (!$(this).is(':checked'))
                  $(this).prop('checked', false);
-            $(this).parent().children('.all').prop('checked', false);
+            $(this).parent().parent().find('.all').prop('checked', false);
         }
     });
 

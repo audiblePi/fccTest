@@ -59,13 +59,16 @@ function showInterface($atts){
 					<div class="settings-title three columns">Choose Study Topics</div>
 					<div class="settings-option nine columns">
 						<div class="E1 subtopic">
-							<input type="checkbox" value="All" class="all" checked>All<br>
-							<input type="checkbox" value="A" checked/>Rules & Regulations<br />
-							<input type="checkbox" value="B" checked/>Communications Procedures<br />
-							<input type="checkbox" value="C" checked/>Equipment Operations<br />
-							<input type="checkbox" value="D" checked/>Other Equipment<br />
+							<div class="twelve columns">
+								<input type="checkbox" value="All" class="all" checked>All<br>
+								<input type="checkbox" value="A" checked/>Rules & Regulations<br />
+								<input type="checkbox" value="B" checked/>Communications Procedures<br />
+								<input type="checkbox" value="C" checked/>Equipment Operations<br />
+								<input type="checkbox" value="D" checked/>Other Equipment<br />
+							</div>
 						</div>
 						<div class="E3 subtopic">
+							<div class="six columns">
 								<input class="all" type="checkbox" value="All" checked>All<br>
 								<input type="checkbox" value="A" checked>Principles</br>
 								<input type="checkbox" value="B" checked>Electrical Math</br>
@@ -75,6 +78,8 @@ function showInterface($atts){
 								<input type="checkbox" value="F" checked>Receivers</br>
 								<input type="checkbox" value="G" checked>Transmitters</br>
 								<input type="checkbox" value="H" checked>Modulation</br>
+							</div>
+							<div class="six columns">
 								<input type="checkbox" value="I" checked>Power Sources</br>
 								<input type="checkbox" value="J" checked>Antennas</br>
 								<input type="checkbox" value="K" checked>Aircraft</br>
@@ -84,51 +89,62 @@ function showInterface($atts){
 								<input type="checkbox" value="O" checked>RADAR</br>
 								<input type="checkbox" value="P" checked>Satellite</br>
 								<input type="checkbox" value="Q" checked>Safety</br>
+							</div>
 						</div>
 						<div class="E6 subtopic">
-							<input class="all" type="checkbox" value="All" checked>All<br>
+							<div class="twelve columns">
+								<input class="all" type="checkbox" value="All" checked>All<br>
+							</div>
 						</div>
 						<div class="E7 subtopic">
-							<input class="all" type="checkbox" value="All" checked>All<br>
-							<input type="checkbox" value="A" checked>General Information and System Overview<br>
-							<input type="checkbox" value="B" checked>Principles of Communications<br>
-							<input type="checkbox" value="C" checked>F.C.C. Rules & Regulations<br>
-							<input type="checkbox" value="D" checked>DSC & Alpha-Numeric ID<br>
-							<input type="checkbox" value="E" checked>Distress, Urgency & Safety Communications<br>
-							<input type="checkbox" value="F" checked>Survival Craft Equip & S.A.R.<br>
-							<input type="checkbox" value="G" checked>VHF-DSC Equipment & Communications<br>
-							<input type="checkbox" value="H" checked>Maritime Safety Information (M.S.I.)<br>
-							<input type="checkbox" value="I" checked>Inmarsat Equip. & Comms<br>
-							<input type="checkbox" value="J" checked>MF-HF Equip. and Comms<br>
+							<div class="twelve columns">
+								<input class="all" type="checkbox" value="All" checked>All<br>
+								<input type="checkbox" value="A" checked>General Information and System Overview<br>
+								<input type="checkbox" value="B" checked>Principles of Communications<br>
+								<input type="checkbox" value="C" checked>F.C.C. Rules & Regulations<br>
+								<input type="checkbox" value="D" checked>DSC & Alpha-Numeric ID<br>
+								<input type="checkbox" value="E" checked>Distress, Urgency & Safety Communications<br>
+								<input type="checkbox" value="F" checked>Survival Craft Equip & S.A.R.<br>
+								<input type="checkbox" value="G" checked>VHF-DSC Equipment & Communications<br>
+								<input type="checkbox" value="H" checked>Maritime Safety Information (M.S.I.)<br>
+								<input type="checkbox" value="I" checked>Inmarsat Equip. & Comms<br>
+								<input type="checkbox" value="J" checked>MF-HF Equip. and Comms<br>
+							</div>
 						</div>
 						<div class="E7R subtopic">
-							<input class="all" type="checkbox" value="All" checked>All<br>
-							<input type="checkbox" value="A" checked>General Information and System Overview<br>
-							<input type="checkbox" value="B" checked>F.C.C. Rules & Regulations<br>
-							<input type="checkbox" value="C" checked>DSC & Alpha-Numeric ID Systems<br>
-							<input type="checkbox" value="D" checked>Distress, Urgency & Safety Comms<br>
-							<input type="checkbox" value="E" checked>Survival Craft Equip & S.A.R.<br>
-							<input type="checkbox" value="F" checked>Maritime Safety Information (M.S.I.)<br>
-							<input type="checkbox" value="G" checked>VHF-DSC Equipment & Comms<br>
+							<div class="twelve columns">
+								<input class="all" type="checkbox" value="All" checked>All<br>
+								<input type="checkbox" value="A" checked>General Information and System Overview<br>
+								<input type="checkbox" value="B" checked>F.C.C. Rules & Regulations<br>
+								<input type="checkbox" value="C" checked>DSC & Alpha-Numeric ID Systems<br>
+								<input type="checkbox" value="D" checked>Distress, Urgency & Safety Comms<br>
+								<input type="checkbox" value="E" checked>Survival Craft Equip & S.A.R.<br>
+								<input type="checkbox" value="F" checked>Maritime Safety Information (M.S.I.)<br>
+								<input type="checkbox" value="G" checked>VHF-DSC Equipment & Comms<br>
+							</div>
 						</div>
 						<div class="E8 subtopic">
-							<input class="all" type="checkbox" value="All" checked>All<br>
-							<input type="checkbox" value="A" checked>RADAR Principles<br>
-							<input type="checkbox" value="B" checked>Transmitting Systems<br>
-							<input type="checkbox" value="C" checked>Receiving Systems<br>
-							<input type="checkbox" value="D" checked>Display & Control Systems<br>
-							<input type="checkbox" value="E" checked>Antenna Systems<br>
-							<input type="checkbox" value="F" checked>Installation, Maintenance & Repair<br>
+							<div class="twelve columns">
+								<input class="all" type="checkbox" value="All" checked>All<br>
+								<input type="checkbox" value="A" checked>RADAR Principles<br>
+								<input type="checkbox" value="B" checked>Transmitting Systems<br>
+								<input type="checkbox" value="C" checked>Receiving Systems<br>
+								<input type="checkbox" value="D" checked>Display & Control Systems<br>
+								<input type="checkbox" value="E" checked>Antenna Systems<br>
+								<input type="checkbox" value="F" checked>Installation, Maintenance & Repair<br>
+							</div>
 						</div>
 						<div class="E9 subtopic">
-							<input class="all" type="checkbox" value="All" checked>All<br>
-							<input type="checkbox" value="A" checked>VHF-DSC Equipment & Operation<br>
-							<input type="checkbox" value="B" checked>MF-HF-DSC-SITOR (NBDP) Equip. & Ops<br>
-							<input type="checkbox" value="C" checked>Satellite Systems<br>
-							<input type="checkbox" value="D" checked>Other GMDSS Equipment<br>
-							<input type="checkbox" value="E" checked>Power Sources<br>
-							<input type="checkbox" value="F" checked>Other Equipment and Networks<br>
-							<input type="checkbox" value="G" checked>Inspections, Installations and Instruments<br>
+							<div class="twelve columns">
+								<input class="all" type="checkbox" value="All" checked>All<br>
+								<input type="checkbox" value="A" checked>VHF-DSC Equipment & Operation<br>
+								<input type="checkbox" value="B" checked>MF-HF-DSC-SITOR (NBDP) Equip. & Ops<br>
+								<input type="checkbox" value="C" checked>Satellite Systems<br>
+								<input type="checkbox" value="D" checked>Other GMDSS Equipment<br>
+								<input type="checkbox" value="E" checked>Power Sources<br>
+								<input type="checkbox" value="F" checked>Other Equipment and Networks<br>
+								<input type="checkbox" value="G" checked>Inspections, Installations and Instruments<br>
+							</div>
 						</div>
 					</div>
 				</div>
