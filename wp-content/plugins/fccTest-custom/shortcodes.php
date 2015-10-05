@@ -355,12 +355,31 @@ function showLeaderBoard() {
 
 function showProfile(){
 	?>
-	<div class="fcc-panel collapsed">
-		<div class="title">My Profile<div class="section-collapse">collapse <i class="icon-chevron-down"></i></div></div>
+	<div class="fcc-panel">
+		<div class="title">My Profile<div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
+		<div class="row">
+			
+		</div>
 	</div>
 
-	<div class="fcc-panel collapsed">
-		<div class="title">Progress Report<div class="section-collapse">collapse <i class="icon-chevron-down"></i></div></div>
+	<div class="fcc-panel">
+		<div class="title">Progress Report<div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
+	</div>
+
+<!-- 	<div class="fcc-panel">
+		<div class="title">Membership Account<div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
+		<div class="row">
+			<?php# echo do_shortcode('[pmpro_account]'); ?>
+		</div>
+	</div> -->
+
+	<div class="fcc-panel">
+		<div class="title">Forms<div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
+		<div class="row">
+				<p><a href="/wp-content/themes/passFCCExams/assets/pdfs/(GROL) FCC 605 Main Form.pdf" target="_blank">General Radiotelephone Operator License (GROL) FCC 605 Main Form</a></p>
+				<p>NOTE: This sample FCC 605 Main Form is for new individual GROL applicant only. If you are filing out another FCC license form, please consult their FCC website, or call the FCC (888) 225-5322, and they will walk you through filling out your forms.</p> 
+				<p><a href="/wp-content/themes/passFCCExams/assets/pdfs/Ship Radar Endorsement form FCC 605 Schedule E.pdf" target="_blank">Ship Radar Endorsement form FCC 605 Schedule E</a></p>
+		</div>
 	</div>
 	<?php
 }

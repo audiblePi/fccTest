@@ -54,6 +54,23 @@ jQuery(function($){
 		}
 	});
 
+	//refactor 
+	// $('.section-collapse').click(function(){
+	// 	if ($(this).closest('.fcc-panel').hasClass('collapsed')){
+	// 		$(this).closest('.fcc-panel > .content.row').slideDown(1000);
+	// 		$(this).closest('.fcc-panel').removeClass('collapsed');
+	// 		$(this).children('i').removeClass('icon-chevron-down');
+	// 		$(this).children('i').addClass('icon-chevron-up');
+			
+	// 	}else{
+	// 		$(this).closest('.fcc-panel').addClass('collapsed');
+	// 		$(this).closest('.fcc-panel > .content.row').slideUp(600);
+	// 		$(this).children('i').removeClass('icon-chevron-up');
+	// 		$(this).children('i').addClass('icon-chevron-down');
+	// 	}
+	// });
+
+
 	if($('.sidebar-menu').length){
 		var i =0;
 		$('.sidebar-menu #menu-dashboard-menu li a').each(function(){
