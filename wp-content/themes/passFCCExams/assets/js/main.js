@@ -71,32 +71,34 @@ jQuery(function($){
 	}
 	
     function fade() {
-        //var animation_height = $(window).innerHeight() * 0.70;
-        var animation_height = 400;
-        var ratio = Math.round( (1 / animation_height) * 10000 ) / 10000;
+    	if( $('body').hasClass('home') ){
+	        //var animation_height = $(window).innerHeight() * 0.70;
+	        var animation_height = 400;
+	        var ratio = Math.round( (1 / animation_height) * 10000 ) / 10000;
 
-        $('.get-started').each(function() {
-            var objectTop = $(this).offset().top;
-            var windowBottom = $(window).scrollTop() + $(window).innerHeight();
-            objectTop += 150;
+	        $('.get-started').each(function() {
+	            var objectTop = $(this).offset().top;
+	            var windowBottom = $(window).scrollTop() + $(window).innerHeight();
+	            objectTop += 150;
 
-            if ( objectTop < windowBottom ) {
-                if ( objectTop < windowBottom - animation_height ) {
-                    $('.footer').css( {
-                        transition: 'opacity 0.1s linear',
-                        opacity: 1
-                    } );
+	            if ( objectTop < windowBottom ) {
+	                if ( objectTop < windowBottom - animation_height ) {
+	                    $('.footer').css( {
+	                        transition: 'opacity 0.1s linear',
+	                        opacity: 1
+	                    } );
 
-                } else {
-                    $('.footer').css( {
-                        transition: 'opacity 0.25s linear',
-                        opacity: (windowBottom - objectTop) * ratio
-                    } );
-                }
-            } else {
-                $('.footer').css( 'opacity', 0 );
-            }
-        });
+	                } else {
+	                    $('.footer').css( {
+	                        transition: 'opacity 0.25s linear',
+	                        opacity: (windowBottom - objectTop) * ratio
+	                    } );
+	                }
+	            } else {
+	                $('.footer').css( 'opacity', 0 );
+	            }
+	        });
+	    }
     }//end fade()
 
 	function adjustColumns() {

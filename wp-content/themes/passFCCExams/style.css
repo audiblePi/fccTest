@@ -24,7 +24,6 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 .container{margin:0 auto !important; padding:0 !important;/*width:1200px;*/}
 .row{min-width:inherit !important;max-width:inherit !important;}
 .container .row{margin: 0px !important;}
-#content-wrapper{padding-top:60px !important;}
 .page-template-login #content-wrapper {padding-top:0px !important;}
 
 /*Header1*/
@@ -113,8 +112,23 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 .get-started h1{margin-top:5px; margin-bottom:5px;text-transform:uppercase; color:#fff;}
 .get-started button{background:#9ABF01;color:#fff;border: none;border:none;padding:15px 40px;border-radius:4px;margin-top: 20px;}
 
-/*Membership Levels*/
+/*Page*/
+.page-template-dashboard #content-wrapper {padding:60px 0px !important;}
+.page-template-default #content-wrapper {padding:60px 30px !important; background:#DBE0E5;}
+.entry-content {color: #003366;}
+.entry-content h1{margin-bottom:20px;}
+.entry-content p{color: #003366;}
+.entry-content ol, .entry-content ul {margin-left:30px; list-style-type: decimal;margin-bottom: 20px;}
+.entry-content ol > li {margin-bottom:30px;}
+.entry-content ol > li > ol > li {margin-bottom:0px;}
+.entry-content ul li {list-style-type:disc;}
+
+/*Page - About*/
+
+/*Page - Membership Levels*/
 #pmpro_levels_table {margin:auto;}
+
+/*Page - FAQ*/
 
 /*Login*/
 body.page-template-login{background: transparent url("assets/images/back-pattern.png") repeat scroll 0% 0%;}
@@ -206,7 +220,8 @@ body.page-template-login{background: transparent url("assets/images/back-pattern
 #edit-profile #your-profile input[type=submit]:hover{background: linear-gradient(to bottom, #EEE 0%, #FFF 100%);color:#000;}
 
 /*footer*/
-.footer{position: fixed; width: 100%; bottom: 0; left: 0; z-index: -1;opacity:0;}
+.home .footer{position: fixed; width: 100%; bottom: 0; left: 0; z-index: -1;opacity:0;}
+.page .footer {opacity:1 !important;}
 footer.container{background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%);padding: 0px 20px !important;}
 footer p{color:#FAFBFD;}
 .sub-footer {border-top:1px solid #FAFBFD;padding: 10px 0px 0px 0px;}
