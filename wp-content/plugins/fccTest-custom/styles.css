@@ -12,7 +12,7 @@
 /*quiz interface*/
 .exam-container .row{margin-left:0px !important;}
 .exam-container .element-id{display:none;}
-.exam-container .question-container{height:340px;}
+.exam-container .question-container{min-height:360px;}
 .question-container .question{/*padding: 20px 10px 10px 10px;*/display:none;}
 .question-container .question:first-of-type{display:block;}
 .question-container .question form{padding-left:40px;}
