@@ -140,6 +140,8 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 .page-template-default .faq .row .one.columns {text-align:center;height:40px;}
 .page-template-default .faq img{height:25px;}
 .page-template-default .faq > p{margin-bottom:0px;}
+.faq table {width:100%;}
+.faq td {padding:10px 15px;border-right: 1px solid #DDD;float:none;}
 
 /*Login*/
 body.page-template-login{background: transparent url("assets/images/back-pattern.png") repeat scroll 0% 0%;}
@@ -165,6 +167,7 @@ body.page-template-login{background: transparent url("assets/images/back-pattern
 
 /*Dashboard*/
 .my-account-wrapper {/*padding-top: 20px;*/}
+.my-account-wrapper .columns{padding-left:0px; padding-right:0px;}
 .my-account-wrapper .sidebar-menu{padding-right: 10px; margin-bottom:40px;}
 .my-account-wrapper .sidebar-menu li:first-of-type{border-top: 1px solid #CCC;}
 .my-account-wrapper .sidebar-menu li{border-right: 1px solid #CCC; border-left: 1px solid #CCC; border-bottom: 1px solid #CCC; box-shadow: 0px 0px 0px 1px #FFF inset;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);}
@@ -185,6 +188,7 @@ body.page-template-login{background: transparent url("assets/images/back-pattern
 .fcc-panel .settings-title{padding:0px;}
 .fcc-panel button{border-radius: 4px; border: 1px solid #D9D9D9; color: #525252;font-family: arial; padding: 7px 12px; text-shadow: 1px 1px 0px #D1D1D1; box-shadow: 0px 1px 0px 0px #FFF inset; background: linear-gradient(to bottom, #FFF 0%, #EEE 100%); }
 .fcc-panel button:hover{background: linear-gradient(to bottom, #EEE 0%, #FFF 100%);color:#000;}
+.page-template-dashboard table{width:100%;}
 
 /*My Account*/
 #pmpro_account .pmpro_box {border-top:none !important;margin:0px !important; padding-top:0px !important;padding-bottom:2em !important;}
@@ -231,6 +235,7 @@ body.page-template-login{background: transparent url("assets/images/back-pattern
 #edit-profile #your-profile #pass-strength-result{width:100%;}
 #edit-profile #your-profile input[type=submit] {border-radius: 4px; border: 1px solid #D9D9D9; color: #525252;font-family: arial; padding: 7px 12px; text-shadow: 1px 1px 0px #D1D1D1; box-shadow: 0px 1px 0px 0px #FFF inset; background: linear-gradient(to bottom, #FFF 0%, #EEE 100%); width: 25%;}
 #edit-profile #your-profile input[type=submit]:hover{background: linear-gradient(to bottom, #EEE 0%, #FFF 100%);color:#000;}
+#edit-profile #your-profile #password {display:none;}
 
 /*footer*/
 .home .footer{position: fixed; width: 100%; bottom: 0; left: 0; z-index: -1;opacity:0;}
@@ -246,9 +251,11 @@ footer p{color:#FAFBFD;}
 
 @media (max-width: 1200px) {
 	.header2 .logo img{padding-top: 25px;}
+	.container {width:100% !important;}
+	.my-account-wrapper .columns{padding-left:10px; padding-right:10px;}
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1006px) {
 	.container {width:100% !important;}
 
 	.header2 .menu-wrapper{display:none;}
@@ -264,6 +271,8 @@ footer p{color:#FAFBFD;}
 	.testimonials .testimonials-wrapper {padding:40px 20px 0px 20px;}
 
 	.my-account-wrapper .sidebar-menu {padding-right:0px;display:none;}
+	
+
 	.fcc-panel {margin-left:0px;}
 }
 
@@ -275,10 +284,13 @@ footer p{color:#FAFBFD;}
 	.header2 .logo img{float:left;}
 	.feature-callouts .callout {width:50% !important; float:left !important;margin-bottom:30px;}
 	.get-started {text-align:center;}
+	.page-template-default #content-wrapper {padding:0px !important;}
 	#footer {text-align:center;}
 	#footer .social-icons {float:inherit;}
 }
 
 @media (max-width: 600px) {
 	.what-license .topics ul {width:100%;}
+	.exam-container .exam-details .exam-dashboard {width:100%;}
+	.settings-option .element-id {width:100%;}
 }

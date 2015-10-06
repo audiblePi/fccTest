@@ -168,7 +168,7 @@ jQuery(function($){
         $('.exam-container').css('display', 'none');
         $('.exam-container').empty();
         if (validates())
-		  startExam();
+            startExam();
         else
             $('.subtopics-wrapper').css('border', '2px solid red');
     });

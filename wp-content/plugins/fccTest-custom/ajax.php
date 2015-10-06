@@ -129,50 +129,52 @@ function start(){
             <button class="next-question">Next</button>
         </div>
         <div class="exam-dashboard">
-            <div class="row">
-                <div class="four columns">
-                    <div class="number">
-                        <span class="current_question"><?php echo $newExam->current_question ?></span> / <span class="total_questions"><?php echo $newExam->exam_size ?></span>
-                    </div>
-                    <div class="text">
-                        Questions Viewed
-                    </div>
-                    <div class="percent positive">
-                        <span class="percent-progress">0</span>%
-                    </div>
-                </div>
-                <div class="four columns">
-                    <div class="number">
-                        <span class="correct"><?php echo $newExam->correct ?></span> / <span class="num-answered"></span>
-                    </div>
-                    <div class="text">
-                        Current Score
-                    </div>
-                    <div class="percent score negative">
-                        <span class="current_score"><?php echo $newExam->score ?></span>%
-                    </div>
-                </div>
-                <div class="four columns last">
-                    <?php if ($newExam->simulated == 1) : ?>
-                       <div class="number">
-                            <span class="score-to-beat"><?php echo $newExam->scoreToBeat ?></span><span>%</span>
-                        </div>
-                        <div class="text">
-                            Best Score
-                        </div>
-                    <?php else : ?>
+            <table>
+                <tr class="row">
+                    <td class="four columns">
                         <div class="number">
-                            <span class="skipped"><?php echo $newExam->skipped ?></span>
+                            <span class="current_question"><?php echo $newExam->current_question ?></span> / <span class="total_questions"><?php echo $newExam->exam_size ?></span>
                         </div>
                         <div class="text">
-                            Skipped
+                            Questions Viewed
                         </div>
-                    <?php endif; ?>
-                    <div class="percent" style="visibility:hidden">
-                        <span class="current_score"><?php echo $newExam->score ?></span>%
-                    </div>
-                </div>
-            </div>
+                        <div class="percent positive">
+                            <span class="percent-progress">0</span>%
+                        </div>
+                    </td>
+                    <td class="four columns">
+                        <div class="number">
+                            <span class="correct"><?php echo $newExam->correct ?></span> / <span class="num-answered"></span>
+                        </div>
+                        <div class="text">
+                            Current Score
+                        </div>
+                        <div class="percent score negative">
+                            <span class="current_score"><?php echo $newExam->score ?></span>%
+                        </div>
+                    </td>
+                    <td class="four columns last">
+                        <?php if ($newExam->simulated == 1) : ?>
+                           <div class="number">
+                                <span class="score-to-beat"><?php echo $newExam->scoreToBeat ?></span><span>%</span>
+                            </div>
+                            <div class="text">
+                                Best Score
+                            </div>
+                        <?php else : ?>
+                            <div class="number">
+                                <span class="skipped"><?php echo $newExam->skipped ?></span>
+                            </div>
+                            <div class="text">
+                                Skipped
+                            </div>
+                        <?php endif; ?>
+                        <div class="percent" style="visibility:hidden">
+                            <span class="current_score"><?php echo $newExam->score ?></span>%
+                        </div>
+                    </td>
+                </tr>
+            </table>
         <div>
     <?php
     exit();

@@ -124,5 +124,11 @@ function openExam(){
 		exam_panel.addClass('collapsed');
 		exam_panel.find('i').removeClass('icon-chevron-up');
 		exam_panel.find('i').addClass('icon-chevron-down');
+ 		
+ 		setTimeout(function(){ 
+            $('html, body').animate({
+                scrollTop: $('.fcc-panel.exam-panel').offset().top - 100
+            }, 1000);
+        }, 1000);
 	});
 }//global function for plugin access

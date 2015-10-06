@@ -250,11 +250,12 @@ function showProfileStats() {
 		<?php
 			if($row) {
 				?>
-					<div class="row table-header">
+				<table>
+					<tr class="row table-header">
 						<!--<div class="one columns">Exam Id</div>-->
-						<div class="two columns">Element</div>
+						<td class="two columns">Element</td>
 						<!--<div class="two columns">Subtopics</div>-->
-						<div class="two columns">Score</div>
+						<td class="two columns">Score</td>
 						<!--<div class="one columns">Correct</div>-->
 						<!--<div class="one columns">Incorrect</div>-->
 						<!--<div class="one columns">Skipped</div>-->
@@ -265,18 +266,18 @@ function showProfileStats() {
 						<!--<div class="one columns">Weak Areas</div>-->
 						<!--<div class="one columns">Missed Retake</div>-->
 						<!--<div class="one columns">Resume</div>-->
-						<div class="eight columns">Date</div>
+						<td class="eight columns">Date</td>
 						<!--<div class="one columns">Start Time</div>-->
 						<!--<div class="one columns">End Time</div>-->
 						<!--<div class="one columns">Total Time</div>-->
 						<!--<div class="one columns">Questions</div>-->
 						<!--<div class="one columns">Status</div>-->
-					</div>
+					</tr>
 				<?php
 				do { ?>
-					<div class="row">
+					<tr class="row">
 						<!--<div class="one columns"><?php echo $row["exam_id"] ?></div>-->
-						<div class="two columns"><?php echo "Element ".substr($row["element_id"], 1) ?></div>
+						<td class="two columns"><?php echo "Element ".substr($row["element_id"], 1) ?></td>
 						<!--<div class="two columns">
 							<?php 
 								//$t = unserialize($row["subtopics"]);
@@ -284,7 +285,7 @@ function showProfileStats() {
 								//	echo $s." "; 
 							?>
 						</div>-->
-						<div class="two columns"><?php echo $row["score"] ?>%</div>
+						<td class="two columns"><?php echo $row["score"] ?>%</td>
 						<!--<div class="one columns"><?php echo $row["correct"] ?></div>-->
 						<!--<div class="one columns"><?php echo $row["incorrect"] ?></div>-->
 						<!--<div class="one columns"><?php echo $row["skipped"] ?></div>-->
@@ -295,17 +296,19 @@ function showProfileStats() {
 						<!--<div class="one columns"><?php echo $row["weak_areas"] ?></div>-->
 						<!--<div class="one columns"><?php echo $row["missed_retake"] ?></div>-->
 						<!--<div class="one columns"><?php echo $row["resume"] ?></div>-->
-						<div class="eight columns"><?php echo $row["date"] ?></div>
+						<td class="eight columns"><?php echo $row["date"] ?></td>
 						<!--<div class="one columns"><?php echo $row["start_time"] ?></div>-->
 						<!--<div class="one columns"><?php echo $row["end_time"] ?></div>-->
 						<!--<div class="one columns"><?php echo $row["total_time"] ?></div>-->
 						<!--<div class="one columns"><?php echo count($row["questions"]) ?></div>-->
 						<!--<div class="one columns"><?php echo $row["status"] ?></div>-->
-					</div>
+					</tr>
 					<?php
 				} 
 				while ($row = $result->fetch_array());
-			} else
+				echo "</table>";
+			}
+			else
 				 echo "<div class='row'><div class='twelve columns'>No simulated exams found...</div></div>";
 		?>
 		</div>
@@ -328,35 +331,36 @@ function showLeaderBoard() {
 		<div class="fcc-panel leader-board">
 			<div class="title">Element <?php echo substr($e, 1) ?><div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
 			<div class="content">
-				<div class="row table-header">
-					<div class="two columns">User</div>
-					<!--<div class="one columns">Exam ID</div>-->
-					<!--<div class="two columns">Element</div>-->
-					<div class="two columns">Score</div>
-					<div class="eight columns">Time</div>
-				</div>
-				<?php if($row) { ?>
-					<?php do { ?>
-						<div class="row">
-							<div class="two columns">
-								<?php 
-									$user_id = $row["user_id"];
-									$user = get_user_by( 'id', $user_id);
-									echo get_user_meta($user->ID,'nickname',true); 
-								?>
-							</div>
-							<!--<div class="one columns"><?php echo $row["exam_id"] ?></div>-->
-							<!--<div class="two columns"><?php echo $row["element_id"] ?></div>-->
-							<div class="two columns"><?php echo $row["score"] ?>%</div>
-							<div class="eight columns"><?php echo $row["total_time"] ?></div>
-						</div>
-					<?php } 
-					while ($row = $result->fetch_array()); ?>
-				<?php 
-				} 
-				else
-					echo "<div class='row'><div class='twelve columns'>No exams found...</div></div>";
-		echo "</div></div>";
+				<table>
+					<tr class="row table-header">
+						<td class="two columns">User</td>
+						<!--<div class="one columns">Exam ID</div>-->
+						<!--<div class="two columns">Element</div>-->
+						<td class="two columns">Score</td>
+						<td class="eight columns">Time</td>
+					</tr>
+					<?php if($row) { ?>
+						<?php do { ?>
+							<tr class="row">
+								<td class="two columns">
+									<?php 
+										$user_id = $row["user_id"];
+										$user = get_user_by( 'id', $user_id);
+										echo get_user_meta($user->ID,'nickname',true); 
+									?>
+								</td>
+								<!--<div class="one columns"><?php echo $row["exam_id"] ?></div>-->
+								<!--<div class="two columns"><?php echo $row["element_id"] ?></div>-->
+								<td class="two columns"><?php echo $row["score"] ?>%</td>
+								<td class="eight columns"><?php echo $row["total_time"] ?></td>
+							</tr>
+						<?php } 
+						while ($row = $result->fetch_array()); ?>
+					<?php 
+					} 
+					else
+						echo "<tr class='row'><td class='twelve columns'>No exams found...</td></tr>";
+		echo "</table></div></div>";
 	}
 }//end showLeaderboard()
 
