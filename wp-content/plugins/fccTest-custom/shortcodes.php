@@ -227,90 +227,96 @@ function checkForPendingExam($id){
 	}
 }//end checkForPendingExam()
 
-function showProfileStats() {
+function showProfileStats($atts) {
+	$a = shortcode_atts( array('element' => 'something'), $atts );
+	$e_id = "E".$a['element'];
 	$conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 	$current_user = wp_get_current_user();
 	$current_user_id = $current_user->ID;
 	$current_user_display_name = $current_user->display_name;
 	$result = $conn->query("SELECT * FROM wp_fccTest_custom_exams 
-									WHERE user_id = $current_user_id 
-									AND simulated = 1
-									AND missed_retake = 0
-									AND status = 1
+									WHERE user_id = $current_user_id
+									AND element_id = '$e_id'
 									ORDER BY date 
 									DESC;") 
 									OR DIE(mysqli_error($conn));
 	$row = $result->fetch_array();
-
-	//echo '<div>'.$current_user_display_name.'<br><br></div>';
+	//var_dump($row);
+	//echo $e_id;
 	?>
-	<div class="fcc-panel exam-history">
+	<div class="fcc-panel exam-history line">
 		<div class="title">Exam History<div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
-		<div class="content">
-		<?php
-			if($row) {
-				?>
-				<table>
-					<tr class="row table-header">
-						<!--<div class="one columns">Exam Id</div>-->
-						<td class="two columns">Element</td>
-						<!--<div class="two columns">Subtopics</div>-->
-						<td class="two columns">Score</td>
-						<!--<div class="one columns">Correct</div>-->
-						<!--<div class="one columns">Incorrect</div>-->
-						<!--<div class="one columns">Skipped</div>-->
-						<!--<div class="one columns">Current Question</div>-->
-						<!--<div class="one columns">Exam Length</div>-->
-						<!--<div class="one columns">Simulated</div>-->
-						<!--<div class="one columns">Show Answers</div>-->
-						<!--<div class="one columns">Weak Areas</div>-->
-						<!--<div class="one columns">Missed Retake</div>-->
-						<!--<div class="one columns">Resume</div>-->
-						<td class="eight columns">Date</td>
-						<!--<div class="one columns">Start Time</div>-->
-						<!--<div class="one columns">End Time</div>-->
-						<!--<div class="one columns">Total Time</div>-->
-						<!--<div class="one columns">Questions</div>-->
-						<!--<div class="one columns">Status</div>-->
-					</tr>
-				<?php
-				do { ?>
-					<tr class="row">
-						<!--<div class="one columns"><?php echo $row["exam_id"] ?></div>-->
-						<td class="two columns"><?php echo "Element ".substr($row["element_id"], 1) ?></td>
-						<!--<div class="two columns">
-							<?php 
-								//$t = unserialize($row["subtopics"]);
-								//foreach ($t as $s) 
-								//	echo $s." "; 
-							?>
-						</div>-->
-						<td class="two columns"><?php echo $row["score"] ?>%</td>
-						<!--<div class="one columns"><?php echo $row["correct"] ?></div>-->
-						<!--<div class="one columns"><?php echo $row["incorrect"] ?></div>-->
-						<!--<div class="one columns"><?php echo $row["skipped"] ?></div>-->
-						<!--<div class="one columns"><?php echo $row["current_question"] ?></div>-->
-						<!--<div class="one columns"><?php echo $row["exam_length"] ?></div>-->
-						<!--<div class="one columns"><?php echo $row["simulated"] ?></div>-->
-						<!--<div class="one columns"><?php echo $row["show_answers"] ?></div>-->
-						<!--<div class="one columns"><?php echo $row["weak_areas"] ?></div>-->
-						<!--<div class="one columns"><?php echo $row["missed_retake"] ?></div>-->
-						<!--<div class="one columns"><?php echo $row["resume"] ?></div>-->
-						<td class="eight columns"><?php echo $row["date"] ?></td>
-						<!--<div class="one columns"><?php echo $row["start_time"] ?></div>-->
-						<!--<div class="one columns"><?php echo $row["end_time"] ?></div>-->
-						<!--<div class="one columns"><?php echo $row["total_time"] ?></div>-->
-						<!--<div class="one columns"><?php echo count($row["questions"]) ?></div>-->
-						<!--<div class="one columns"><?php echo $row["status"] ?></div>-->
-					</tr>
-					<?php
-				} 
-				while ($row = $result->fetch_array());
-				echo "</table>";
-			}
-			else
-				 echo "<div class='row'><div class='twelve columns'>No simulated exams found...</div></div>";
-		?>
+		<div class="content line">
+			<div id="element-history" class="<?php echo $current_user_id; ?>"><div class="hidden" style="display:none"><?php echo $e_id; ?></div></div>
+			<div class="exam-dashboard">
+	            <table>
+	                <tr class="row">
+	                    <td class="four columns">
+	                        <div class="number">
+	                            <span class="total_unseen">0</span>
+	                        </div>
+	                        <div class="text">
+	                            Total Unseen
+	                        </div>
+	                        <div class="percent" style="visibility:hidden">
+	                            <span class=""></span>%
+	                        </div>
+	                    </td>
+	                    <td class="four columns">
+	                        <div class="number">
+	                            <span class="total_correct">0</span> / <span class="total_answered">0</span>
+	                        </div>
+	                        <div class="text">
+	                            Overall Average
+	                        </div>
+	                        <div class="percent score negative">
+	                            <span class="average_score">0</span>%
+	                        </div>
+	                    </td>
+	                    <td class="four columns last">
+	                        <div class="number">
+	                            <span class="skipped">0</span>
+	                        </div>
+	                        <div class="text">
+	                            Skipped
+	                        </div>
+	                        <div class="percent" style="visibility:hidden">
+	                            <span class="current_score"></span>%
+	                        </div>
+	                    </td>
+	                </tr>
+	            </table>
+        	</div>
+		</div>
+	</div>
+	<div class="fcc-panel exam-history weak collapsed">
+		<div class="title">Weak Areas<div class="section-collapse">collapse <i class="icon-chevron-down"></i></div></div>
+		<div class="content" style="display:none">
+			<table class="weak-areas">
+				<tr class="row table-header">
+					<td class="six columns">Topic</td>
+					<td class="one columns">Average</td>
+					<td class="five columns"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+	<div class="six columns">
+		<div class="fcc-panel exam-history unseen collapsed">
+			<div class="title">Unseen vs Seen<div class="section-collapse">collapse <i class="icon-chevron-down"></i></div></div>
+			<div class="content pie" style="display:none">
+				<div id="flot-donut1" class="graph"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="six columns">
+		<div class="fcc-panel exam-history learned collapsed">
+			<div class="title">Weak vs Learned<div class="section-collapse">collapse <i class="icon-chevron-down"></i></div></div>
+			<div class="content pie" style="display:none">
+				<div id="flot-donut2" class="graph"></div>
+			</div>
 		</div>
 	</div>
 	<?php
@@ -334,8 +340,6 @@ function showLeaderBoard() {
 				<table>
 					<tr class="row table-header">
 						<td class="two columns">User</td>
-						<!--<div class="one columns">Exam ID</div>-->
-						<!--<div class="two columns">Element</div>-->
 						<td class="two columns">Score</td>
 						<td class="eight columns">Time</td>
 					</tr>
@@ -349,8 +353,6 @@ function showLeaderBoard() {
 										echo get_user_meta($user->ID,'nickname',true); 
 									?>
 								</td>
-								<!--<div class="one columns"><?php echo $row["exam_id"] ?></div>-->
-								<!--<div class="two columns"><?php echo $row["element_id"] ?></div>-->
 								<td class="two columns"><?php echo $row["score"] ?>%</td>
 								<td class="eight columns"><?php echo $row["total_time"] ?></td>
 							</tr>
@@ -365,28 +367,26 @@ function showLeaderBoard() {
 }//end showLeaderboard()
 
 function showProfile(){
+	$current_user = wp_get_current_user();
+	$current_user_id = $current_user->ID;
 	?>
-	<div class="fcc-panel">
-		<div class="title">My Profile<div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
+	<div class="fcc-panel progress_report">
+		<div class="title">Progress Report<div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
 		<div class="content">
 			<div class="row">
+				<div id="progress-report" class="<?php echo $current_user_id; ?>"></div>
 			</div>
 		</div>
 	</div>
 
-	<div class="fcc-panel">
-		<div class="title">Progress Report<div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
-		<div class="content">
-			<div class="row"></div>
+	<div class="fcc-panel collapsed">
+		<div class="title">My Profile<div class="section-collapse">collapse <i class="icon-chevron-down"></i></div></div>
+		<div class="content" style="display:none">
+			<div class="row">
+				<?php echo do_shortcode('[pmpro_account]'); ?>
+			</div>
 		</div>
 	</div>
-
-<!-- 	<div class="fcc-panel">
-		<div class="title">Membership Account<div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
-		<div class="row">
-			<?php# echo do_shortcode('[pmpro_account]'); ?>
-		</div>
-	</div> -->
 
 	<div class="fcc-panel">
 		<div class="title">Forms<div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>

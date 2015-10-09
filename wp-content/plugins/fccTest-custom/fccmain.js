@@ -23,6 +23,19 @@ jQuery(function($){
     var prev_time = 0;
     var seen;
     var percent_progress = num_answered / exam_length;
+    var data_threshold = 0;
+    var E1 = { A: "Rules & Regulations", B: "Communications Procedures", C: "Equipment Operations", D: "Other Equipment"};
+    var E3 = { A: "Principles", B: "Electrical Math", C: "Components", D: "Circuits", E: "Digital Logic", F: "Receivers", G: "Transmitters", H: "Modulation", I: "Power Sources", J: "Antennas", K: "Aircraft", L: "Installation, Maintenance & Repair", M: "Communications Technology", N: "Marine", O: "RADAR", P: "Satellite", Q: "Safety"};
+    var E7 = { A: "General Information and System Overview", B: "Principles of Communications", C: "F.C.C. Rules & Regulations", D: "DSC & Alpha-Numeric ID", E: "Distress, Urgency & Safety Communications", F: "Survival Craft Equip & S.A.R.", G: "VHF-DSC Equipment & Communications", H: "Maritime Safety Information (M.S.I.)", I: "Inmarsat Equip. & Comms", J: "MF-HF Equip. and Comms"};
+    var E7R = { A: "General Information and System Overview", B: "F.C.C. Rules & Regulations", C: "DSC & Alpha-Numeric ID Systems", D: "Distress, Urgency & Safety Comms", E: "Survival Craft Equip & S.A.R.", F: "Maritime Safety Information (M.S.I.)", G: "VHF-DSC Equipment & Comms"};
+    var E8 = { A: "RADAR Principles", B: "Transmitting Systems", C: "Receiving Systems", D: "Display & Control Systems", E: "Antenna Systems", F: "Installation, Maintenance & Repair"};
+    var E9 = { A: "VHF-DSC Equipment & Operation", B: "MF-HF-DSC-SITOR (NBDP) Equip. & Ops", C: "Satellite Systems", D: "Other GMDSS Equipment", E: "Power Sources", F: "Other Equipment and Networks", G: "Inspections, Installations and Instruments"};
+
+    if($('#progress-report').length)
+        showProgressReport();
+    if($('#element-history').length){
+        showElementHistory();
+    }
 
     $( "#dialog" ).dialog({ modal: true, show: { effect: "fadeIn", duration: 200 }, autoOpen:false });
     $('.ui-dialog-titlebar').css('display', 'none');
@@ -601,5 +614,243 @@ jQuery(function($){
             $('.score-to-beat').html(current_score);
             $('.score-to-beat').parent().css('color', '#74AC12');
         }
+    }
+
+    function showProgressReport(){
+        var data = [
+            { y: 'Element 1',   prev: "0", last: "0"},
+            { y: 'Element 3',   prev: "0", last: "0"},
+            { y: 'Element 6',   prev: "0", last: "0"},
+            { y: 'Element 7',   prev: "0", last: "0"},
+            { y: 'Element 7R',  prev: "0", last: "0"},
+            { y: 'Element 8',   prev: "0", last: "0"},
+            { y: 'Element 9',   prev: "0", last: "0"}
+        ];
+        var jsonScores = [];
+        var cu = $('#progress-report').attr('class');
+        
+        post_data = {'myAction' : 'getProgressReport','user_id' : cu};
+
+        $.ajax({
+           type: 'post',
+           url: 'ajax.php',
+           data: post_data,
+           dataType: "json",
+           success: function (a) {
+                for (i = 0; i < data.length; i++){
+                    data[i].last = a[i][0]['score0'];
+                    if(a[i].length > 1)
+                        data[i].prev = a[i][1]['score1'];
+                }
+                //console.log(data);
+                open($('.fcc-panel.progress_report'));
+                Morris.Bar({
+                    element: 'progress-report',
+                    data: data,
+                    ymax: 100,
+                    xkey: 'y',
+                    ykeys: ['prev', 'last'],
+                    labels: ['Prev Score', 'Last Score'],
+                    goals: [80],
+                    goalStrokeWidth: 2,
+                    goalLineColors: ['green'],
+                    gridDashed: '--',
+                    barColors: ['#6B9DD0', '#27558A']
+                });
+           }
+        });
+    }
+
+    function showElementHistory(){
+        var data = [];
+        var cu = $('#element-history').attr('class');
+        var ei = $('#element-history .hidden').html();
+        var jsonScores = [];
+        var totalAnswered = 0;
+        var totalCorrect = 0;
+        var totalSkipped = 0;
+        var averageScore = 0;
+
+        post_data = {
+            'myAction'  : 'getElementHistory',
+            'user_id'   : cu,
+            'element_id': ei
+        };
+
+        $.ajax({
+           type: 'post',
+           url: 'ajax.php',
+           data: post_data,
+           dataType: "json",
+           success: function (a) {
+                //console.log(a);
+                if(a.length > 0){
+                    data_threshold = 1;
+                    for (i = 0; i < a.length; i++){
+                        var temp = {};
+                        var tempDate = new Date(a[i].date.substring(0,10)).toDateString();
+                        
+                        temp.i = i+1;
+                        temp.date = tempDate;
+                        temp.correct = a[i].correct;
+                        temp.total = parseInt(a[i].correct) + parseInt(a[i].incorrect) + parseInt(a[i].skipped);
+                        temp.score = a[i].score;
+                        data.push(temp);
+                        totalAnswered += parseInt(temp.total);
+                        totalCorrect += parseInt(temp.correct);
+                        totalSkipped += parseInt(a[i].skipped);
+                    }
+                    if (a.length < 10){
+                        var temp2 = {};
+                        var pad = 10 - a.length;
+                        for (z = 0; z < pad; z++){
+                            temp2.i = i+z+1;
+                            temp2.date = null;
+                            temp2.correct = null;
+                            temp2.total = null;
+                            temp2.score = null;
+                            data.push(temp2);
+                        }
+                    }
+                    averageScore = (totalCorrect / totalAnswered * 100).toFixed(0);
+                    if (averageScore > 70 ){
+                        $('.exam-history .exam-dashboard .percent.score').removeClass('negative');
+                        $('.exam-history .exam-dashboard .percent.score').addClass('positive');
+                    }
+                    $('.exam-history .exam-dashboard .total_correct').html(totalCorrect);
+                    $('.exam-history .exam-dashboard .total_answered').html(totalAnswered);
+                    $('.exam-history .exam-dashboard .average_score').html(averageScore);
+                    $('.exam-history .exam-dashboard .skipped').html(totalSkipped);
+                    
+                    $('.fcc-panel.exam-history.line').animate({ marginBottom: '80px' }, 1000);
+                    open($('.fcc-panel.exam-history.line'));
+                    Morris.Line({
+                        element: 'element-history',
+                        data: data,
+                        ymax: 100,
+                        xkey: 'i',
+                        ykeys: ['score'],
+                        labels: ['Score'],
+                        lineColors: ['#f86638'],
+                        goals: [80],
+                        goalStrokeWidth: 2,
+                        goalLineColors: ['green'],
+                        gridDashed: '--',
+                        hoverCallback: function (index, options, content, row) {
+                            var string = "";
+                            var comment ="";
+                            if(data[index].date != null){
+                                if (data[index].score > 80 )
+                                    comment += "<div class='morris-hover-row-label comment'>Great Job!!</div>";
+                                string += comment + 
+                                    "<div class='morris-hover-row-label'>" + data[index].date.substring(0,10) + "</div>" +
+                                    "<div class='morris-hover-point'>Score: " + data[index].score + "</div>" +
+                                    "<div class='morris-hover-point'>" + data[index].correct + " / " + data[index].total + "</div>";
+                            }
+                            return string;
+                        },
+                        resize: true
+                    });
+
+                }
+                else{
+                    open($('.fcc-panel.exam-history.line'));
+                    $('.exam-history #element-history').append("<div class='row error-msg'><div class='twelve columns'>No exams found...</div></div>");
+                }
+                showWeakAreas();
+           }
+        });
+    }
+
+    function showWeakAreas(){
+        var cu = $('#element-history').attr('class');
+        var ei = $('#element-history .hidden').html();
+        var useArray = [];
+        switch(ei){
+            case "E1": useArray = E1; break;
+            case "E3": useArray = E3; break;
+            case "E7": useArray = E7; break;
+            case "E7R": useArray = E7R; break;
+            case "E8": useArray = E8; break;
+            case "E9": useArray = E9; break;
+            default: $('.fcc-panel.weak').css('display', 'none'); break;
+        }
+
+        post_data = {
+            'myAction'  : 'getWeakAreas',
+            'user_id'   : cu,
+            'element_id': ei
+        };
+
+        $.ajax({
+           type: 'post',
+           url: 'ajax.php',
+           data: post_data,
+           dataType: "json",
+           success: function (a) {
+                var totalUnseen = a.poolSize - a.totalSeen;
+                var totalStrong = a.totalSeen - a.totalWeak;
+                if (data_threshold > 0){
+                    $.each(a[0], function(index, value) {
+                        if (this.score < 70) var status = 'negative';
+                            else var status = 'positive'; 
+                        $('.exam-history .weak-areas').append('<tr class="row" id="'+this.topic+'"><td class="six columns">'+this.topic+': '+useArray[this.topic]+'</td> <td class="score '+status+' one columns">'+this.score+'%</td> <td class="graph five columns"><div id="progressBar"><div></div></div></td></tr>');
+                        var div = "#" + this.topic + " #progressBar";
+                        progress(this.score, $(div));
+                    });
+                    $('.exam-history .exam-dashboard .total_unseen').html(totalUnseen);
+                    showPieCharts(totalUnseen, a.totalSeen, a.totalWeak, totalStrong);
+                }
+                else{
+                    $.each(useArray, function(index, value) {
+                        $('.exam-history .weak-areas').append('<tr class="row" id="'+index+'"><td class="six columns">'+index+': '+value+'</td> <td class="score negative one columns">0%</td> <td class="graph five columns"><div id="progressBar"><div></div></div></td></tr>');
+                    });
+                    $('.exam-history .content.pie .graph').append("<div class='row error-msg'><div class='twelve columns'>No exams found...</div></div>");
+                }
+                open($('.exam-history.weak'));
+           }
+        });
+    }
+
+    function showPieCharts(unseen, seen, weak, strong){
+        var data = [ { label: "Unseen", data: unseen},{ label: "Seen", data: seen} ];
+        var data2 = [ { label: "Weak", data: weak},{ label: "Learned", data: strong} ];
+        
+        open($('.exam-history.unseen'));
+        open($('.exam-history.learned'));
+        jQuery.plot($("#flot-donut1"), data, {
+            series: {
+                pie: { 
+                    innerRadius: 0.3,
+                    show: true, 
+                    label: { show: true }
+                }
+            },
+            legend: { show:false },
+            colors: [ '#6B9DD0', '#27558A']
+        });
+        jQuery.plot($("#flot-donut2"), data2, {
+            series: {
+                pie: { 
+                    innerRadius: 0.3,
+                    show: true,
+                    label: { show: true }
+                }
+            },
+            legend: { show:false },
+            colors: [ '#6B9DD0', '#27558A']
+        });
+    }
+
+    function progress(percent, $element) {
+        var progressBarWidth = percent * $element.width() / 100;
+        $element.find('div').delay(2000).animate({ width: progressBarWidth }, 1000);
+    }
+
+    function open(div){
+        div.children('.content').slideToggle("slow");
+        div.removeClass('collapsed');
+        div.find('i').removeClass('icon-chevron-down');
+        div.find('i').addClass('icon-chevron-up');
     }
 });

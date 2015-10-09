@@ -64,6 +64,9 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 .sidr ul li.current-menu-item > a {background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%);color: white;text-shadow: 1px 1px #436A8B;box-shadow:none;}
 .sidr ul li a:hover{background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%); color:white;text-shadow: 1px 1px #436A8B;box-shadow:none !important;}
 #menu-sidebar-menu .sub-menu li a .menu-icon {float:left;}
+#menu-sidebar-menu .sub-menu .sub-menu li a {background:#DBE0E5;box-shadow:none;line-height:38px;border-top: 1px solid #CCC;padding-left: 50px;}
+#menu-sidebar-menu .sub-menu .sub-menu li:last-of-type a {border-bottom: 1px solid #CCC;}
+#menu-sidebar-menu .sub-menu .sub-menu li a:hover, #menu-sidebar-menu .sub-menu .sub-menu li.current-menu-item a{background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%);}
 
 /*slider container*/
 .slider-container {z-index:1;}
@@ -170,14 +173,18 @@ body.page-template-login{background: transparent url("assets/images/back-pattern
 .my-account-wrapper .columns{padding-left:0px; padding-right:0px;}
 .my-account-wrapper .sidebar-menu{padding-right: 10px; margin-bottom:40px;}
 .my-account-wrapper .sidebar-menu li:first-of-type{border-top: 1px solid #CCC;}
-.my-account-wrapper .sidebar-menu li{border-right: 1px solid #CCC; border-left: 1px solid #CCC; border-bottom: 1px solid #CCC; box-shadow: 0px 0px 0px 1px #FFF inset;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);}
+.my-account-wrapper .sidebar-menu li a{border-right: 1px solid #CCC; border-left: 1px solid #CCC; border-bottom: 1px solid #CCC; box-shadow: 0px 0px 0px 1px #FFF inset;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);}
 .my-account-wrapper .sidebar-menu li a{padding: 15px;display: block;color: #5A5A5A;}
-.my-account-wrapper .sidebar-menu li a:hover{background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%); color:white;text-shadow: 1px 1px #436A8B;}
+.my-account-wrapper .sidebar-menu li a:hover{background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%); color:white;text-shadow: 1px 1px #436A8B; box-shadow:none;}
 .my-account-wrapper .sidebar-menu li a:hover .menu-icon{color:#C0D2E3;}
-.my-account-wrapper .sidebar-menu li.current-menu-item a{background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%); color:white;text-shadow: 1px 1px #436A8B;}
+.my-account-wrapper .sidebar-menu li.current-menu-item a{background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%); color:white;text-shadow: 1px 1px #436A8B; box-shadow:none;}
 .my-account-wrapper .sidebar-menu li.current-menu-item a .menu-icon{color:#C0D2E3;}
 .my-account-wrapper .sidebar-menu li:last-of-type{border-bottom-left-radius: 4px;border-bottom-right-radius: 4px;}
 .my-account-wrapper .sidebar-menu li .menu-icon{float:right;}
+.my-account-wrapper .sidebar-menu .menu-item-has-children .sub-menu {/*display:none;*/}
+.my-account-wrapper .sidebar-menu .menu-item-has-children .sub-menu li a{padding: 10px 40px;background:#DBE0E5;box-shadow:none;}
+.my-account-wrapper .sidebar-menu .menu-item-has-children .sub-menu li.current-menu-item a{background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%);}
+.my-account-wrapper .sidebar-menu .menu-item-has-children .sub-menu li a:hover{background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%); color:white;text-shadow: 1px 1px #436A8B; box-shadow:none;}
 .fcc-panel {border: 1px solid #CCC; border-radius: 4px;margin-left: 10px; margin-bottom:40px;color: #5A5A5A;background:#fff;}
 .fcc-panel .row{padding:15px !important;}
 .fcc-panel .title{border-radius: 4px 4px 0px 0px;border-bottom: 1px solid #CCC;box-shadow: 0px 0px 0px 1px #FFF inset;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);padding: 15px;color: #5A5A5A;}
@@ -192,6 +199,8 @@ body.page-template-login{background: transparent url("assets/images/back-pattern
 
 /*My Account*/
 #pmpro_account .pmpro_box {border-top:none !important;margin:0px !important; padding-top:0px !important;padding-bottom:2em !important;}
+.fcc-panel.progress_report .content{display:none;/*visibility:hidden;*/}
+.fcc-panel.progress_report #progress-report {height:350px;}
 
 /*Exam*/
 .fcc-panel.exam-panel{/*overflow: visible;*/margin-bottom:300px;}
@@ -205,8 +214,9 @@ body.page-template-login{background: transparent url("assets/images/back-pattern
 .exam-container .exam-details .exam-dashboard .percent.positive{font-weight: bold;color: #74AC12;}
 .exam-container .exam-details .exam-dashboard .percent.negative{font-weight: bold;color:#c61e1e;}
 .exam-container .exam-details .exam-dashboard .row{padding: 0px !important;border-radius: 6px;}
+.exam-container .exam-details .exam-dashboard .columns:first-of-type{border-top-left-radius: 6px;border-bottom-left-radius: 6px;}
 .exam-container .exam-details .exam-dashboard .columns{box-shadow: 0px 0px 0px 1px #FFF inset;border-right: 1px solid #CCC;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);padding: 10px;}
-.exam-container .exam-details .exam-dashboard .columns:last-of-type{border-right: none;}
+.exam-container .exam-details .exam-dashboard .columns:last-of-type{border-right: none;border-top-right-radius: 6px;border-bottom-right-radius: 6px;}
 .exam-container .exam-details .exam-controls{padding: 0px 0px 20px 20px;}
 .exam-container .question-container .question.exam-ended{text-align:center; padding-top:100px;font-size: 1.5em;font-weight: 600;}
 #dialog {text-align: center;font-size: 1.2em;}
@@ -220,7 +230,33 @@ body.page-template-login{background: transparent url("assets/images/back-pattern
 .leader-board .row .columns, .exam-history .row .columns{border-right: 1px solid #DDD;padding: 10px 15px !important;color: #8B8B8B;}
 .leader-board .row .columns:last-of-type, .exam-history .row .columns:last-of-type{border-right:none;}
 
-/*Exam History*/
+/*Study Reports*/
+.exam-history .row.error-msg {border-bottom:none;text-align:center;}
+.exam-history .row.error-msg .columns {padding-top:120px !important;}
+.exam-history.line {/*margin-bottom:80px;*/}
+.exam-history .content.line{display:none;/*height:400px;*/}
+.exam-history #element-history {height:350px;}
+.exam-history #element-history .morris-hover .comment{color:green;font-size:15px;}
+.exam-history .exam-dashboard {width: 80%; margin: auto; text-align: center;border: 1px solid #CCC;border-radius: 6px;margin-bottom:-55px;}
+.exam-history .exam-dashboard .number{font-weight: 600;font-size: 1.4em;}
+.exam-history .exam-dashboard .text{text-transform: uppercase;font-size: .7em;}
+.exam-history .exam-dashboard .percent.positive{font-weight: bold;color: #74AC12;}
+.exam-history .exam-dashboard .percent.negative{font-weight: bold;color:#c61e1e;}
+.exam-history .exam-dashboard .row{padding: 0px !important;border-radius: 6px;}
+.exam-history .exam-dashboard .columns:first-of-type{border-top-left-radius: 6px;border-bottom-left-radius: 6px;}
+.exam-history .exam-dashboard .columns{box-shadow: 0px 0px 0px 1px #FFF inset;border-right: 1px solid #CCC;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);padding: 10px;}
+.exam-history .exam-dashboard .columns:last-of-type{border-right: none;border-top-right-radius: 6px;border-bottom-right-radius: 6px;}
+
+.exam-history.weak .score {text-align: center; font-weight: bold;}
+.exam-history.weak .score.negative {color: #c61e1e;}
+.exam-history.weal .score.positive {color: #74AC12;}
+.exam-history.weak #progressBar {width: 400px; height: 22px; border: 1px solid #CCC; background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%); }
+.exam-history.weak #progressBar div {height: 100%; color: #fff; text-align: right; line-height: 22px; width: 0; background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%); }
+.exam-history.weak .row .columns {float:none;}
+
+.exam-history .content.pie{display:block;}
+.exam-history #flot-donut1, .exam-history #flot-donut2 { height:300px;width:100%; }
+
 
 /*Edit Profile*/
 #edit-profile .login form {background-color:#fff !important; color: #5A5A5A; padding:5px;}

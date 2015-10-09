@@ -25,14 +25,16 @@ add_action('admin_init', 'admin_init');// Admin sub-menu
 add_action('admin_menu', 'add_page');
 
 function fcc_load_scripts(){
-    wp_enqueue_style( 'fcccss', '/wp-content/plugins/fccTest-custom/styles.css' );
-    #wp_enqueue_style( 'concrete', '/wp-content/plugins/fccTest-custom/concrete.css' );
-    #wp_enqueue_style( 'whgg', '/wp-content/plugins/fccTest-custom/whhg.css' );
-    wp_enqueue_script( 'jqueryui', '//code.jquery.com/ui/1.11.4/jquery-ui.js' );
+   wp_enqueue_style( 'fcccss', '/wp-content/plugins/fccTest-custom/styles.css' );
+   wp_enqueue_script( 'jqueryui', '//code.jquery.com/ui/1.11.4/jquery-ui.js' );
     wp_enqueue_style( 'jqueryuitheme', '//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css' );
-    wp_enqueue_script( 'fccjs', '/wp-content/plugins/fccTest-custom/fccmain.js' );
-    #wp_enqueue_script( 'bootstrap', '/wp-content/plugins/fccTest-custom/bootstrap/js/bootstrap.min.js' );
-    #wp_enqueue_style( 'bootstrapcss', '/wp-content/plugins/fccTest-custom/bootstrap/css/bootstrap.css' );
+   wp_enqueue_script( 'fccjs', '/wp-content/plugins/fccTest-custom/fccmain.js' );
+    wp_enqueue_script( 'raphael', '/wp-content/plugins/fccTest-custom/jquery.raphael/raphael-min.js' );
+    wp_enqueue_script( 'morris', '/wp-content/plugins/fccTest-custom/jquery.morris/morris.js' );
+    wp_enqueue_style( 'morriscss', '/wp-content/plugins/fccTest-custom/jquery.morris/morris.css' );
+    wp_enqueue_script( 'flot', '/wp-content/plugins/fccTest-custom/flot/jquery.flot.min.js' );
+    wp_enqueue_script( 'flotpie', '/wp-content/plugins/fccTest-custom/flot/jquery.flot.pie.js' );
+    //wp_enqueue_script( 'date', '/wp-content/plugins/fccTest-custom/date.js' );
 }
 
 function admin_init() {

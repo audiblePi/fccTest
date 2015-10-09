@@ -4,6 +4,8 @@ jQuery(function($){
 	$(window).resize(function() {adjustColumns();});
 	$(window).load(function() {adjustColumns();fade();});
 	$(window).scroll(function() {fade();});
+	$('.sidebar-menu .menu-item-has-children > a, #menu-sidebar-menu .sub-menu .menu-item-has-children > a').attr('onclick', 'return false');
+	$('.sidebar-menu .menu-item-has-children > a').click(function(){$('.sidebar-menu .menu-item-has-children .sub-menu').slideToggle(200);});
     $('.footer').css( 'opacity', 0 );
 	$('.mobile-menu-wrapper').sidr({side: 'right'});
     $('#user_login').attr('placeholder', 'Username');
@@ -50,7 +52,7 @@ jQuery(function($){
 
 	if($('.sidebar-menu').length){
 		var i =0;
-		$('.sidebar-menu #menu-dashboard-menu li a').each(function(){
+		$('.sidebar-menu #menu-dashboard-menu > li > a').each(function(){
 			$(this).append( "<span class='menu-icon'><i class='"+sidebar_icons[i]+"'></i></span>" );
 			i++;
 		});

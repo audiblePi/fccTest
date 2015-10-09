@@ -6,11 +6,14 @@ if (isset($_POST['myAction']))
 {    
     $action = $_POST['myAction'];
     switch($action) {
-        case 'start'    : start();break;//weak areas //missed retake //previous
-        case 'init'     : mySave(0);break;
-        case 'update'   : mySave(1);break;
-        case 'getArray' : getArray();break;
-        case 'dontResume': dontResume();break;
+        case 'start'            : start();break;//weak areas //missed retake //previous
+        case 'init'             : mySave(0);break;
+        case 'update'           : mySave(1);break;
+        case 'getArray'         : getArray();break;
+        case 'dontResume'       : dontResume();break;
+        case 'getProgressReport': getProgressReport(); break;
+        case 'getElementHistory': getElementHistory(); break;
+        case 'getWeakAreas'     : getWeakAreas(); break;
     }
 }
 
@@ -292,5 +295,182 @@ function getArray(){
     $sArray = unserialize($questionArray);
     $jsonArray = json_encode($sArray);
     echo $jsonArray;
+    exit();
+}
+
+function getProgressReport() {
+    $current_user = $_POST['user_id'];
+    $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+    $elements =  array("E1", "E3", "E6", "E7", "E7R", "E8", "E9");
+    $scores = array();
+    foreach ($elements as $e){
+        $result = $conn->query("SELECT score
+                                FROM wp_fccTest_custom_exams 
+                                WHERE user_id = $current_user
+                                AND element_id = '$e'
+                                AND simulated = 1
+                                AND missed_retake = 0
+                                AND status = 1
+                                ORDER BY date 
+                                DESC LIMIT 2;")
+                                OR DIE(mysqli_error($conn));
+        $row = $result->fetch_array();
+        $i = 0;
+        $data =array();
+        do {
+            $data[$i] = array (
+                'score'.$i => $row['score'],
+            );
+            $i++;
+        }
+        while ($row = $result->fetch_array());
+        $scores[] = $data;
+    }
+    echo json_encode($scores);
+    exit();
+}
+
+function getElementHistory() {
+    $current_user = $_POST['user_id'];
+    $element_id = $_POST['element_id'];
+    $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+    $scores = array();
+    $dates = array();
+    $result = $conn->query("SELECT score, correct, incorrect, skipped, date
+                            FROM wp_fccTest_custom_exams 
+                            WHERE user_id = $current_user
+                            AND element_id = '$element_id'
+                            AND incorrect + correct > 10
+                            ORDER BY date 
+                            ASC")
+                            OR DIE(mysqli_error($conn));
+    $row = $result->fetch_array();
+    if($row) {
+        do {
+            $data = array (
+                'score' => $row['score'],
+                'correct' => $row['correct'],
+                'incorrect' => $row['incorrect'],
+                'skipped' => $row['skipped'],
+                'date' => $row['date']
+            );
+            $scores[] = $data;
+        }
+        while ($row = $result->fetch_array());
+    }
+    echo json_encode($scores);
+    exit();
+}
+
+function getWeakAreas(){
+    $current_user = $_POST['user_id'];
+    $element_id = $_POST['element_id'];
+    $seenQuestions = array();
+    $weakAreas = array();
+    $temp = array();
+    $num_subtopics;
+    $pool_size;
+    $subtopic_array = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q');
+    switch($element_id) {
+        case 'E1' : $pool_size = 144;$num_subtopics = 4;break;
+        case 'E3' : $pool_size = 600;$num_subtopics = 17;break;
+        case 'E6' : $pool_size = 616;$num_subtopics = 1;break;
+        case 'E7' : $pool_size = 600;$num_subtopics = 10;break;
+        case 'E7R': $pool_size = 300;$num_subtopics = 7;break;
+        case 'E8' : $pool_size = 300;$num_subtopics = 6;break;
+        case 'E9' : $pool_size = 300;$num_subtopics = 7;break;                      
+    }
+    $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+    
+    $result = $conn->query("SELECT * FROM wp_fccTest_custom_exams 
+                            WHERE wp_fccTest_custom_exams.user_id = '$current_user' 
+                            AND wp_fccTest_custom_exams.element_id = '$element_id';") 
+                            OR DIE(mysqli_error($conn));
+    $row = $result->fetch_array();
+
+    if($row) {
+        do $temp[] = $row['questions'];
+        while ($row = $result->fetch_array());
+
+        foreach ($temp as $v){
+            $t = unserialize($v);
+            foreach ($t as $s){
+                //var_dump($s['grade']);
+                if( $s['grade'] != -777){
+                    $key = array_search($s['question_number'], array_column($seenQuestions, 'question_number'));
+
+                    $i = 0;
+                    $c = 0;
+                    $sk = 0;
+                    $sc = 0;
+                    $topic = "0";
+                    if ($key === false) {
+                        switch($s['grade']){
+                            case '0' : $i = 1;break;
+                            case '1' : $c = 1;break;
+                            case '-1': $sk = 1;break;
+                        }
+                        $data = array (
+                            'question_number' => $s['question_number'],
+                            'correct' => $c,
+                            'incorrect' => $i,
+                            'skipped' => $sk,
+                            'score' => $sc,
+                            'seen' => 1
+                        );
+                        $seenQuestions[] = $data ;
+                    }
+                    else if ($key >= 0){
+                        switch($s['grade']){
+                            case '0' : $seenQuestions[$key]['incorrect']++;break;
+                            case '1' : $seenQuestions[$key]['correct']++;break;
+                            case '-1': $seenQuestions[$key]['skipped']++;break;
+                        }
+                        $total_answered = $seenQuestions[$key]['correct'] + $seenQuestions[$key]['incorrect'];
+                        if ($total_answered)
+                            $sc = number_format(($seenQuestions[$key]['correct']/$total_answered)*100);
+                        $seenQuestions[$key]['score'] = $sc;
+                        $seenQuestions[$key]['seen']++;
+                    }
+                }
+            }
+        }
+        foreach ($seenQuestions as $f){
+            if ($f['score'] < 70)
+                $weakAreas[] = $f;
+        }
+    }
+
+    $data = array (
+        'totalSeen' => count($seenQuestions),
+        'totalWeak' => count($weakAreas),
+        'poolSize'  => $pool_size
+    );
+
+    $subtopics = array();
+    for  ($i=0; $i<$num_subtopics; $i++){
+        $subtopic_id = $subtopic_array[$i];
+        $correct = 0;
+        $answered = 0;
+        foreach ($weakAreas as $wa){
+            if (substr($wa['question_number'], -2, -1) === $subtopic_id ){
+                $answered += $wa['seen'];
+                $correct += $wa['correct'];
+            }
+        }
+        if($answered > 1)
+            $score = number_format(($correct/$answered)*100);
+        else $score = 0;
+        $temp = array (
+            'topic' => $subtopic_id,
+            'correct' => $correct,
+            'answered' => $answered,
+            'score' => $score
+        );
+        $subtopics[] = $temp;
+    }
+    $data[] = $subtopics;
+
+    echo json_encode($data);
     exit();
 }

@@ -298,7 +298,8 @@
 			data[i] = { label: "Series"+(i+1), data: Math.floor(Math.random()*100)+1 }
 		}
 	
-		
+		console.log(series);
+		console.log(data);
 		$.plot($("#flot-pie-square"), data, {
 
 			series: {
@@ -351,8 +352,8 @@
 			}
 		});
 
-		//$("#flot-pie-normal").bind("plothover", pieHover);
-		//$("#flot-pie-normal").bind("plotclick", pieClick);
+		$("#flot-pie-normal").bind("plothover", pieHover);
+		$("#flot-pie-normal").bind("plotclick", pieClick);
 	
 	}
 	

@@ -32,7 +32,7 @@ class Exam
 	public $seen = 0;
 	public $scoreToBeat =0;
 	public $quick50; 
-	
+
 	public function __construct($id, $e, $s, $sim, $wa, $mr, $r, $q){
 		$this->user_id = $id;
 		$this->element_id = $e;
