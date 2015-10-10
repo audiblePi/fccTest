@@ -788,7 +788,12 @@ jQuery(function($){
            data: post_data,
            dataType: "json",
            success: function (a) {
-                var totalUnseen = a.poolSize - a.totalSeen;
+                //console.log(a);
+                var totalUnseen;
+                if (a.totalSeen > a.poolSize)
+                    totalUnseen = 0;
+                else
+                    totalUnseen = a.poolSize - a.totalSeen;
                 var totalStrong = a.totalSeen - a.totalWeak;
                 if (data_threshold > 0){
                     $.each(a[0], function(index, value) {
