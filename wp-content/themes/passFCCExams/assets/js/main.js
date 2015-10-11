@@ -118,12 +118,12 @@ function openExam(){
 		var panel = $('.fcc-panel.exam-options-panel');
 		var exam_panel = $('.fcc-panel.exam-panel');
         panel.children('.content').slideUp("slow");
-		panel.removeClass('collapsed');
+		panel.addClass('collapsed');
 		panel.find('i').removeClass('icon-chevron-down');
 		panel.find('i').addClass('icon-chevron-up');
         
     	exam_panel.children('.content').slideDown("slow");
-		exam_panel.addClass('collapsed');
+		exam_panel.removeClass('collapsed');
 		exam_panel.find('i').removeClass('icon-chevron-up');
 		exam_panel.find('i').addClass('icon-chevron-down');
  		

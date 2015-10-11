@@ -722,7 +722,7 @@ jQuery(function($){
                     $('.exam-history .exam-dashboard .average_score').html(averageScore);
                     $('.exam-history .exam-dashboard .skipped').html(totalSkipped);
                     
-                    $('.fcc-panel.exam-history.line').animate({ marginBottom: '80px' }, 1000);
+                    $('.panel-wrapper.line').animate({ marginBottom: '80px' }, 1000);
                     open($('.fcc-panel.exam-history.line'));
                     Morris.Line({
                         element: 'element-history',
