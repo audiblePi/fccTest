@@ -754,6 +754,7 @@ jQuery(function($){
 
                 }
                 else{
+                    $('.panel-wrapper.line').animate({ marginBottom: '80px' }, 1000);
                     open($('.fcc-panel.exam-history.line'));
                     $('.exam-history #element-history').append("<div class='row error-msg'><div class='twelve columns'>No exams found...</div></div>");
                 }
@@ -773,7 +774,7 @@ jQuery(function($){
             case "E7R": useArray = E7R; break;
             case "E8": useArray = E8; break;
             case "E9": useArray = E9; break;
-            default: $('.fcc-panel.weak').css('display', 'none'); break;
+            default: $('.panel-wrapper.weak').css('display', 'none'); break;
         }
 
         post_data = {
@@ -811,6 +812,8 @@ jQuery(function($){
                         $('.exam-history .weak-areas').append('<tr class="row" id="'+index+'"><td class="six columns">'+index+': '+value+'</td> <td class="score negative one columns">0%</td> <td class="graph five columns"><div id="progressBar"><div></div></div></td></tr>');
                     });
                     $('.exam-history .content.pie .graph').append("<div class='row error-msg'><div class='twelve columns'>No exams found...</div></div>");
+                    open($('.exam-history.unseen'));
+                    open($('.exam-history.learned'));
                 }
                 open($('.exam-history.weak'));
            }

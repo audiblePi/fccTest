@@ -194,7 +194,7 @@ function showInterface($atts){
 		</div>
 		<div class="shadow"></div>
 	</div>
-	<div class="panel-wrapper">
+	<div class="panel-wrapper exam">
 		<div class="fcc-panel exam-panel collapsed">
 			<div class="title"><span class="the-title">Exam</span><div class="section-collapse">collapse <i class="icon-chevron-down"></i></div></div>
 			<div class="content" >
@@ -298,7 +298,7 @@ function showProfileStats($atts) {
 		</div>
 		<div class="shadow"></div>
 	</div>
-	<div class="panel-wrapper">
+	<div class="panel-wrapper weak">
 		<div class="fcc-panel exam-history weak collapsed">
 			<div class="title">Weak Areas<div class="section-collapse">collapse <i class="icon-chevron-down"></i></div></div>
 			<div class="content" style="display:none">

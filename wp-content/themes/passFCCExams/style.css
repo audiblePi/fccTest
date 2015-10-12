@@ -148,13 +148,14 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 
 /*Login*/
 body.page-template-login{background: transparent url("assets/images/back-pattern.png") repeat scroll 0% 0%;}
-.page-template-login .header1{/*visibility:hidden;*/display:none;}
-.page-template-login .header2{visibility:hidden;/*display:none;*/}
-.page-template-login .footer{/*visibility:hidden;*/display:none;}
+body.page-template-login .panel-wrapper{width:280px; margin:auto;}
+.page-template-login .header1{display:none;}
+.page-template-login .header2{visibility:hidden;}
+.page-template-login .footer{display:none;}
 .page-template-login .logo img{margin: 20px auto;width: 280px;display: block;}
-.page-template-login .login-wrapper{width: 280px;margin: auto;border: 1px solid #CCC;border-radius: 4px;background: #fff;}
+.page-template-login .login-wrapper{border: 1px solid #CCC;border-radius: 4px;background: #fff;}
 .page-template-login .login-wrapper .login-title{border-bottom: 1px solid #CCC;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);border-top-left-radius: 4px;border-top-right-radius: 4px;box-shadow: 0px 0px 0px 1px #FFF inset;padding: 15px 20px;}
-.page-template-login .login-wrapper #loginform{background-color: #fff !important;padding:15px;}
+.page-template-login .login-wrapper #loginform{background-color: #fff !important;padding:15px;border-radius: 4px;}
 .page-template-login .login-wrapper p{margin:0px;}
 .page-template-login .login-wrapper #loginform label{display:none;}
 .page-template-login .login-wrapper #loginform #user_login, .page-template-login .login-wrapper #loginform #user_pass{max-width:100%;width:100%;border-radius:4px;    border: 1px solid #D0D0D0;box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2) inset, 1px 2px 3px 0px rgba(0, 0, 0, 0.1); padding: 10px; color: #565656;}
@@ -189,7 +190,6 @@ body.page-template-login{background: transparent url("assets/images/back-pattern
 .panel-wrapper {margin-bottom:25px;}
 .panel-wrapper.columns{padding-right:10px;}
 .panel-wrapper.columns:last-of-type{padding-left:10px;}
-
 .panel-wrapper .shadow {height: 3px; border-bottom: 1px solid #ccc; border-left: 1px solid #ccc; border-right: 1px solid #ccc; margin: 0 4px 0 4px; border-radius: 0 0 4px 4px; background:#fff;position:relative;z-index:-1;}
 .fcc-panel {border: 1px solid #CCC; border-radius: 4px;/*margin-left: 10px;*/ color: #5A5A5A;background:#fff;}
 .fcc-panel.collapsed .title{border-radius:4px;margin-bottom:-1px;}
@@ -210,6 +210,7 @@ body.page-template-login{background: transparent url("assets/images/back-pattern
 .fcc-panel.progress_report #progress-report {height:350px;}
 
 /*Exam*/
+.panel-wrapper.exam{margin-bottom:100px;}
 .fcc-panel.exam-panel{/*overflow: visible;*//*margin-bottom:300px;*/}
 .fcc-panel.exam-panel .content{display:none;}
 .exam-container .exam-details {overflow: visible;}
@@ -246,8 +247,8 @@ body.page-template-login{background: transparent url("assets/images/back-pattern
 .exam-history #element-history {height:350px;}
 .exam-history #element-history .morris-hover .comment{color:green;font-size:15px;}
 .exam-history .exam-dashboard {width: 80%; margin: auto; text-align: center;border: 1px solid #CCC;border-radius: 6px;margin-bottom:-55px;}
-.exam-history .exam-dashboard .number{font-weight: 600;font-size: 1.4em;}
-.exam-history .exam-dashboard .text{text-transform: uppercase;font-size: .7em;}
+.exam-history .exam-dashboard .number{font-weight: 600;font-size: 1.4em;color:#5a5a5a;}
+.exam-history .exam-dashboard .text{text-transform: uppercase;font-size: .7em;color:#5a5a5a;}
 .exam-history .exam-dashboard .percent.positive{font-weight: bold;color: #74AC12;}
 .exam-history .exam-dashboard .percent.negative{font-weight: bold;color:#c61e1e;}
 .exam-history .exam-dashboard .row{padding: 0px !important;border-radius: 6px;}
@@ -257,8 +258,8 @@ body.page-template-login{background: transparent url("assets/images/back-pattern
 
 .exam-history.weak .score {text-align: center; font-weight: bold;}
 .exam-history.weak .score.negative {color: #c61e1e;}
-.exam-history.weal .score.positive {color: #74AC12;}
-.exam-history.weak #progressBar {width: 400px; height: 22px; border: 1px solid #CCC; background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%); }
+.exam-history.weak .score.positive {color: #74AC12;}
+.exam-history.weak #progressBar {width: 300px; height: 22px; border: 1px solid #CCC; background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%); }
 .exam-history.weak #progressBar div {height: 100%; color: #fff; text-align: right; line-height: 22px; width: 0; background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%); }
 .exam-history.weak .row .columns {float:none;}
 
