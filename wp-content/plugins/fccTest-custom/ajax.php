@@ -124,7 +124,7 @@ function start(){
             <div class="question exam-ended">
                 <div>Exam Ended</div>
                 <div class="new-high-score"></div>
-                <button class="retake">Missed Retake</button> 
+                <button class="retake">Missed Retake</button>
             </div> 
         </div>
         <div class="exam-controls">
@@ -340,7 +340,7 @@ function getElementHistory() {
                             FROM wp_fccTest_custom_exams 
                             WHERE user_id = $current_user
                             AND element_id = '$element_id'
-                            AND incorrect + correct > 10
+                            AND incorrect + correct > 5
                             ORDER BY date 
                             ASC")
                             OR DIE(mysqli_error($conn));
@@ -431,7 +431,7 @@ function getWeakAreas(){
                                 case '1' : $seenQuestions[$key]['correct']++;break;
                                 case '-1': $seenQuestions[$key]['skipped']++;break;
                             }
-                            $total_answered = $seenQuestions[$key]['correct'] + $seenQuestions[$key]['incorrect'];
+                            $total_answered = $seenQuestions[$key]['correct'] + $seenQuestions[$key]['incorrect'] + $seenQuestions[$key]['skipped'];
                             if ($total_answered)
                                 $sc = number_format(($seenQuestions[$key]['correct']/$total_answered)*100);
                             $seenQuestions[$key]['score'] = $sc;
@@ -476,7 +476,7 @@ function getWeakAreas(){
         $subtopics[] = $temp;
     }
     $data[] = $subtopics;
-    //var_dump($weakAreas);
+    //var_dump($seenQuestions);
     echo json_encode($data);
     exit();
 }

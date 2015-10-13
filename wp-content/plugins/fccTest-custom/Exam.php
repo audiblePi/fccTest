@@ -260,8 +260,8 @@ class Exam
 		}
 		if (count($this->weakAreas) > 0)
 			$this->createStudyExam(1);
-		else 
-			echo "We do not have enough data to determine your weak areas.  Please practice some more questions.";
+		// else 
+		// 	echo "We do not have enough data to determine your weak areas.  Please practice some more questions.";
 	}
 
 	public function determineSeenQuestions(){

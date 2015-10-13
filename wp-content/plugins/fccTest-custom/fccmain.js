@@ -286,6 +286,14 @@ jQuery(function($){
                     var temp = $(".element-id option[value='"+element_id+"']").text()
                     $('.exam-panel .title .the-title').html(temp);
                 }
+                if (exam_length == 0){
+                    if (missed_retake == 1)
+                        $('.question.exam-ended').html("<div>No missed questions to retake!</div>");
+                    else if (weak_areas == 1)
+                        $('.question.exam-ended').html("<div>No weak areas to review!</div>");
+                        else 
+                            $('.question.exam-ended').html("<div>No questions found..</div>");
+                }
            }
         });
         $('.pre-loader').css('display', 'block');
