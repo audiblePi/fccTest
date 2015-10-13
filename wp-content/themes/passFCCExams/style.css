@@ -192,7 +192,6 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 .my-account-wrapper .sidebar-menu .menu-item-has-children .sub-menu li a{padding: 10px 40px;background:#DBE0E5;box-shadow:none;}
 .my-account-wrapper .sidebar-menu .menu-item-has-children .sub-menu li.current-menu-item a{background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%);}
 .my-account-wrapper .sidebar-menu .menu-item-has-children .sub-menu li a:hover{background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%); color:white;text-shadow: 1px 1px #436A8B; box-shadow:none;}
-
 	 
 .panel-wrapper {margin-bottom:25px;}
 .panel-wrapper.columns{padding-right:10px;}
@@ -215,7 +214,12 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 #pmpro_account .pmpro_box {border-top:none !important;margin:0px !important; padding-top:0px !important;padding-bottom:2em !important;}
 .fcc-panel.progress_report .content{display:none;/*visibility:hidden;*/}
 .fcc-panel.progress_report #progress-report {height:350px;}
-
+.fcc-panel.profile .table-header .columns{font-weight: 600;box-shadow: 0px 0px 0px 1px #FFF inset;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);color: #5A5A5A !important;}
+.fcc-panel.profile .row{border-bottom: 1px solid #DDD;padding:0px !important;}
+.fcc-panel.profile .row:last-of-type{border-bottom:none;}
+.fcc-panel.profile .row .columns{border-right: 1px solid #DDD;padding: 10px 15px !important;color: #8B8B8B;float:none;}
+.fcc-panel.profile .row .columns:last-of-type{border-right:none;}
+.fcc-panel.profile .row.table-header {border-top:1px solid #DDD; border-bottom:1px solid #DDD;}
 /*Exam*/
 .panel-wrapper.exam{margin-bottom:100px;}
 .fcc-panel.exam-panel{/*overflow: visible;*//*margin-bottom:300px;*/}
@@ -272,7 +276,6 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 
 .exam-history .content.pie{display:block;}
 .exam-history #flot-donut1, .exam-history #flot-donut2 { height:300px;width:100%; }
-
 
 /*Edit Profile*/
 #edit-profile .login form {background-color:#fff !important; color: #5A5A5A; padding:5px;}

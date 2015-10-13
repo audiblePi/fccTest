@@ -396,12 +396,59 @@ function showProfile(){
 	</div>
 
 	<div class="panel-wrapper">
-		<div class="fcc-panel collapsed">
-			<div class="title">My Profile<div class="section-collapse">collapse <i class="icon-chevron-down"></i></div></div>
-			<div class="content" style="display:none">
-				<div class="row">
-					<?php echo do_shortcode('[pmpro_account]'); ?>
-				</div>
+		<div class="fcc-panel profile">
+			<div class="title">My Profile<div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
+			<div class="content">					
+				<table>
+					<tr class="row">
+						<td class="five columns">Username</td>
+						<td class="seven columns"><?php echo $current_user->user_login ?></td>
+					</tr>
+					<tr class="row">
+						<td class="five columns">First Name</td>
+						<td class="seven columns"><?php echo $current_user->first_name ?></td>
+					</tr>
+					<tr class="row">
+						<td class="five columns">Last Name</td>
+						<td class="seven columns"><?php echo $current_user->user_lastname ?></td>
+					</tr>
+					<tr class="row">
+						<td class="five columns">Nickname</td>
+						<td class="seven columns"><?php echo $current_user->nickname ?></td>
+					</tr>
+					<tr class="row">
+						<td class="five columns">E-mail</td>
+						<td class="seven columns"><?php echo $current_user->user_email ?></td>
+					</tr>
+					<tr class="row">
+						<td class="five columns">Website</td>
+						<td class="seven columns"><?php echo $current_user->user_url ?></td>
+					</tr>
+					<tr class="row">
+						<td class="five columns">Occupation</td>
+						<td class="seven columns"><?php echo $current_user->description ?></td>
+					</tr>
+				</table>
+				<table>
+					<tr class="row table-header">
+						<td class="twelve columns">Membership Account Information</td>
+					</tr>
+				</table>
+				<table>
+					<tr class="row">
+						<td class="five columns">Level</td>
+						<td class="seven columns membership-level"></td>
+					</tr>
+					<tr class="row">
+						<td class="five columns">Billing</td>
+						<td class="seven columns memberhsip-billing"></td>
+					</tr>
+					<tr class="row">
+						<td class="five columns">Expiration</td>
+						<td class="seven columns membership-expiration"></td>
+					</tr>
+				</table>
+				<div style="display:none"><?php echo do_shortcode('[pmpro_account]'); ?></div>
 			</div>
 		</div>
 		<div class="shadow"></div>
@@ -420,6 +467,18 @@ function showProfile(){
 		</div>
 		<div class="shadow"></div>
 	</div>
+	<script>
+		jQuery(function($){
+			//hack
+			var membership_level = $('.fcc-panel.profile #pmpro_account .pmpro_account-membership-levelname').html();
+			var membership_billing = $('.fcc-panel.profile #pmpro_account .pmpro_account-membership-levelfee p strong').html();
+			var membership_expiration = $('.fcc-panel.profile #pmpro_account .pmpro_account-membership-expiration').text();
+
+			$('.fcc-panel.profile .membership-level').html(membership_level);
+			$('.fcc-panel.profile .memberhsip-billing').html(membership_billing);
+			$('.fcc-panel.profile .membership-expiration').html(membership_expiration);
+		});
+	</script>
 	<?php
 }
 ?>

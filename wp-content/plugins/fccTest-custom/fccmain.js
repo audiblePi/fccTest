@@ -626,13 +626,13 @@ jQuery(function($){
 
     function showProgressReport(){
         var data = [
-            { y: 'Element 1',   prev: "0", last: "0"},
-            { y: 'Element 3',   prev: "0", last: "0"},
-            { y: 'Element 6',   prev: "0", last: "0"},
-            { y: 'Element 7',   prev: "0", last: "0"},
-            { y: 'Element 7R',  prev: "0", last: "0"},
-            { y: 'Element 8',   prev: "0", last: "0"},
-            { y: 'Element 9',   prev: "0", last: "0"}
+            { y: 'Element 1',   diff: "0", last: "0"},
+            { y: 'Element 3',   diff: "0", last: "0"},
+            { y: 'Element 6',   diff: "0", last: "0"},
+            { y: 'Element 7',   diff: "0", last: "0"},
+            { y: 'Element 7R',  diff: "0", last: "0"},
+            { y: 'Element 8',   diff: "0", last: "0"},
+            { y: 'Element 9',   diff: "0", last: "0"}
         ];
         var jsonScores = [];
         var cu = $('#progress-report').attr('class');
@@ -647,8 +647,12 @@ jQuery(function($){
            success: function (a) {
                 for (i = 0; i < data.length; i++){
                     data[i].last = a[i][0]['score0'];
-                    if(a[i].length > 1)
-                        data[i].prev = a[i][1]['score1'];
+                    if(a[i].length > 1){
+                        //calculate percent difference
+                        var diff = a[i][0]['score0'] - a[i][1]['score1'];
+                        var percDiff = (diff/a[i][1]['score1']*100).toFixed(0);
+                        data[i].diff = percDiff;
+                    }
                 }
                 //console.log(data);
                 open($('.fcc-panel.progress_report'));
@@ -657,13 +661,23 @@ jQuery(function($){
                     data: data,
                     ymax: 100,
                     xkey: 'y',
-                    ykeys: ['prev', 'last'],
-                    labels: ['Prev Score', 'Last Score'],
+                    ykeys: ['last'],
+                    labels: ['Current Score'],
                     goals: [80],
                     goalStrokeWidth: 2,
                     goalLineColors: ['green'],
                     gridDashed: '--',
-                    barColors: ['#6B9DD0', '#27558A']
+                    barColors: ['#27558A'],
+                    hoverCallback: function (index, options, content, row) {
+                        var string = "";
+                        var comment ="";
+                        if (data[index].diff > 0 )
+                            comment += "<div class='morris-hover-point' style='color:green'><b>+" + data[index].diff + "%</b></div>";
+                        else if (data[index].diff < 0)
+                            comment += "<div class='morris-hover-point' style='color:red'><b>" + data[index].diff + "%</b></div>";
+                        string += "<div class='morris-hover-row-label'>Score: " + data[index].last + "%</div>" + comment;
+                        return string;
+                    }
                 });
            }
         });
@@ -797,7 +811,7 @@ jQuery(function($){
            data: post_data,
            dataType: "json",
            success: function (a) {
-                console.log(a);
+                //console.log(a);
                 var totalUnseen;
                 if (a.totalSeen > a.poolSize)
                     totalUnseen = 0;
