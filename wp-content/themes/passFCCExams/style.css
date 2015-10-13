@@ -130,7 +130,9 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 #pmpro_levels_table {margin:auto;width:100%;}
 
 /*Page - FAQ*/
-.page-template-default .fcc-panel {margin-left:0px;margin-bottom:20px;}
+.page-template-default .panel-wrapper {margin-bottom:20px;}
+.page-template-default .panel-wrapper ul,.page-template-default .panel-wrapper ol {margin-bottom:10px;}
+.page-template-default .fcc-panel {margin-left:0px;/*margin-bottom:20px;*/}
 .page-template-default .fcc-panel .title {background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%);box-shadow:none; color:#fff;}
 .page-template-default .fcc-panel .section-collapse {color:#fff;}
 .page-template-default .fcc-panel .section-collapse:hover {color:#fff;}
@@ -172,6 +174,10 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 /*Dashboard*/
 .my-account-wrapper {/*padding-top: 20px;*/}
 .my-account-wrapper .columns{padding-left:0px; padding-right:0px;}
+.my-account-wrapper .breadcrumbs-navigation { border:1px solid #ccc;height:45px;line-height:45px;box-shadow:inset 0 0 0px 1px #FFFFFF;background:url('images/back-panel-title.png') repeat-x left bottom;border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px;position:relative; }
+.my-account-wrapper .breadcrumbs-navigation li { float:left;height:45px;background:gold;margin-right:1px;padding:0 25px 0 20px;background:url("images/back-breadcrumbs.png") no-repeat right center; }
+.my-account-wrapper .breadcrumbs-navigation a 	{ color:#5a5a5a;font-size:12px;line-height:45px;font-family:"Droid Sans", Arial, Verdana;font-weight:bold;text-decoration:none; }
+
 .my-account-wrapper .sidebar-menu{padding-right: 10px; margin-bottom:40px;}
 .my-account-wrapper .sidebar-menu li:first-of-type{border-top: 1px solid #CCC;}
 .my-account-wrapper .sidebar-menu li a{border-right: 1px solid #CCC; border-left: 1px solid #CCC; border-bottom: 1px solid #CCC; box-shadow: 0px 0px 0px 1px #FFF inset;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);}
@@ -187,6 +193,7 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 .my-account-wrapper .sidebar-menu .menu-item-has-children .sub-menu li.current-menu-item a{background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%);}
 .my-account-wrapper .sidebar-menu .menu-item-has-children .sub-menu li a:hover{background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%); color:white;text-shadow: 1px 1px #436A8B; box-shadow:none;}
 
+	 
 .panel-wrapper {margin-bottom:25px;}
 .panel-wrapper.columns{padding-right:10px;}
 .panel-wrapper.columns:last-of-type{padding-left:10px;}

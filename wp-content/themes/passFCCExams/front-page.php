@@ -8,7 +8,7 @@
 	<div class="row container-title">
 		<div class="title-divider"></div>
 		<h1>Online Practice Exam Features</h1>
-		<p>Teaches you the answers by providing explanations for all the GROL and radar endorsement questions.</p>
+		<p>If you are looking to prepare and pass your written FCC exam, then our test prep website has several unique features that will make it as easy as possible for you to prepare and pass your FCC written exams.</p>
 	</div>
 	<div class="row">
 		<div class="feature-callouts">

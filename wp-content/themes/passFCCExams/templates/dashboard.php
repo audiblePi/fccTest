@@ -8,8 +8,16 @@ get_header(); ?>
 
 <section id="content-wrapper" class="container my-account-wrapper" role="main">
 	<div class="row">
-		<!-- <div class="fcc-panel side-bar-collapse">
-			<div class="title">Dashboard <div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
+		<!-- <div class="panel-wrapper">
+			<div class="fcc-panel side-bar-collapse">
+				<ul class="breadcrumbs-navigation">
+					<li><a href="#">My Accoune</a></li>
+					<li><a href="#">Simulated Exam</a></li>
+					<li><a href="#">Study Mode</a></li>
+					<li><a href="#">Study Reports</a></li>
+					<li><a href="#">Leader Board</a></li>
+					<li><a href="#">Edit Profile</a></li>
+				</ul>
 			</div>
 		</div> -->
 		<div class="three columns dashboard-sidebar">

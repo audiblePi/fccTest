@@ -59,12 +59,6 @@ class Exam
 			$this->resumeExam();
 		else
 			$this->createStudyExam(0);
-		// foreach ($this->questions as $q){
-		// 	echo $q['question_label']." ".$q['seen']."<br>";
-		// 	// foreach ($q as $w)
-		// 	// 	echo $w['question_label']."<br>";
-		// }
-		#echo "seen: ".$this->seen."/".count($this->questions);
 	}
 
 	public function createStudyExam($flag){
@@ -261,8 +255,6 @@ class Exam
 
 	public function determineWeakAreas(){
 		foreach ($this->seenQuestions as $f){
-			// if ($f['score'] > 70)
-			// 	echo $f['question_number']." ".$f['score']."<br>";
 			if ($f['score'] < 70)
 				$this->weakAreas[] = $f;
 		}
@@ -277,7 +269,9 @@ class Exam
 		$conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 		$result = $conn->query("SELECT * FROM wp_fccTest_custom_exams 
 								WHERE wp_fccTest_custom_exams.user_id = '$this->user_id' 
-								AND wp_fccTest_custom_exams.element_id = '$this->element_id';") 
+								AND wp_fccTest_custom_exams.element_id = '$this->element_id'
+								ORDER BY date 
+                            	DESC") 
 								OR DIE(mysqli_error($conn));
 		$row = $result->fetch_array();
 
@@ -302,6 +296,8 @@ class Exam
 		                        case '1' : $c = 1;break;
 		                        case '-1': $sk = 1;break;
 		                    }
+		                    if ($c == 1)
+                            	$sc = 100;
 		            		$data = array (
 		            			'question_number' => $s['question_number'],
 		            			'correct' => $c,
@@ -313,16 +309,18 @@ class Exam
 		            		$this->seenQuestions[] = $data ;
 		            	}
 		            	else if ($key >= 0){
-							switch($s['grade']){
-			            		case '0' : $this->seenQuestions[$key]['incorrect']++;break;
-		                        case '1' : $this->seenQuestions[$key]['correct']++;break;
-		                        case '-1': $this->seenQuestions[$key]['skipped']++;break;
-		                    }
-		                    $total_answered = $this->seenQuestions[$key]['correct'] + $this->seenQuestions[$key]['incorrect'];
-		                    if ($total_answered)
-		            			$sc = number_format(($this->seenQuestions[$key]['correct']/$total_answered)*100);
-		            		$this->seenQuestions[$key]['score'] = $sc;
-		            		$this->seenQuestions[$key]['seen']++;
+		            		if($this->seenQuestions[$key]['seen'] < 3){
+								switch($s['grade']){
+				            		case '0' : $this->seenQuestions[$key]['incorrect']++;break;
+			                        case '1' : $this->seenQuestions[$key]['correct']++;break;
+			                        case '-1': $this->seenQuestions[$key]['skipped']++;break;
+			                    }
+			                    $total_answered = $this->seenQuestions[$key]['correct'] + $this->seenQuestions[$key]['incorrect'];
+			                    if ($total_answered)
+			            			$sc = number_format(($this->seenQuestions[$key]['correct']/$total_answered)*100);
+			            		$this->seenQuestions[$key]['score'] = $sc;
+			            		$this->seenQuestions[$key]['seen']++;
+			            	}
 		            	}
 	            	}
 	            }

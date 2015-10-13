@@ -252,7 +252,7 @@ function showProfileStats($atts) {
 	?>
 	<div class="panel-wrapper line">
 		<div class="fcc-panel exam-history line">
-			<div class="title">Exam History<div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
+			<div class="title">Element <?php echo substr($e_id, 1) ?> Exam History<div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
 			<div class="content line">
 				<div id="element-history" class="<?php echo $current_user_id; ?>"><div class="hidden" style="display:none"><?php echo $e_id; ?></div></div>
 				<div class="exam-dashboard">

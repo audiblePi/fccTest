@@ -384,7 +384,9 @@ function getWeakAreas(){
     
     $result = $conn->query("SELECT * FROM wp_fccTest_custom_exams 
                             WHERE wp_fccTest_custom_exams.user_id = '$current_user' 
-                            AND wp_fccTest_custom_exams.element_id = '$element_id';") 
+                            AND wp_fccTest_custom_exams.element_id = '$element_id'
+                            ORDER BY date 
+                            DESC") 
                             OR DIE(mysqli_error($conn));
     $row = $result->fetch_array();
 
@@ -395,14 +397,14 @@ function getWeakAreas(){
         foreach ($temp as $v){
             $t = unserialize($v);
             foreach ($t as $s){
-                //var_dump($s['grade']);
+                //var_dump($s);
                 if( $s['grade'] != -777){
                     $key = array_search($s['question_number'], array_column($seenQuestions, 'question_number'));
 
-                    $i = 0;
-                    $c = 0;
-                    $sk = 0;
-                    $sc = 0;
+                    $i = 0;//incorrect
+                    $c = 0;//correct
+                    $sk = 0;//skipped
+                    $sc = 0;//score
                     $topic = "0";
                     if ($key === false) {
                         switch($s['grade']){
@@ -410,6 +412,8 @@ function getWeakAreas(){
                             case '1' : $c = 1;break;
                             case '-1': $sk = 1;break;
                         }
+                        if ($c == 1)
+                            $sc = 100;
                         $data = array (
                             'question_number' => $s['question_number'],
                             'correct' => $c,
@@ -421,16 +425,18 @@ function getWeakAreas(){
                         $seenQuestions[] = $data ;
                     }
                     else if ($key >= 0){
-                        switch($s['grade']){
-                            case '0' : $seenQuestions[$key]['incorrect']++;break;
-                            case '1' : $seenQuestions[$key]['correct']++;break;
-                            case '-1': $seenQuestions[$key]['skipped']++;break;
+                        if($seenQuestions[$key]['seen'] < 3){
+                            switch($s['grade']){
+                                case '0' : $seenQuestions[$key]['incorrect']++;break;
+                                case '1' : $seenQuestions[$key]['correct']++;break;
+                                case '-1': $seenQuestions[$key]['skipped']++;break;
+                            }
+                            $total_answered = $seenQuestions[$key]['correct'] + $seenQuestions[$key]['incorrect'];
+                            if ($total_answered)
+                                $sc = number_format(($seenQuestions[$key]['correct']/$total_answered)*100);
+                            $seenQuestions[$key]['score'] = $sc;
+                            $seenQuestions[$key]['seen']++;
                         }
-                        $total_answered = $seenQuestions[$key]['correct'] + $seenQuestions[$key]['incorrect'];
-                        if ($total_answered)
-                            $sc = number_format(($seenQuestions[$key]['correct']/$total_answered)*100);
-                        $seenQuestions[$key]['score'] = $sc;
-                        $seenQuestions[$key]['seen']++;
                     }
                 }
             }
@@ -452,7 +458,7 @@ function getWeakAreas(){
         $subtopic_id = $subtopic_array[$i];
         $correct = 0;
         $answered = 0;
-        foreach ($weakAreas as $wa){
+        foreach ($seenQuestions as $wa){
             if (substr($wa['question_number'], -2, -1) === $subtopic_id ){
                 $answered += $wa['seen'];
                 $correct += $wa['correct'];
@@ -470,7 +476,7 @@ function getWeakAreas(){
         $subtopics[] = $temp;
     }
     $data[] = $subtopics;
-
+    //var_dump($weakAreas);
     echo json_encode($data);
     exit();
 }

@@ -789,7 +789,7 @@ jQuery(function($){
            data: post_data,
            dataType: "json",
            success: function (a) {
-                //console.log(a);
+                console.log(a);
                 var totalUnseen;
                 if (a.totalSeen > a.poolSize)
                     totalUnseen = 0;
