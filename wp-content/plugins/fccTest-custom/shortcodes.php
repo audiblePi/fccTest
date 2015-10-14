@@ -420,10 +420,10 @@ function showProfile(){
 						<td class="five columns">E-mail</td>
 						<td class="seven columns"><?php echo $current_user->user_email ?></td>
 					</tr>
-					<tr class="row">
+					<!-- <tr class="row">
 						<td class="five columns">Website</td>
-						<td class="seven columns"><?php echo $current_user->user_url ?></td>
-					</tr>
+						<td class="seven columns"><?php# echo $current_user->user_url ?></td>
+					</tr> -->
 					<tr class="row">
 						<td class="five columns">Occupation</td>
 						<td class="seven columns"><?php echo $current_user->description ?></td>

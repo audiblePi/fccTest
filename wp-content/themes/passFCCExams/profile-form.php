@@ -85,10 +85,10 @@ Theme My Login will always look in your theme's directory first, before using th
 			<td><input type="text" name="email" id="email" value="<?php echo esc_attr( $profileuser->user_email ); ?>" class="regular-text" /></td>
 		</tr>
 
-		<tr>
+		<!--<tr>
 			<th><label for="url"><?php _e( 'Website', 'theme-my-login' ); ?></label></th>
-			<td><input type="text" name="url" id="url" value="<?php echo esc_attr( $profileuser->user_url ); ?>" class="regular-text code" /></td>
-		</tr>
+			<td><input type="text" name="url" id="url" value="<?php #echo esc_attr( $profileuser->user_url ); ?>" class="regular-text code" /></td>
+		</tr> -->
 
 		<?php
 			foreach ( wp_get_user_contact_methods() as $name => $desc ) {

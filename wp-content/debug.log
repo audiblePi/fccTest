@@ -20698,3 +20698,46 @@
 [13-Oct-2015 19:17:16 UTC] PHP Notice:  Undefined index: grade in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/ajax.php on line 410
 [13-Oct-2015 19:17:16 UTC] PHP Notice:  Undefined index: grade in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/ajax.php on line 401
 [13-Oct-2015 19:17:16 UTC] PHP Notice:  Undefined index: grade in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/ajax.php on line 410
+[14-Oct-2015 13:17:02 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 13:18:09 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 13:23:24 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 13:32:18 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 13:38:30 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 13:38:47 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 13:39:16 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 13:40:19 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 13:40:55 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 13:41:19 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 13:43:45 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 13:45:35 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 13:46:17 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 13:46:37 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 13:49:19 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 13:49:52 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 13:50:18 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 13:51:43 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 13:53:24 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 13:54:14 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 13:54:47 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 13:55:37 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 13:57:54 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 13:58:49 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 14:28:18 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 14:42:08 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 14:42:32 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 14:50:21 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 14:59:12 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 15:17:27 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 15:17:40 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 15:18:58 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 15:24:13 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 15:24:43 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 15:28:47 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 15:30:07 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 15:30:58 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 15:32:14 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 15:33:13 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 15:34:01 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 15:34:21 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 15:36:56 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425
+[14-Oct-2015 15:42:33 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 425

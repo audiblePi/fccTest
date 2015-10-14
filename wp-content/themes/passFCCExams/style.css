@@ -177,7 +177,7 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 .my-account-wrapper .breadcrumbs-navigation { border:1px solid #ccc;height:45px;line-height:45px;box-shadow:inset 0 0 0px 1px #FFFFFF;background:url('images/back-panel-title.png') repeat-x left bottom;border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px;position:relative; }
 .my-account-wrapper .breadcrumbs-navigation li { float:left;height:45px;background:gold;margin-right:1px;padding:0 25px 0 20px;background:url("images/back-breadcrumbs.png") no-repeat right center; }
 .my-account-wrapper .breadcrumbs-navigation a 	{ color:#5a5a5a;font-size:12px;line-height:45px;font-family:"Droid Sans", Arial, Verdana;font-weight:bold;text-decoration:none; }
-
+.my-account-wrapper .dashboard-sidebar {padding-right:20px;}
 .my-account-wrapper .sidebar-menu{padding-right: 10px; margin-bottom:40px;}
 .my-account-wrapper .sidebar-menu li:first-of-type{border-top: 1px solid #CCC;}
 .my-account-wrapper .sidebar-menu li a{border-right: 1px solid #CCC; border-left: 1px solid #CCC; border-bottom: 1px solid #CCC; box-shadow: 0px 0px 0px 1px #FFF inset;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);}
@@ -214,12 +214,15 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 #pmpro_account .pmpro_box {border-top:none !important;margin:0px !important; padding-top:0px !important;padding-bottom:2em !important;}
 .fcc-panel.progress_report .content{display:none;/*visibility:hidden;*/}
 .fcc-panel.progress_report #progress-report {height:350px;}
+.fcc-panel.progress_report #progress-report > svg {width:100% !important;}
 .fcc-panel.profile .table-header .columns{font-weight: 600;box-shadow: 0px 0px 0px 1px #FFF inset;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);color: #5A5A5A !important;}
 .fcc-panel.profile .row{border-bottom: 1px solid #DDD;padding:0px !important;}
 .fcc-panel.profile .row:last-of-type{border-bottom:none;}
 .fcc-panel.profile .row .columns{border-right: 1px solid #DDD;padding: 10px 15px !important;color: #8B8B8B;float:none;}
 .fcc-panel.profile .row .columns:last-of-type{border-right:none;}
 .fcc-panel.profile .row.table-header {border-top:1px solid #DDD; border-bottom:1px solid #DDD;}
+.fcc-panel.profile .pmpro_actionlinks {float:right}
+
 /*Exam*/
 .panel-wrapper.exam{margin-bottom:100px;}
 .fcc-panel.exam-panel{/*overflow: visible;*//*margin-bottom:300px;*/}
@@ -254,6 +257,7 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 .exam-history .row.error-msg {border-bottom:none;text-align:center;}
 .exam-history .row.error-msg .columns {padding-top:120px !important;}
 .exam-history.line {/*margin-bottom:80px;*/}
+.exam-history.line  #element-history > svg {width:100% !important;}
 .exam-history .content.line{display:none;/*height:400px;*/}
 .exam-history #element-history {height:350px;}
 .exam-history #element-history .morris-hover .comment{color:green;font-size:15px;}
@@ -302,7 +306,6 @@ footer p{color:#FAFBFD;}
 .sub-footer a{color:#fff;}
 .sub-footer ul.social-icons {float:right;}
 .sub-footer ul.social-icons li{display:inline;}
-
 
 @media (max-width: 1200px) {
 	.header2 .logo img{padding-top: 25px;}

@@ -31,10 +31,20 @@ jQuery(function($){
     var E8 = { A: "RADAR Principles", B: "Transmitting Systems", C: "Receiving Systems", D: "Display & Control Systems", E: "Antenna Systems", F: "Installation, Maintenance & Repair"};
     var E9 = { A: "VHF-DSC Equipment & Operation", B: "MF-HF-DSC-SITOR (NBDP) Equip. & Ops", C: "Satellite Systems", D: "Other GMDSS Equipment", E: "Power Sources", F: "Other Equipment and Networks", G: "Inspections, Installations and Instruments"};
 
-    if($('#progress-report').length)
+    $(window).resize(function(){
+        if($('#progress-report').length)
+            window.m.redraw();
+        if($('#element-history').length)
+            window.l.redraw();
+        //console.log('resize');
+    });
+    if($('#progress-report').length){
         showProgressReport();
+        open($('.fcc-panel.progress_report'));
+    }
     if($('#element-history').length){
         showElementHistory();
+        open($('.fcc-panel.exam-history.line'));
     }
 
     $( "#dialog" ).dialog({ modal: true, show: { effect: "fadeIn", duration: 200 }, autoOpen:false });
@@ -655,8 +665,9 @@ jQuery(function($){
                     }
                 }
                 //console.log(data);
-                open($('.fcc-panel.progress_report'));
-                Morris.Bar({
+
+                //open($('.fcc-panel.progress_report'));
+                    window.m =  Morris.Bar({
                     element: 'progress-report',
                     data: data,
                     ymax: 100,
@@ -668,6 +679,9 @@ jQuery(function($){
                     goalLineColors: ['green'],
                     gridDashed: '--',
                     barColors: ['#27558A'],
+                    xLabelAngle: 45,
+                    resize: true,
+                    redraw: true,
                     hoverCallback: function (index, options, content, row) {
                         var string = "";
                         var comment ="";
@@ -745,8 +759,8 @@ jQuery(function($){
                     $('.exam-history .exam-dashboard .skipped').html(totalSkipped);
                     
                     $('.panel-wrapper.line').animate({ marginBottom: '80px' }, 1000);
-                    open($('.fcc-panel.exam-history.line'));
-                    Morris.Line({
+                    //open($('.fcc-panel.exam-history.line'));
+                    window.l = Morris.Line({
                         element: 'element-history',
                         data: data,
                         ymax: 100,
@@ -758,6 +772,8 @@ jQuery(function($){
                         goalStrokeWidth: 2,
                         goalLineColors: ['green'],
                         gridDashed: '--',
+                        resize: true,
+                        redraw: true,
                         hoverCallback: function (index, options, content, row) {
                             var string = "";
                             var comment ="";
@@ -770,10 +786,8 @@ jQuery(function($){
                                     "<div class='morris-hover-point'>" + data[index].correct + " / " + data[index].total + "</div>";
                             }
                             return string;
-                        },
-                        resize: true
+                        }
                     });
-
                 }
                 else{
                     $('.panel-wrapper.line').animate({ marginBottom: '80px' }, 1000);
