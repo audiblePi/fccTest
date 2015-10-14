@@ -36,7 +36,6 @@ jQuery(function($){
             window.m.redraw();
         if($('#element-history').length)
             window.l.redraw();
-        //console.log('resize');
     });
     if($('#progress-report').length){
         showProgressReport();
@@ -636,13 +635,13 @@ jQuery(function($){
 
     function showProgressReport(){
         var data = [
-            { y: 'Element 1',   diff: "0", last: "0"},
-            { y: 'Element 3',   diff: "0", last: "0"},
-            { y: 'Element 6',   diff: "0", last: "0"},
-            { y: 'Element 7',   diff: "0", last: "0"},
-            { y: 'Element 7R',  diff: "0", last: "0"},
-            { y: 'Element 8',   diff: "0", last: "0"},
-            { y: 'Element 9',   diff: "0", last: "0"}
+            { y: 'Element 1',   diff: "0", last: null},
+            { y: 'Element 3',   diff: "0", last: null},
+            { y: 'Element 6',   diff: "0", last: null},
+            { y: 'Element 7',   diff: "0", last: null},
+            { y: 'Element 7R',  diff: "0", last: null},
+            { y: 'Element 8',   diff: "0", last: null},
+            { y: 'Element 9',   diff: "0", last: null}
         ];
         var jsonScores = [];
         var cu = $('#progress-report').attr('class');
@@ -655,8 +654,10 @@ jQuery(function($){
            data: post_data,
            dataType: "json",
            success: function (a) {
+                //console.log(a);
                 for (i = 0; i < data.length; i++){
-                    data[i].last = a[i][0]['score0'];
+                    if (a[i][0]['score0'] != null)
+                        data[i].last = a[i][0]['score0'];
                     if(a[i].length > 1){
                         //calculate percent difference
                         var diff = a[i][0]['score0'] - a[i][1]['score1'];
@@ -666,8 +667,7 @@ jQuery(function($){
                 }
                 //console.log(data);
 
-                //open($('.fcc-panel.progress_report'));
-                    window.m =  Morris.Bar({
+                window.m =  Morris.Bar({
                     element: 'progress-report',
                     data: data,
                     ymax: 100,
@@ -687,9 +687,12 @@ jQuery(function($){
                         var comment ="";
                         if (data[index].diff > 0 )
                             comment += "<div class='morris-hover-point' style='color:green'><b>+" + data[index].diff + "%</b></div>";
-                        else if (data[index].diff < 0)
-                            comment += "<div class='morris-hover-point' style='color:red'><b>" + data[index].diff + "%</b></div>";
-                        string += "<div class='morris-hover-row-label'>Score: " + data[index].last + "%</div>" + comment;
+                            else if (data[index].diff < 0)
+                                comment += "<div class='morris-hover-point' style='color:red'><b>" + data[index].diff + "%</b></div>";
+                        if (data[index].last == null )
+                            string += "<div class='morris-hover-row-label'>Score: N/A</div>" + comment;
+                            else
+                                string += "<div class='morris-hover-row-label'>Score: " + data[index].last + "%</div>" + comment;
                         return string;
                     }
                 });
@@ -759,7 +762,6 @@ jQuery(function($){
                     $('.exam-history .exam-dashboard .skipped').html(totalSkipped);
                     
                     $('.panel-wrapper.line').animate({ marginBottom: '80px' }, 1000);
-                    //open($('.fcc-panel.exam-history.line'));
                     window.l = Morris.Line({
                         element: 'element-history',
                         data: data,
@@ -791,7 +793,6 @@ jQuery(function($){
                 }
                 else{
                     $('.panel-wrapper.line').animate({ marginBottom: '80px' }, 1000);
-                    open($('.fcc-panel.exam-history.line'));
                     $('.exam-history #element-history').append("<div class='row error-msg'><div class='twelve columns'>No exams found...</div></div>");
                 }
                 showWeakAreas();

@@ -128,7 +128,7 @@ function start(){
             </div> 
         </div>
         <div class="exam-controls">
-            <a href="my-account"><button class="exit-exam">Exit</button></a>
+            <a href="my-account/study-reports/element-<?php echo substr($newExam->element_id, 1) ?>"><button class="exit-exam">Exit</button></a>
             <button class="next-question">Next</button>
         </div>
         <div class="exam-dashboard">
