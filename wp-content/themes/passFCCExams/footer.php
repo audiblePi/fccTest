@@ -1,16 +1,10 @@
 <div class="footer">
 	<footer class="container" id="footer" role="contentinfo">
 		<div class="row">
-			<div class="four columns">
+			<div class="eight columns left-widget">
 				<?php dynamic_sidebar('Footer Widget Left'); ?>
 			</div>
-
-			<div class="four columns">
-				<?php dynamic_sidebar('Footer Widget Center'); ?>
-				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-			</div>
-
-			<div class="four columns">
+			<div class="four columns right-widget">
 				<?php dynamic_sidebar('Footer Widget Right'); ?>
 			</div>
 		</div>

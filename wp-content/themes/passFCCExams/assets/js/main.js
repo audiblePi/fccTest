@@ -1,8 +1,10 @@
 jQuery(function($){
 	var sidebar_icons = ["icon-home", "icon-dotlist", "icon-bookthree", "icon-stocks", "icon-trophy", "icon-user"];
 	var main_menu_icons = ["icon-home", "icon-groups-friends", "icon-contact-businesscard", "icon-question-sign"];
-	$(window).resize(function() {adjustColumns();});
-	$(window).load(function() {adjustColumns();fade();});
+    var footerHeight = $('.footer').height();
+	var logoSlider = $('.logo-slider').bxSlider({});
+	$(window).resize(function() {adjustColumns();adjustSlider();});
+	$(window).load(function() {adjustColumns();adjustSlider();fade();});
 	$(window).scroll(function() {fade();});
 	$('.sidebar-menu .menu-item-has-children > a, #menu-sidebar-menu .sub-menu .menu-item-has-children > a').attr('onclick', 'return false');
 	$('.sidebar-menu .menu-item-has-children > a').click(function(){$('.sidebar-menu .menu-item-has-children .sub-menu').slideToggle(200);});
@@ -10,15 +12,12 @@ jQuery(function($){
 	$('.mobile-menu-wrapper').sidr({side: 'right'});
     $('#user_login').attr('placeholder', 'Username');
 	$('#user_pass').attr('placeholder', 'Password');
-	$('.logo-slider').bxSlider({
-		minSlides: 5,
-		maxSlides: 5,
-		slideWidth: 500,
-		slideMargin: 10,
-		controls: true,
-		moveSlides: 1,
-		pager: 0
-	});
+	$('.front-page-contact-wrapper .name > input').attr('placeholder', 'Name*');
+    $('.front-page-contact-wrapper .email > input').attr('placeholder', 'Email*');
+    $('.front-page-contact-wrapper .phone > input').attr('placeholder', 'Phone');
+    $('.front-page-contact-wrapper .company > input').attr('placeholder', 'Company');
+    $('.front-page-contact-wrapper .message > textarea').attr('placeholder', 'Message*');
+    $('div.container.get-started').css('margin-bottom',footerHeight );
 	$('.testimonials-slider').bxSlider({
 		minSlides: 1,
 		maxSlides: 1,
@@ -68,6 +67,7 @@ jQuery(function($){
 	}
 	
     function fade() {
+    	// console.log($('.footer').height());
     	if( $('body').hasClass('home') ){
 	        //var animation_height = $(window).innerHeight() * 0.70;
 	        var animation_height = 400;
@@ -112,6 +112,66 @@ jQuery(function($){
             $('.dashboard-main').addClass('nine columns');
         }
     }//end adjustColmns()
+
+    function adjustSlider(){
+    	if ($('.bx-wrapper').length){
+		    if ($(window).width() > 990) {
+		       	logoSlider.reloadSlider({
+			       	minSlides: 5,
+					maxSlides: 5,
+					slideWidth: 500,
+					// slideMargin: 10,
+					controls: true,
+					moveSlides: 1,
+					pager: 0
+				});
+			}
+			if ($(window).width() < 990) {
+		       	logoSlider.reloadSlider({
+			       	minSlides: 4,
+					maxSlides: 4,
+					slideWidth: 500,
+					// slideMargin: 10,
+					controls: true,
+					moveSlides: 1,
+					pager: 0
+				});
+			}
+	       if ($(window).width() < 767) {
+		    	logoSlider.reloadSlider({
+					minSlides: 3,
+					maxSlides: 3,
+					slideWidth: 500,
+					// slideMargin: 10,
+					controls: true,
+					moveSlides: 1,
+					pager: 0
+				});
+			}
+	        if ($(window).width() < 600) {
+		    	logoSlider.reloadSlider({
+					minSlides: 2,
+					maxSlides: 2,
+					slideWidth: 500,
+					// slideMargin: 10,
+					controls: true,
+					moveSlides: 1,
+					pager: 0
+				});
+			}
+			if ($(window).width() < 400) {
+		    	logoSlider.reloadSlider({
+					minSlides: 1,
+					maxSlides: 1,
+					slideWidth: 500,
+					// slideMargin: 10,
+					controls: true,
+					moveSlides: 1,
+					pager: 0
+				});
+			}
+		}
+    }//adjustSlider
 });
 
 function openExam(){
