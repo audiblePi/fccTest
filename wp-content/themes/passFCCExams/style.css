@@ -90,6 +90,11 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 
 /*Logo Slider*/
 .logo-slider-wrapper {background:#fff;padding: 0px 30px !important;}
+.logo-slider-wrapper .bx-wrapper img {display: inline-block;margin-left: auto;margin-right: auto;}
+.logo-slider-wrapper .bx-wrapper ul {height:100%;}
+.logo-slider-wrapper .bx-wrapper ul li{height:100%;}
+.logo-slider-wrapper .bx-wrapper ul li div{height:100%; text-align: center;}
+.logo-slider-wrapper .bx-wrapper ul li span.helper{height:100%;display:inline-block;vertical-align:middle;}
 .logo-slider-wrapper .bx-wrapper .bx-viewport {box-shadow:none;width: 90% !important; margin-left: auto;margin-right: auto;}
 .logo-slider-wrapper .bx-wrapper .bx-prev {background: url(/wp-content/themes/passFCCExams/assets/images/left.png); left:0px;}
 .logo-slider-wrapper .bx-wrapper .bx-next {background: url(/wp-content/themes/passFCCExams/assets/images/right.png); right:0px;}
@@ -98,7 +103,7 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 /*Testimonials*/
 .testimonials {background:#DBE0E5;}
 .testimonials img{margin-left: -15px;}
-.testimonials .image {background:url(/wp-content/themes/passFCCExams/assets/images/desk2.png);height:500px;background-size: cover;}
+.testimonials .image {background:url(/wp-content/uploads/2015/10/telecoms-towers-blend-well.jpg);height:500px;background-size: cover;}
 .testimonials .testimonials-wrapper {text-align:center;color:#003366;padding: 60px 20px 0px 20px;}
 .testimonials .testimonials-wrapper h1{border-bottom: 3px solid #003366;width: 240px;margin-left: auto;margin-right: auto;padding: 20px 0px;margin-bottom: 20px;}
 .testimonials .testimonials-wrapper i{color:#A3A3A3;font-size: 2.5em;margin-bottom:20px;display:block;}
@@ -111,9 +116,10 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 .testimonials-wrapper .bx-wrapper .bx-pager.bx-default-pager a{background:#E8EAEE !important;width: 15px !important;height: 15px !important;border-radius:10px;}
 
 /*Get Started*/
-.get-started{margin-bottom:400px !important;padding:50px !important;background:url(http://teslathemes.com/demo/html/levelup/img/call-to-action-bg.jpg);background-size: cover;border-top: 1px solid #fff;border-bottom: 1px solid #fff;}
+.get-started{margin-bottom:400px !important;padding:50px !important;background:url(/wp-content/uploads/2015/10/satellite-dishes-banner.jpg);background-size: cover;border-top: 1px solid #fff;border-bottom: 1px solid #fff;}
 .get-started h1{margin-top:5px; margin-bottom:5px;text-transform:uppercase; color:#fff;}
 .get-started button{background:#9ABF01;color:#fff;border: none;border:none;padding:15px 40px;border-radius:4px;margin-top: 20px;}
+.get-started a{color:#FFF;}
 
 /*Page*/
 .page-template-dashboard #content-wrapper {padding:60px 0px 30px !important;}
@@ -147,6 +153,13 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 .page-template-default .faq > p{margin-bottom:0px;}
 .faq table {width:100%;}
 .faq td {padding:10px 15px;border-right: 1px solid #DDD;float:none;}
+
+/*Page 404*/
+.error404 {}
+.error404 .footer {opacity:1 !important;}
+.error404 .error-message {text-align:center;margin: 100px 0px;color: #8B8B8B;opacity: .5;}
+.error404 .error-message h1{font-size: 15em;}
+.error404 .error-message h3{font-size: 4em;}
 
 /*Login*/
 body.page-template-login{background: transparent url("assets/images/back-pattern.png") repeat scroll 0% 0%;}
@@ -239,7 +252,8 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 .exam-container .exam-details .exam-dashboard .columns:first-of-type{border-top-left-radius: 6px;border-bottom-left-radius: 6px;}
 .exam-container .exam-details .exam-dashboard .columns{box-shadow: 0px 0px 0px 1px #FFF inset;border-right: 1px solid #CCC;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);padding: 10px;}
 .exam-container .exam-details .exam-dashboard .columns:last-of-type{border-right: none;border-top-right-radius: 6px;border-bottom-right-radius: 6px;}
-.exam-container .exam-details .exam-controls{padding: 0px 0px 20px 20px;}
+.exam-container .exam-details .exam-controls{padding: 0px 10px 20px 10px;}
+.exam-container .exam-details .exam-controls button.next-question {float:right;}
 .exam-container .question-container .question.exam-ended{text-align:center; padding-top:100px;font-size: 1.5em;font-weight: 600;}
 #dialog {text-align: center;font-size: 1.2em;}
 #dialog p{color: #5A5A5A;;}
@@ -359,13 +373,17 @@ footer p{color:#FAFBFD;}
 	.exam-container .exam-details .exam-dashboard .number {display:none;}
 	.exam-container .exam-details .exam-dashboard .last .number {display:block;}
 	.exam-container .exam-details .exam-dashboard .last .percent {display:none;}
+	.exam-history .exam-dashboard {width:95%;font-size: .7em;}
+	.exam-history .exam-dashboard td.columns{padding: 10px 0px !important;}
 	.settings-option .element-id {width:100%;}
 	.exam-details.row {padding:0px !important;}
 	.fcc-panel .title {padding:10px !important;}
 	.fcc-panel.exam-panel .section-collapse{display:none;}
-	.header1 {display:none;}
+	/*.header1 {display:none;}*/
 	.header2 .logo {padding: 6px 20px 6px 20px;background:none;}
 	.next-question {float:right;}
-	.fcc-panel button {border-radius:0px;padding: 12px 20px;border-top: none;border-bottom: none;}
+	.fcc-panel .exam-controls button {border-radius:0px;padding: 12px 20px;border-top: none;border-bottom: none;}
 	.exam-container .exam-details .exam-dashboard .columns {padding:5px;}
+	.weak-areas td.five.columns {display:none;}
+	.weak-areas td.one {border-right:none !important;}
 }

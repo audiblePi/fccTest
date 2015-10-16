@@ -36,3 +36,13 @@ div.radio span{position: relative;top: 2px;}
 #primary.content-area{padding-top:0px;}
 .content-area .site-content{padding:20px;}
 .content-area .entry-content, .content-area .entry-header{padding:0px !important;max-width:none !important;}
+
+/*mobile exam mode*/
+body.mobile-exam-mode {background:none;}
+body.mobile-exam-mode .header1, body.mobile-exam-mode .header2 {display:none;}
+body.mobile-exam-mode .dashboard-main {padding-left:0px; padding-right:0px;}
+body.mobile-exam-mode .panel-wrapper.exam {margin-top: 15px;}
+body.mobile-exam-mode .panel-wrapper.exam-options {display:none;}
+body.mobile-exam-mode .fcc-panel.exam-panel {border:none;}
+body.mobile-exam-mode .fcc-panel.exam-panel .title{position:fixed;top:0;width:100%;}
+body.mobile-exam-mode .shadow {display:none;}

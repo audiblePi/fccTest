@@ -384,18 +384,6 @@ function showProfile(){
 	$current_user_id = $current_user->ID;
 	?>
 	<div class="panel-wrapper">
-		<div class="fcc-panel progress_report">
-			<div class="title">Progress Report<div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
-			<div class="content">
-				<div class="row">
-					<div id="progress-report" class="<?php echo $current_user_id; ?>"></div>
-				</div>
-			</div>
-		</div>
-		<div class="shadow"></div>
-	</div>
-
-	<div class="panel-wrapper">
 		<div class="fcc-panel profile">
 			<div class="title">My Profile<div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
 			<div class="content">					
@@ -455,6 +443,18 @@ function showProfile(){
 	</div>
 
 	<div class="panel-wrapper">
+		<div class="fcc-panel progress_report">
+			<div class="title">Simulated Exam Progress Report<div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
+			<div class="content">
+				<div class="row">
+					<div id="progress-report" class="<?php echo $current_user_id; ?>"></div>
+				</div>
+			</div>
+		</div>
+		<div class="shadow"></div>
+	</div>
+
+	<div class="panel-wrapper">
 		<div class="fcc-panel">
 			<div class="title">Forms<div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
 			<div class="content">
@@ -467,6 +467,35 @@ function showProfile(){
 		</div>
 		<div class="shadow"></div>
 	</div>
+
+	<div class="panel-wrapper">
+		<div class="fcc-panel profile">
+			<div class="title">Disclaimer<div class="section-collapse">collapse <i class="icon-chevron-up"></i></div></div>
+			<div class="content">
+				<table>
+					<tr class="row table-header" style="border-top:none">
+						<td class="twelve columns">Terms of Use</td>
+					</tr>
+					<tr class="row">
+						<td class="twelve columns">
+							Do not use or access this website if you do not agree with any of the contents, terms and conditions in this disclaimer. However, if you are using this website, you are by default accepting the terms and conditions.
+						</td>
+					</tr>
+					<tr class="row table-header">
+						<td class="twelve columns">Warranties and Liabilities</td>
+					</tr>
+					<tr class="row">
+						<td class="twelve columns">
+							<div>PassFCCExams.com has put in every effort in making sure the authenticity, accuracy and completeness of the information provided, however, PassFCCExams.com does not make any representation, warranties or claims for the information to be fully authentic, accurate and complete, as the information present on PassFCCExams.com is used on ‘as it is’ basis. With every intention of providing you with the best facility, no commitment or claims are made as to, keeping the information posted on PassFCCExams.com up dated, or would be completely viable or genuine every time, and would at any point of time and in any capacity might misinform or deceive you, or if you would be able to access or use the site forever (due to availability or non-availability of the website).</div>
+							<div><br>The site may contain virus, errors or other kinds of bugs that may affect your system. It would be entirely your responsibility to keep your system virus free, with appropriate protection.  In case if your system gets any virus from the website PassFCCExams.com will not be responsible.  It is highly recommended that any files needed to be downloaded must be scanned for viruses.  PassFCCExams.com withdraws or rules out any and all site related claims and representations weather they are implied by low or not. The content on this site must not be taken as professional or a formal advice or recommendation in any form.</div>
+							<div><br>In case of any minor, secondary, indirect, significant, castigatory and special damages of any kind, or any other damage of any kind, in any capacity, including damages that result in the form of loss of profit, dissolution, termination or loss of contracts, damage of reputation, profits, incomes, goodwill, savings, business or public relations, PassFCCExams.com shall not be held responsible, whether or not the cause of the damages may be due to the use of the website or the content in the website or any website or information linked with PassFCCExams.com.</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		<div class="shadow"></div>
+	</div>
+
 	<script>
 		jQuery(function($){
 			//hack

@@ -37,6 +37,11 @@ jQuery(function($){
             window.m.redraw();
         if($('#element-history').length)
             window.l.redraw();
+        if ($(window).width() > 600 )
+            $('body').removeClass('mobile-exam-mode');
+        else if ($('body').hasClass('exam-in-progress'))
+            $('body').addClass('mobile-exam-mode');
+
     });
     if($('#progress-report').length){
         showProgressReport();
@@ -231,8 +236,17 @@ jQuery(function($){
         $(this).find('.radio > span').addClass('checked');
         if(show_answers == "1"){
             showAnswer($(this));
-            $('.exam-controls .next-question').attr('disabled', false);
+            $('.exam-controls .next-question').attr('disabled', true);
             $('.question-container .question.' + current_question_index).css('pointer-events', 'none');
+            if(checkAnswer()==1)
+                updateScore('right');  
+            else if (checkAnswer() == 0)
+                updateScore('wrong');
+            else
+                updateScore('skipped');
+            setTimeout(function(){ 
+                proceed();
+            }, 1000);
         }
         else{
             if(checkAnswer()==1)
@@ -246,12 +260,7 @@ jQuery(function($){
     });
 
     $(document).on("click",".exam-container .next-question",function(e){
-        if(checkAnswer()==1)
-            updateScore('right');  
-        else if (checkAnswer() == 0)
-            updateScore('wrong');
-        else
-            updateScore('skipped');
+        updateScore('skipped');
         proceed();
     });
 
@@ -259,24 +268,9 @@ jQuery(function($){
         // console.log('startExam()');
         openExam();
         if ($(window).width() < 600 ){
-            $('.header2').css('display', 'none');
-            $('.panel-wrapper.exam-options').css('display', 'none');
-            $('.fcc-panel.exam-panel .title').css('position', 'fixed');
-            $('.fcc-panel.exam-panel .title').css('top', '0');
-            $('.fcc-panel.exam-panel .title').css('width', '100%');
-            $('.dashboard-main').css('padding-left', '0px');
-            $('.dashboard-main').css('padding-right', '0px');
-            $('body').css('background', 'none');
-            $('.fcc-panel.exam-panel').css('border', 'none');
-            $('.shadow').css('display', 'none');
-            $('.panel-wrapper.exam').css('margin-top', '15px');
-            $('.panel-wrapper.exam .content').css('min-height', '800px');
-            // setTimeout(function(){ 
-            //     $('html, body').animate({
-            //         scrollTop: $('.panel-wrapper.exam .content').offset().top - 50
-            //     }, 1000);
-            // }, 2000);
+             $('body').addClass('mobile-exam-mode');
         }
+        $('body').addClass('exam-in-progress');
         var quick_50 = $('.quick-50').val();
         user_id = $('.hidden-id').html();
         simulated = $('.simulated').val();
@@ -433,7 +427,7 @@ jQuery(function($){
         if (simulated == 1){
             $('.exam-controls .next-question').attr('disabled', true);
             $('.question.exam-ended .retake').css('display', 'none');
-            $('.exam-controls .exit-exam').css('display', 'none');
+            //$('.exam-controls .exit-exam').css('display', 'none');
         }
         seen = $('.seen').text();
         createQuestionsArray();
@@ -504,6 +498,7 @@ jQuery(function($){
             updateHTML();
             if (simulated == 1)
                 $('.exam-controls .next-question').attr('disabled', true);
+            $('.exam-controls .next-question').attr('disabled', false);
             saveExam(1);
         }
         else if(current_question_index < exam_length){
