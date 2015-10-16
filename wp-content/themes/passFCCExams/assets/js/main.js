@@ -36,6 +36,7 @@ jQuery(function($){
 
 	$('.section-collapse').click(function(){
 		var panel = $(this).closest('.fcc-panel');
+		//console.log($(this).closest('.section-collapse').text());
 		if (panel.hasClass('collapsed')){
             panel.children('.content').slideToggle("slow");
 			panel.removeClass('collapsed');
@@ -119,13 +120,13 @@ function openExam(){
 		var exam_panel = $('.fcc-panel.exam-panel');
         panel.children('.content').slideUp("slow");
 		panel.addClass('collapsed');
-		panel.find('i').removeClass('icon-chevron-down');
-		panel.find('i').addClass('icon-chevron-up');
+		panel.find('i').removeClass('icon-chevron-up');
+		panel.find('i').addClass('icon-chevron-down');
         
     	exam_panel.children('.content').slideDown("slow");
 		exam_panel.removeClass('collapsed');
-		exam_panel.find('i').removeClass('icon-chevron-up');
-		exam_panel.find('i').addClass('icon-chevron-down');
+		exam_panel.find('i').removeClass('icon-chevron-down');
+		exam_panel.find('i').addClass('icon-chevron-up');
  		
  		setTimeout(function(){ 
             $('html, body').animate({

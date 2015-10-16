@@ -13,7 +13,7 @@ function showInterface($atts){
     if ($a['type'] == "study")
 		checkForPendingExam($current_user_id);
 ?>	
-	<div class="panel-wrapper">
+	<div class="panel-wrapper exam-options">
 		<div class="fcc-panel exam-options-panel">
 			<div class="title">
 				<?php 

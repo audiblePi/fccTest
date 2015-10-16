@@ -31,6 +31,7 @@ jQuery(function($){
     var E8 = { A: "RADAR Principles", B: "Transmitting Systems", C: "Receiving Systems", D: "Display & Control Systems", E: "Antenna Systems", F: "Installation, Maintenance & Repair"};
     var E9 = { A: "VHF-DSC Equipment & Operation", B: "MF-HF-DSC-SITOR (NBDP) Equip. & Ops", C: "Satellite Systems", D: "Other GMDSS Equipment", E: "Power Sources", F: "Other Equipment and Networks", G: "Inspections, Installations and Instruments"};
 
+    $("select, input:checkbox, input:radio").uniform();
     $(window).resize(function(){
         if($('#progress-report').length)
             window.m.redraw();
@@ -162,25 +163,31 @@ jQuery(function($){
     $(document).on("change",".subtopic .all",function(e){
         e.preventDefault();
         $('.subtopics-wrapper').css('border', '2px solid white');
-        if(!this.checked)
-            $(this).parent().parent().find(':checkbox').each(function () { $(this).prop('checked', false); });
-        else
-            $(this).parent().parent().find(':checkbox').each(function () { $(this).prop('checked', true); });
+        if(!this.checked){
+            $(this).parent().parent().parent().parent().find(':checkbox').each(function () { $(this).prop('checked', false); });
+            $(this).parent().parent().parent().parent().find('.checker span').each(function () { $(this).removeClass('checked'); });
+        }
+        else{
+            $(this).parent().parent().parent().parent().find(':checkbox').each(function () { $(this).prop('checked', true); });
+            $(this).parent().parent().parent().parent().find('.checker span').each(function () { $(this).addClass('checked'); });
+        }
     });
 
     $(document).on("change",".subtopic input",function(e){
         e.preventDefault();
         $('.subtopics-wrapper').css('border', '2px solid white');
         if(!$(this).hasClass('all')){
-            if($(this).parent().parent().find('.all').is(':checked') ){
-                $(this).parent().parent().find(':checkbox').each(function () { $(this).prop('checked', false); });
+            if($(this).parent().parent().parent().parent().find('.all').is(':checked') ){
+                $(this).parent().parent().parent().parent().find(':checkbox').each(function () { $(this).prop('checked', false); });
+                $(this).parent().parent().parent().parent().find('.checker span').each(function () { $(this).removeClass('checked'); });
                 $(this).prop('checked', true);
+                $(this).parent().addClass('checked');
             }
             else if ($(this).is(':checked'))
                  $(this).prop('checked', true);
             else if (!$(this).is(':checked'))
                  $(this).prop('checked', false);
-            $(this).parent().parent().find('.all').prop('checked', false);
+            $(this).parent().parent().parent().parent().find('.all').prop('checked', false);
         }
     });
 
@@ -220,7 +227,8 @@ jQuery(function($){
     });
 
     $(document).on("click",".question-container .question .answer-box",function(e){
-        $(this).children().children('input').prop('checked', true);
+        $(this).find('input').prop('checked', true);
+        $(this).find('.radio > span').addClass('checked');
         if(show_answers == "1"){
             showAnswer($(this));
             $('.exam-controls .next-question').attr('disabled', false);
@@ -250,6 +258,25 @@ jQuery(function($){
     function startExam(){
         // console.log('startExam()');
         openExam();
+        if ($(window).width() < 600 ){
+            $('.header2').css('display', 'none');
+            $('.panel-wrapper.exam-options').css('display', 'none');
+            $('.fcc-panel.exam-panel .title').css('position', 'fixed');
+            $('.fcc-panel.exam-panel .title').css('top', '0');
+            $('.fcc-panel.exam-panel .title').css('width', '100%');
+            $('.dashboard-main').css('padding-left', '0px');
+            $('.dashboard-main').css('padding-right', '0px');
+            $('body').css('background', 'none');
+            $('.fcc-panel.exam-panel').css('border', 'none');
+            $('.shadow').css('display', 'none');
+            $('.panel-wrapper.exam').css('margin-top', '15px');
+            $('.panel-wrapper.exam .content').css('min-height', '800px');
+            // setTimeout(function(){ 
+            //     $('html, body').animate({
+            //         scrollTop: $('.panel-wrapper.exam .content').offset().top - 50
+            //     }, 1000);
+            // }, 2000);
+        }
         var quick_50 = $('.quick-50').val();
         user_id = $('.hidden-id').html();
         simulated = $('.simulated').val();
@@ -410,6 +437,7 @@ jQuery(function($){
         }
         seen = $('.seen').text();
         createQuestionsArray();
+        $("select, input:checkbox, input:radio").uniform();
     }
 
     function updateHTML(){

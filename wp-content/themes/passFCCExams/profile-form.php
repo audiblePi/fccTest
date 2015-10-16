@@ -110,6 +110,10 @@ Theme My Login will always look in your theme's directory first, before using th
 			<td><input type="text" name="description" id="description" value="<?php echo esc_html( $profileuser->description ); ?>"><br />
 			<!-- <span class="description"><?php _e( 'Share a little biographical information to fill out your profile. This may be shown publicly.', 'theme-my-login' ); ?></span>--></td>
 		</tr>
+		<!-- <p>
+			<label for="user_phone<?php $template->the_instance(); ?>"><?php _e('Phone'); ?></label>
+			<input type="text" name="user_phone" id="user_phone<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value('user_phone'); ?>" size="20" />
+		</p> -->
 
 		<?php
 		$show_password_fields = apply_filters( 'show_password_fields', true, $profileuser );

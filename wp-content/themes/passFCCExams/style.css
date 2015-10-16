@@ -49,7 +49,7 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 .header2 .logo{position: absolute; background: #fff; z-index: 1; width: 35%; padding: 10px 20px 20px 20px;}
 .header2 .logo img{width: 100%;padding-top: 20px;}
 .header2 .mobile-menu-wrapper{display:none;float:right; font-size: 1.8em;color: #C0D2E3;text-shadow: 1px 1px #436A8B;cursor:pointer;}
-.header2 .mobile-menu-wrapper i{display:block; padding:20px 20px 20px 30px;}
+.header2 .mobile-menu-wrapper i{display:block; padding:20px 20px 20px 30px;top:0;}
 
 /*sidebar menu*/
 #sidr {display:none;}
@@ -345,10 +345,27 @@ footer p{color:#FAFBFD;}
 	.page-template-default #content-wrapper {padding:0px !important;}
 	#footer {text-align:center;}
 	#footer .social-icons {float:inherit;}
+	.exam-container .exam-details .exam-dashboard .columns {width:33.3%;}
 }
 
 @media (max-width: 600px) {
 	.what-license .topics ul {width:100%;}
-	.exam-container .exam-details .exam-dashboard {width:100%;}
+	.dashboard-main {/*padding-left:5px !important; padding-right: 5px !important;*/}
+	.page-template-dashboard #content-wrapper {padding-top:30px !important;}
+	.exam-container .exam-details .exam-controls {width:101%;position:fixed; bottom:46px;left:0;font-size: .8em;border-radius:0px;border: 1px solid #CCC;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);padding: 0px;}
+	.exam-container .exam-details .exam-dashboard {width:101%;position:fixed; bottom:0px;left:0;font-size: .8em;border-radius:0px;margin-bottom:0px;}
+	.exam-container .exam-details .exam-dashboard .columns:first-of-type {border-top-left-radius: 0px;border-bottom-left-radius: 0px;}
+	.exam-container .exam-details .exam-dashboard .columns:last-of-type {border-top-right-radius:0px; border-bottom-right-radius:0px;}
+	.exam-container .exam-details .exam-dashboard .number {display:none;}
+	.exam-container .exam-details .exam-dashboard .last .number {display:block;}
+	.exam-container .exam-details .exam-dashboard .last .percent {display:none;}
 	.settings-option .element-id {width:100%;}
+	.exam-details.row {padding:0px !important;}
+	.fcc-panel .title {padding:10px !important;}
+	.fcc-panel.exam-panel .section-collapse{display:none;}
+	.header1 {display:none;}
+	.header2 .logo {padding: 6px 20px 6px 20px;background:none;}
+	.next-question {float:right;}
+	.fcc-panel button {border-radius:0px;padding: 12px 20px;border-top: none;border-bottom: none;}
+	.exam-container .exam-details .exam-dashboard .columns {padding:5px;}
 }
