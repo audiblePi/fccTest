@@ -1,10 +1,10 @@
 jQuery(function($){
 	var sidebar_icons = ["icon-home", "icon-dotlist", "icon-bookthree", "icon-stocks", "icon-trophy", "icon-user"];
 	var main_menu_icons = ["icon-home", "icon-groups-friends", "icon-contact-businesscard", "icon-question-sign"];
-    var footerHeight = $('.footer').height();
 	var logoSlider = $('.logo-slider').bxSlider({});
-	$(window).resize(function() {adjustColumns();adjustSlider();});
-	$(window).load(function() {adjustColumns();adjustSlider();fade();});
+	var footerHeight;
+	$(window).resize(function() {adjustColumns();adjustSlider();fadeAdjust();});
+	$(window).load(function() {adjustColumns();adjustSlider();fade();fadeAdjust();});
 	$(window).scroll(function() {fade();});
 	$('.sidebar-menu .menu-item-has-children > a, #menu-sidebar-menu .sub-menu .menu-item-has-children > a').attr('onclick', 'return false');
 	$('.sidebar-menu .menu-item-has-children > a').click(function(){$('.sidebar-menu .menu-item-has-children .sub-menu').slideToggle(200);});
@@ -17,7 +17,6 @@ jQuery(function($){
     $('.front-page-contact-wrapper .phone > input').attr('placeholder', 'Phone');
     $('.front-page-contact-wrapper .company > input').attr('placeholder', 'Company');
     $('.front-page-contact-wrapper .message > textarea').attr('placeholder', 'Message*');
-    $('div.container.get-started').css('margin-bottom',footerHeight );
 	$('.testimonials-slider').bxSlider({
 		minSlides: 1,
 		maxSlides: 1,
@@ -67,36 +66,44 @@ jQuery(function($){
 	}
 	
     function fade() {
-    	// console.log($('.footer').height());
-    	if( $('body').hasClass('home') ){
-	        //var animation_height = $(window).innerHeight() * 0.70;
-	        var animation_height = 400;
-	        var ratio = Math.round( (1 / animation_height) * 10000 ) / 10000;
+        if ($(window).width() > 767) {
+	    	if( $('body').hasClass('home') ){
+		        //var animation_height = $(window).innerHeight() * 0.70;
+		        var animation_height = footerHeight;
+		        var ratio = Math.round( (1 / animation_height) * 10000 ) / 10000;
 
-	        $('.get-started').each(function() {
-	            var objectTop = $(this).offset().top;
-	            var windowBottom = $(window).scrollTop() + $(window).innerHeight();
-	            objectTop += 150;
+		        $('.get-started').each(function() {
+		            var objectTop = $(this).offset().top;
+		            var windowBottom = $(window).scrollTop() + $(window).innerHeight();
+		            objectTop += 150;
 
-	            if ( objectTop < windowBottom ) {
-	                if ( objectTop < windowBottom - animation_height ) {
-	                    $('.footer').css( {
-	                        transition: 'opacity 0.1s linear',
-	                        opacity: 1
-	                    } );
+		            if ( objectTop < windowBottom ) {
+		                if ( objectTop < windowBottom - animation_height ) {
+		                    $('.footer').css( {
+		                        transition: 'opacity 0.1s linear',
+		                        opacity: 1
+		                    } );
 
-	                } else {
-	                    $('.footer').css( {
-	                        transition: 'opacity 0.25s linear',
-	                        opacity: (windowBottom - objectTop) * ratio
-	                    } );
-	                }
-	            } else {
-	                $('.footer').css( 'opacity', 0 );
-	            }
-	        });
-	    }
+		                } else {
+		                    $('.footer').css( {
+		                        transition: 'opacity 0.25s linear',
+		                        opacity: (windowBottom - objectTop) * ratio
+		                    } );
+		                }
+		            } else {
+		                $('.footer').css( 'opacity', 0 );
+		            }
+		        });
+		    }
+		}
     }//end fade()
+
+    function fadeAdjust(){
+    	if($('body').hasClass('home')){
+    		footerHeight = $('.footer').height();
+    		$('.fade-wrap').css('margin-bottom',footerHeight );
+    	}
+    }//end fadeAdjust()
 
 	function adjustColumns() {
         if ($(window).width() <= 991) {

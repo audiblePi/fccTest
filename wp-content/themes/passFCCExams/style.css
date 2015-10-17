@@ -14,7 +14,7 @@ ol,ul{list-style:none}
 blockquote,q{quotes:none}
 blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}
 table{border-collapse:collapse;border-spacing:0}
-body{font-family: 'Cantarell', sans-serif !important; color: #8B8B8B;background: url('/wp-content/themes/passFCCExams/assets/images/bg.png');}
+body{font-family: 'Cantarell', sans-serif !important; color: #8B8B8B;/*background: url('/wp-content/themes/passFCCExams/assets/images/bg.png');*/background: url('/wp-content/uploads/2015/10/digital_world_bg.jpg') top left no-repeat fixed;}
 h1, h2, h3, h4 {font-family: 'Fjalla One', sans-serif !important;}
 h1{/*font-size:2em !important*/;}
 h2{/*font-size:1.5em !important;*/}
@@ -32,9 +32,9 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 .header1 .admin-nav{float:right;margin:0px;color:#14578b;padding:10px 0px;}
 .header1 .admin-nav #menu-admin-menu li:last-of-type a{border-right:none;}
 .header1 .admin-nav li{display:inline-block; cursor:pointer;}
-.header1 .admin-nav li a{border-right: 1px solid #14578b;padding:0px 10px;color:#14578b;}
+.header1 .admin-nav li a{border-right: 1px solid #fff;padding:0px 10px;color:#fff;}
 .header1 .admin-nav a:hover{color:#6B9DD0;}
-.header1 .admin-nav .welcome-msg{display:none; padding:0px 10px;border-right: 1px solid #14578b; cursor:inherit;}
+.header1 .admin-nav .welcome-msg{display:none; padding:0px 10px;border-right: 1px solid #fff; cursor:inherit;color:#fff;}
 #menu-admin-menu li:nth-child(1) {display:none;}
 
 /*Header2*/
@@ -117,6 +117,7 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 .testimonials-wrapper .bx-wrapper .bx-pager.bx-default-pager a{background:#E8EAEE !important;width: 15px !important;height: 15px !important;border-radius:10px;}
 
 /*Get Started*/
+.fade-wrap{}
 .get-started{padding:50px !important;background:url(/wp-content/uploads/2015/10/satellite-dishes-banner.jpg);background-size: cover;border-top: 1px solid #fff;border-bottom: 1px solid #fff;}
 .get-started h1{margin-top:5px; margin-bottom:5px;text-transform:uppercase; color:#fff;}
 .get-started button{background:#9ABF01;color:#fff;border: none;border:none;padding:15px 40px;border-radius:4px;margin-top: 20px;}
@@ -124,7 +125,7 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 
 /*Page*/
 .page-template-dashboard #content-wrapper {padding:60px 0px 30px !important;}
-.page-template-default #content-wrapper {padding:0px 30px 30px !important;background: rgba(255, 255, 255, .3);}
+.page-template-default #content-wrapper {padding:0px 30px 30px !important;background: rgba(255, 255, 255, .8);}
 .entry-content {color: #003366;}
 .entry-content h1{margin-bottom:20px;text-align:right;border-bottom: 10px solid #27558A;padding-bottom:15px;}
 .entry-content p{color: #003366;}
@@ -139,6 +140,7 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 /*Page - FAQ*/
 .page-template-default .panel-wrapper {margin-bottom:20px;}
 .page-template-default .panel-wrapper ul,.page-template-default .panel-wrapper ol {margin-bottom:10px;}
+.page-template-default .panel-wrapper .shadow {z-index:0;}
 .page-template-default .fcc-panel {margin-left:0px;/*margin-bottom:20px;*/}
 .page-template-default .fcc-panel .title {background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%);box-shadow:none; color:#fff;}
 .page-template-default .fcc-panel .section-collapse {color:#fff;}
@@ -321,11 +323,11 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 .footer .textwidget {color:#FAFBFD;}
 .footer .left-widget {padding-right:20px;}
 .footer .right-widget {padding-left:20px;}
-.footer .right-widget #footer-logo {width:100%;}
+.footer .right-widget #footer-logo {width:90%;}
 .footer .front-page-contact-wrapper {color: #6B9DD0;}
-.footer .front-page-contact-wrapper .row {margin-bottom:20px !important;}
+.footer .front-page-contact-wrapper .row .columns {margin-bottom:20px !important;}
 .footer .front-page-contact-wrapper input {width:100%;padding: 10px; border:none;}
-.footer .front-page-contact-wrapper textarea {width:100%;border:none;padding: 10px;height: 150px;}
+.footer .front-page-contact-wrapper textarea {width:100%;border:none;padding: 10px;height: 100px;}
 .footer .front-page-contact-wrapper input[type=submit] {width:25%;float:right;width: 25%;background: #9ABF01; color: #fff; border: none; padding: 10px 20px; border-radius: 4px;}
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */ color:#6B9DD0; }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */ color:#6B9DD0; opacity:  1; }
@@ -342,7 +344,6 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 	.my-account-wrapper .columns{padding-left:10px; padding-right:10px;}
 	.panel-wrapper.pie {padding-left:0px;}
 }
-#FAFBFD
 
 @media (max-width: 1006px) {
 	.container {width:100% !important;}
@@ -376,12 +377,19 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 	#footer {text-align:center;}
 	#footer .social-icons {float:inherit;}
 	.exam-container .exam-details .exam-dashboard .columns {width:33.3%;}
+	.footer {opacity:1 !important;}
+	.footer .left-widget {text-align:left;padding-bottom:20px;}
+	.footer .right-widget {padding-bottom:20px;}
+	.home .footer {position:relative;z-index:0;}
+	.fade-wrap {margin-bottom:0px !important;}
+	#footer-logo{display:none;}
 }
 
 @media (max-width: 600px) {
+	.exam-features .container-title {text-align:left;}
+	.what-license .container-title {text-align:left;}
 	.what-license .topics ul {width:100%;}
 	.what-license .topics li {text-indent: -46px;margin-left: 45px;}
-	.dashboard-main {/*padding-left:5px !important; padding-right: 5px !important;*/}
 	.page-template-dashboard #content-wrapper {padding-top:30px !important;}
 	.exam-container .exam-details .exam-controls {width:101%;position:fixed; bottom:46px;left:0;font-size: .8em;border-radius:0px;border: 1px solid #CCC;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);padding: 0px;}
 	.exam-container .exam-details .exam-dashboard {width:101%;position:fixed; bottom:0px;left:0;font-size: .8em;border-radius:0px;margin-bottom:0px;}
@@ -396,7 +404,6 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 	.exam-details.row {padding:0px !important;}
 	.fcc-panel .title {padding:10px !important;}
 	.fcc-panel.exam-panel .section-collapse{display:none;}
-	/*.header1 {display:none;}*/
 	.header2 .logo {padding: 6px 20px 6px 20px;background:none;}
 	.next-question {float:right;}
 	.fcc-panel .exam-controls button {border-radius:0px;padding: 12px 20px;border-top: none;border-bottom: none;}

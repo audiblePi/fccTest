@@ -98,17 +98,17 @@
 <div class="container logo-slider-wrapper">
 	<div class="row">
 		<ul class="logo-slider">
-			<li><img src="/wp-content/themes/passFCCExams/assets/images/lg-1.png"></li>
+			<!-- <li><img src="/wp-content/themes/passFCCExams/assets/images/lg-1.png"></li>
 			<li><img src="/wp-content/themes/passFCCExams/assets/images/lg-2.png"></li>
 			<li><img src="/wp-content/themes/passFCCExams/assets/images/lg-3.png"></li>
 			<li><img src="/wp-content/themes/passFCCExams/assets/images/lg-4.png"></li>
 			<li><img src="/wp-content/themes/passFCCExams/assets/images/lg-5.png"></li>
-			<li><img src="/wp-content/themes/passFCCExams/assets/images/lg-6.png"></li>
-			<!-- <li><div><span class="helper"></span><a href="http://www.aea.net/" target="_blank"><img src="/wp-content/uploads/2015/10/aircraft-electronics-association.png"></a></div></li>
+			<li><img src="/wp-content/themes/passFCCExams/assets/images/lg-6.png"></li> -->
+			<li><div><span class="helper"></span><a href="http://www.aea.net/" target="_blank"><img src="/wp-content/uploads/2015/10/aircraft-electronics-association.png"></a></div></li>
 			<li><div><span class="helper"></span><a href="http://ncatt.org/" target="_blank"><img src="/wp-content/uploads/2015/10/ncatt-logo.png"></a></div></li>
 			<li><div><span class="helper"></span><a href="http://www.amtsociety.org/" target="_blank"><img src="/wp-content/uploads/2015/10/amt-society.png"></a></div></li>
 			<li><div><span class="helper"></span><a href="http://pama.wildapricot.org/" target="_blank"><img src="/wp-content/uploads/2015/10/pama.png"></a></div></li>
-			<li><div><span class="helper"></span><a href="http://www.aviationtoday.com/av/issue/feature/Educating-Technicians_80134.html#.ViBjK36rTIU" target="_blank"><img src="/wp-content/uploads/2015/10/aviation-today-avionics.png"></a></div></li> -->
+			<li><div><span class="helper"></span><a href="http://www.aviationtoday.com/av/issue/feature/Educating-Technicians_80134.html#.ViBjK36rTIU" target="_blank"><img src="/wp-content/uploads/2015/10/aviation-today-avionics.png"></a></div></li>
 		</ul>
 	</div>
 </div>
@@ -142,13 +142,15 @@
 	</div>
 </div>
 
-<div class="container get-started">
-	<div class="row">
-		<div class="eight columns">
-			<h1>Earn a highly sought after industry-recognized professional certification.</h1>
-		</div>
-		<div class="four columns">
-			<button>Become a member.</button>
+<div class="fade-wrap">
+	<div class="container get-started">
+		<div class="row">
+			<div class="eight columns">
+				<h1>Earn a highly sought after industry-recognized professional certification.</h1>
+			</div>
+			<div class="four columns">
+				<button>Become a member.</button>
+			</div>
 		</div>
 	</div>
 </div>
