@@ -73,9 +73,9 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 .slider-container {z-index:1;}
 
 /*Exam Features*/
-.exam-features {padding: 30px !important;background: url('/wp-content/themes/passFCCExams/assets/images/bg2.png');border-top:10px solid #14578B;text-align:center;color:#fff !important;}
+.exam-features {padding: 30px !important;background: url('/wp-content/themes/passFCCExams/assets/images/bg2.png');border-top:10px solid #003366;text-align:center;color:#fff !important;}
 .exam-features .container-title {margin-bottom:40px !important;}
-.container-title .title-divider {background-color:#14578B; height:2px;margin-top:25px;}
+.container-title .title-divider {background-color:#003366; height:2px;margin-top:25px;}
 .container-title h1 {margin-top: -20px; width: 470px; margin-left: auto; margin-right: auto; background: url('/wp-content/themes/passFCCExams/assets/images/bg2.png'); }
 .container-title p{color:#fff !important;font-size:20px;}
 .feature-callouts img{height: 100px;}
