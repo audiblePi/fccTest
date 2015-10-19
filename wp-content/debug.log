@@ -89,3 +89,28 @@
 [19-Oct-2015 20:24:44 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 422
 [19-Oct-2015 21:09:28 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 422
 [19-Oct-2015 21:14:31 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 422
+[19-Oct-2015 22:06:28 UTC] PHP Notice:  Undefined index: twitterFollow in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 313
+[19-Oct-2015 22:06:28 UTC] PHP Notice:  Undefined index: dataShowCount in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 314
+[19-Oct-2015 22:06:28 UTC] PHP Notice:  Undefined index: dataShowScreenName in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 315
+[19-Oct-2015 22:06:28 UTC] PHP Notice:  Undefined index: timeRef in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 318
+[19-Oct-2015 22:06:28 UTC] PHP Notice:  Undefined index: twitterIntents in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 320
+[19-Oct-2015 22:06:28 UTC] PHP Notice:  Undefined index: twitterIntentsText in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 321
+[19-Oct-2015 22:06:28 UTC] PHP Notice:  Undefined index: showAvatar in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 323
+[19-Oct-2015 22:06:28 UTC] PHP Notice:  Undefined index: roundCorners in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 324
+[19-Oct-2015 22:06:31 UTC] PHP Notice:  Undefined index: twitterFollow in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 313
+[19-Oct-2015 22:06:31 UTC] PHP Notice:  Undefined index: dataShowCount in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 314
+[19-Oct-2015 22:06:31 UTC] PHP Notice:  Undefined index: dataShowScreenName in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 315
+[19-Oct-2015 22:06:31 UTC] PHP Notice:  Undefined index: timeRef in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 318
+[19-Oct-2015 22:06:31 UTC] PHP Notice:  Undefined index: twitterIntents in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 320
+[19-Oct-2015 22:06:31 UTC] PHP Notice:  Undefined index: twitterIntentsText in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 321
+[19-Oct-2015 22:06:31 UTC] PHP Notice:  Undefined index: showAvatar in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 323
+[19-Oct-2015 22:06:31 UTC] PHP Notice:  Undefined index: roundCorners in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 324
+[19-Oct-2015 22:08:19 UTC] PHP Notice:  Undefined index: twitterFollow in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 313
+[19-Oct-2015 22:08:19 UTC] PHP Notice:  Undefined index: dataShowCount in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 314
+[19-Oct-2015 22:08:19 UTC] PHP Notice:  Undefined index: dataShowScreenName in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 315
+[19-Oct-2015 22:08:19 UTC] PHP Notice:  Undefined index: timeRef in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 318
+[19-Oct-2015 22:08:19 UTC] PHP Notice:  Undefined index: twitterIntents in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 320
+[19-Oct-2015 22:08:19 UTC] PHP Notice:  Undefined index: twitterIntentsText in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 321
+[19-Oct-2015 22:08:19 UTC] PHP Notice:  Undefined index: showAvatar in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 323
+[19-Oct-2015 22:08:19 UTC] PHP Notice:  Undefined index: roundCorners in /Users/newowner/workspace/fccTest/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 324
+[19-Oct-2015 22:27:44 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/shortcodes.php on line 422
