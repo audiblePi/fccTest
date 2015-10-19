@@ -491,7 +491,7 @@
 						$morder->subtotal = $morder->InitialPayment;
 						$morder->getTax();
 
-						//filter for order, since v2.0
+						//filter for order, since v1.8
 						$morder = apply_filters("pmpro_checkout_order", $morder);
 
 						$pmpro_processed = $morder->process();
@@ -570,7 +570,7 @@
 			if (!$user_id || is_wp_error($user_id)) {
 				$pmpro_msg = __("Your payment was accepted, but there was an error setting up your account. Please contact us.", "pmpro");
 				$pmpro_msgt = "pmpro_error";
-			} elseif ( apply_filters('pmpro_setup_new_user', true, $user_id, $new_user_array) ) {
+			} elseif (apply_filters('pmpro_setup_new_user', true, $user_id, $new_user_array, $pmpro_level)) {
 
 				//check pmpro_wp_new_user_notification filter before sending the default WP email
 				if (apply_filters("pmpro_wp_new_user_notification", true, $user_id, $pmpro_level->id))
@@ -638,6 +638,8 @@
 					$morder->InitialPayment = 0;
 					$morder->Email = $bemail;
 					$morder->gateway = "free";
+
+					$morder = apply_filters("pmpro_checkout_order_free", $morder);
 				}
 
 				//add an item to the history table, cancel old subscriptions

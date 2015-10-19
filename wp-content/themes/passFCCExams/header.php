@@ -32,8 +32,8 @@
 								jQuery(function($){
 									$('.welcome-msg').css('display', 'inline-block');
 									$('#sidr .menu-sidebar-menu-container').css('display', 'block');
-									$('#menu-admin-menu li:nth-child(1)').css('display', 'inline-block');
-									$('#menu-admin-menu li:nth-child(2)').css('display', 'none');
+									 $('#menu-admin-menu li:nth-child(1)').css('display', 'inline-block');
+									// $('#menu-admin-menu li:nth-child(2)').css('display', 'none');
 								});
 							</script>
 							<?

@@ -38,10 +38,10 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 #menu-admin-menu li:nth-child(1) {display:none;}
 
 /*Header2*/
-.header2 {font-size: 1.2em;background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%);border-top: 10px solid #27558A;z-index: 3000;position: relative;border-bottom: 1px solid #27558A;}
+.header2 {font-size: 1.2em;background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%);border-top: 10px solid #003366;z-index: 301;position: relative;border-bottom: 1px solid #003366;}
 .header2 .row .columns {padding:0px;}
 .header2 .menu-wrapper .menu{float:right;margin:0px;}
-.header2 .menu-wrapper .menu li{display:inline-block;border-left: 1px solid #27558A;olor:#fff;text-shadow: 1px 1px #3C6689;margin-left: -5px;box-shadow: 1px 0px 0px #87B3D5 inset;}
+.header2 .menu-wrapper .menu li{display:inline-block;border-left: 1px solid #003366;olor:#fff;text-shadow: 1px 1px #3C6689;margin-left: -5px;box-shadow: 1px 0px 0px #87B3D5 inset;}
 .header2 .menu-wrapper .menu li:last-of-type{}
 .header2 .menu-wrapper .menu li a{color:#fff;padding:30px 25px;display:block;}
 .header2 .menu-wrapper .menu li:hover a{background: linear-gradient(to bottom, #6B9DD0 0%, #27558A 100%);box-shadow: 1px 0px 0px #87B3D5 inset;}
@@ -127,7 +127,7 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 .page-template-dashboard #content-wrapper {padding:60px 0px 30px !important;}
 .page-template-default #content-wrapper {padding:0px 30px 30px !important;background: rgba(255, 255, 255, .8);}
 .entry-content {color: #003366;}
-.entry-content h1{margin-bottom:20px;text-align:right;border-bottom: 10px solid #27558A;padding-bottom:15px;}
+.entry-content h1{margin-bottom:20px;text-align:right;border-bottom: 10px solid #003366;padding-bottom:15px;}
 .entry-content p{color: #003366;}
 .entry-content ol, .entry-content ul {margin-left:30px; list-style-type: decimal;margin-bottom: 20px;}
 .entry-content ul li {list-style-type:disc;}
@@ -226,6 +226,9 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 .fcc-panel .shadow {height: 2px; border-bottom: 1px solid #ccc; border-left: 1px solid #ccc; border-right: 1px solid #ccc; margin: 0 4px 0 4px; border-radius: 0 0 4px 4px; background:#fff;}
 .page-template-dashboard table{width:100%;}
 
+.ui-widget-overlay {z-index:301 !important;}
+
+ 
 /*My Account*/
 #pmpro_account .pmpro_box {border-top:none !important;margin:0px !important; padding-top:0px !important;padding-bottom:2em !important;}
 .fcc-panel.progress_report .content{display:none;/*visibility:hidden;*/}
@@ -258,7 +261,7 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 .exam-container .exam-details .exam-controls{padding: 0px 10px 20px 10px;}
 .exam-container .exam-details .exam-controls button.next-question {float:right;}
 .exam-container .question-container .question.exam-ended{text-align:center; padding-top:100px;font-size: 1.5em;font-weight: 600;}
-#dialog {text-align: center;font-size: 1.2em;}
+#dialog {text-align: center;/*font-size: 1.2em;*/}
 #dialog p{color: #5A5A5A;;}
 #dialog button{margin: 10px;border-radius: 4px; border: 1px solid #D9D9D9; color: #525252;font-family: arial; padding: 7px 12px; text-shadow: 1px 1px 0px #D1D1D1; box-shadow: 0px 1px 0px 0px #FFF inset; background: linear-gradient(to bottom, #FFF 0%, #EEE 100%); }
 #dialog button:hover{background: linear-gradient(to bottom, #EEE 0%, #FFF 100%);color:#000;}

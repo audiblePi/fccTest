@@ -27,6 +27,19 @@ jQuery(function($){
 		pager: 1
 	});
 
+	if ( $('.pmpro_content_message').length ){
+		$('.pmpro_content_message').wrap('<div class="panel-wrapper"><div class="fcc-panel"><div class="content"><div class="row"></div></div></div>');
+		$('.pmpro_content_message').parent().parent().parent().prepend('<div class="title">Access Restricted</div>');
+		$('.pmpro_content_message').parent().parent().parent().after('<div class="shadow"></div>');
+		$('.pmpro_content_message').append('<div class="insertLevels"></div>');
+	}
+
+	if ($('body').hasClass('pmpro-levels') )
+		if ( $('body').hasClass('logged-in') ){
+			$('.pmpro_checkout tr:nth-child(5)').css('display', 'none');
+			console.log('hide free trial');
+		}
+
 	$('#close-mobile-menu').click(function(e){
 		e.preventDefault();
 		$.sidr('close', 'sidr');
@@ -48,7 +61,7 @@ jQuery(function($){
 			panel.find('i').addClass('icon-chevron-down');
         }
 	});
-
+	
 	if($('.sidebar-menu').length){
 		var i =0;
 		$('.sidebar-menu #menu-dashboard-menu > li > a').each(function(){

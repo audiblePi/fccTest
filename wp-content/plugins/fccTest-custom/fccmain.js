@@ -236,17 +236,8 @@ jQuery(function($){
         $(this).find('.radio > span').addClass('checked');
         if(show_answers == "1"){
             showAnswer($(this));
-            $('.exam-controls .next-question').attr('disabled', true);
+            $('.exam-controls .next-question').attr('disabled', false);
             $('.question-container .question.' + current_question_index).css('pointer-events', 'none');
-            if(checkAnswer()==1)
-                updateScore('right');  
-            else if (checkAnswer() == 0)
-                updateScore('wrong');
-            else
-                updateScore('skipped');
-            setTimeout(function(){ 
-                proceed();
-            }, 1000);
         }
         else{
             if(checkAnswer()==1)
@@ -260,7 +251,12 @@ jQuery(function($){
     });
 
     $(document).on("click",".exam-container .next-question",function(e){
-        updateScore('skipped');
+        if(checkAnswer()==1)
+            updateScore('right');  
+        else if (checkAnswer() == 0)
+            updateScore('wrong');
+        else
+            updateScore('skipped');
         proceed();
     });
 

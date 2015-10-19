@@ -293,7 +293,7 @@ function pmpro_getLevelCost(&$level, $tags = true, $short = false)
 	if(!$tags)
 		$r = strip_tags($r);
 
-	$r = apply_filters("pmpro_level_cost_text", $r, $level, $tags, $short);	//passing $tags and $short since v2.0
+	$r = apply_filters("pmpro_level_cost_text", $r, $level, $tags, $short);	//passing $tags and $short since v1.8
 	return $r;
 }
 
@@ -486,18 +486,28 @@ function pmpro_showRequiresMembershipMessage()
 	}
 }
 
-/* pmpro_hasMembershipLevel() checks if the passed user is a member of the passed level
+/**
+ * Function to check if a user has specified membership levels.
  *
+ * pmpro_hasMembershipLevel() checks if the passed user is a member of the passed level
  * $level may either be the ID or name of the desired membership_level. (or an array of such)
  * If $user_id is omitted, the value will be retrieved from $current_user.
  *
- * Return values:
- *		Success returns boolean true.
- *		Failure returns a string containing the error message.
+ *  Return values:
+ *	 * Success returns boolean true.
+ *	 * Failure returns a string containing the error message.
+ *
+ * @since 1.8.5 Added 'e' option for expired members.
+ * @since 1.0.0
+ *
+ * @param mixed $levels The levels to check.
+ * @param int $user_id The user ID to check.
+ *
+ * @return bool Result of membership query.
  */
 function pmpro_hasMembershipLevel($levels = NULL, $user_id = NULL)
 {
-	global $current_user, $all_membership_levels, $wpdb;
+	global $current_user, $wpdb;
 
 	$return = false;
 
@@ -530,13 +540,18 @@ function pmpro_hasMembershipLevel($levels = NULL, $user_id = NULL)
 				
 		if(empty($membership_levels))
 		{			
-			//user has no levels just check if 0, L, or -L was sent in one of the levels
+			//user has no levels just check if 0, L, -1, or e was sent in one of the levels
 			if(in_array(0, $levels, true) || in_array("0", $levels))
 				$return = true;
 			elseif(in_array("L", $levels) || in_array("l", $levels))
 				$return = (!empty($user_id) && $user_id == $current_user->ID);
 			elseif(in_array("-L", $levels) || in_array("-l", $levels))
-				$return = (empty($user_id) || $user_id != $current_user->ID);		
+				$return = (empty($user_id) || $user_id != $current_user->ID);
+			elseif(in_array("E", $levels) || in_array("e", $levels)) {
+				$sql = "SELECT id FROM $wpdb->pmpro_memberships_users WHERE user_id=$user_id AND status='expired' LIMIT 1";
+				$expired = $wpdb->get_var($sql);
+				return !empty($expired);
+			}
 		}
 		else
 		{			
@@ -554,9 +569,9 @@ function pmpro_hasMembershipLevel($levels = NULL, $user_id = NULL)
 					if(empty($user_id) || $user_id != $current_user->ID)
 						$return = true;
 				}
-				elseif($level == "0")
+				elseif($level == "0" || strtoupper($level) == "E")
 				{
-					continue;	//user with levels so not a "non-member"
+					continue;	//user with levels so not a "non-member" or expired
 				}
 				else
 				{
@@ -667,6 +682,20 @@ function pmpro_changeMembershipLevel($level, $user_id = NULL, $old_level_status 
         }
     }
 
+    //get level id
+	if(is_array($level))
+		$level_id = $level['membership_id'];	//custom level
+	else
+		$level_id = $level;	//just id
+
+	/**
+	 * Action to run before the membership level changes.
+	 *
+	 * @param int $level_id ID of the level changed to.
+	 * @param int $user_id ID of the user changed.
+	 */
+	do_action("pmpro_before_change_membership_level", $level_id, $user_id);
+
     //should we cancel their gateway subscriptions?
     $pmpro_cancel_previous_subscriptions = true;
     if(isset($_REQUEST['cancel_membership']) && $_REQUEST['cancel_membership'] == false)
@@ -749,19 +778,20 @@ function pmpro_changeMembershipLevel($level, $user_id = NULL, $old_level_status 
 		}
 	}
 
-	//get level id
-	if(is_array($level))
-		$level_id = $level['membership_id'];	//custom level
-	else
-		$level_id = $level;	//just id
-
 	//remove cached level
 	global $all_membership_levels;
 	unset($all_membership_levels[$user_id]);
 
 	//update user data and call action
 	pmpro_set_current_user();
-	do_action("pmpro_after_change_membership_level", $level_id, $user_id);	//$level is the $level_id here
+
+	/**
+	 * Action to run after the membership level changes.
+	 *
+	 * @param int $level_id ID of the level changed to.
+	 * @param int $user_id ID of the user changed.
+	 */
+	do_action("pmpro_after_change_membership_level", $level_id, $user_id);
 	return true;
 }
 
@@ -1367,6 +1397,18 @@ function pmpro_getMembershipLevelForUser($user_id = NULL, $force = false)
 														JOIN {$wpdb->pmpro_memberships_users} AS mu ON (l.id = mu.membership_id)
 														WHERE mu.user_id = $user_id AND mu.status = 'active'
 														LIMIT 1");
+
+		/**
+		 * pmpro_get_membership_level_for_user filter.
+		 *
+		 * Filters the returned level.
+		 *
+		 * @since 1.8.5.4
+		 *
+		 * @param object $level Level object.
+		 */
+		$all_membership_levels[$user_id] = apply_filters('pmpro_get_membership_level_for_user', $all_membership_levels[$user_id]);
+
 		return $all_membership_levels[$user_id];
 	}
 }
@@ -1397,7 +1439,8 @@ function pmpro_getMembershipLevelsForUser($user_id = NULL, $include_inactive = f
 	$user_id = intval($user_id);
 	
 	global $wpdb;
-	return $wpdb->get_results("SELECT
+
+	$levels = $wpdb->get_results("SELECT
 								l.id AS ID,
 								l.id as id,
 								mu.id as subscription_id,
@@ -1418,6 +1461,18 @@ function pmpro_getMembershipLevelsForUser($user_id = NULL, $include_inactive = f
 							FROM {$wpdb->pmpro_membership_levels} AS l
 							JOIN {$wpdb->pmpro_memberships_users} AS mu ON (l.id = mu.membership_id)
 							WHERE mu.user_id = $user_id".($include_inactive?"":" AND mu.status = 'active'"));
+	/**
+	 * pmpro_get_membership_levels_for_user filter.
+	 *
+	 * Filters the returned levels.
+	 *
+	 * @since 1.8.5.4
+	 *
+	 * @param array $levels Array of level objects.
+	 */
+	$levels = apply_filters('pmpro_get_membership_levels_for_user', $levels);
+
+	return $levels;
 }
 
 /* pmpro_getLevel() returns the level object for a level
