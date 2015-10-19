@@ -196,7 +196,7 @@ function showInterface($atts){
 	</div>
 	<div class="panel-wrapper exam">
 		<div class="fcc-panel exam-panel collapsed">
-			<div class="title"><span class="the-title">Exam</span><div class="section-collapse">collapse <i class="icon-chevron-down"></i></div></div>
+			<div class="title"><span class="the-title">Exam</span><div class="section-collapse">expand <i class="icon-chevron-down"></i></div></div>
 			<div class="content" >
 				<div class="pre-loader"></div>
 				<div class="exam-container" style="display:none"></div>
@@ -382,6 +382,15 @@ function showLeaderBoard() {
 function showProfile(){
 	$current_user = wp_get_current_user();
 	$current_user_id = $current_user->ID;
+	if(pmpro_hasMembershipLevel('5')){
+	?>
+		<script>
+			jQuery(function($){
+				$('.pmpro_actionlinks a:nth-child(1)').css('display', 'none');
+			});
+		</script>
+	<?php
+	}
 	?>
 	<div class="panel-wrapper">
 		<div class="fcc-panel profile">
@@ -414,7 +423,7 @@ function showProfile(){
 					</tr> -->
 					<tr class="row">
 						<td class="five columns">Occupation</td>
-						<td class="seven columns"><?php echo $current_user->description ?></td>
+						<td class="seven columns"><?php echo get_user_meta( $current_user_id, 'occupation', true );  ?></td>
 					</tr>
 				</table>
 				<table>
@@ -436,7 +445,8 @@ function showProfile(){
 						<td class="seven columns membership-expiration"></td>
 					</tr>
 				</table>
-				<div style="display:none"><?php echo do_shortcode('[pmpro_account]'); ?></div>
+				<div style="display:none">
+					<?php echo do_shortcode('[pmpro_account]'); ?></div>
 			</div>
 		</div>
 		<div class="shadow"></div>
@@ -493,6 +503,7 @@ function showProfile(){
 					</tr>
 				</table>
 			</div>
+		</div>
 		<div class="shadow"></div>
 	</div>
 

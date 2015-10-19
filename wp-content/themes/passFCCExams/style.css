@@ -137,6 +137,9 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 /*Page - Membership Levels*/
 #pmpro_levels_table {margin:auto;width:100%;}
 
+/*PMPPro Custom Styles*/
+form.pmpro_form .input {border: 1px solid #d0d0d0 !important; border-radius: 4px; box-shadow: inset 0px 1px 3px 0 rgba(0,0,0,0.2), 1px 2px 3px 0 rgba(0,0,0,0.1); color: #565656; padding: 10px !important; }
+
 /*Page - FAQ*/
 .page-template-default .panel-wrapper {margin-bottom:20px;}
 .page-template-default .panel-wrapper ul,.page-template-default .panel-wrapper ol {margin-bottom:10px;}

@@ -34,11 +34,11 @@ jQuery(function($){
 		$('.pmpro_content_message').append('<div class="insertLevels"></div>');
 	}
 
-	if ($('body').hasClass('pmpro-levels') )
+	if ($('body').hasClass('pmpro-levels') ){
 		if ( $('body').hasClass('logged-in') ){
 			$('.pmpro_checkout tr:nth-child(5)').css('display', 'none');
-			console.log('hide free trial');
 		}
+	}
 
 	$('#close-mobile-menu').click(function(e){
 		e.preventDefault();
@@ -47,18 +47,15 @@ jQuery(function($){
 
 	$('.section-collapse').click(function(){
 		var panel = $(this).closest('.fcc-panel');
-		//console.log($(this).closest('.section-collapse').text());
 		if (panel.hasClass('collapsed')){
             panel.children('.content').slideToggle("slow");
 			panel.removeClass('collapsed');
-			panel.find('i').removeClass('icon-chevron-down');
-			panel.find('i').addClass('icon-chevron-up');
+			panel.find('.section-collapse').html('collapse <i class="icon-chevron-up"></i>');
         }
         else{
         	panel.children('.content').slideToggle("slow");
 			panel.addClass('collapsed');
-			panel.find('i').removeClass('icon-chevron-up');
-			panel.find('i').addClass('icon-chevron-down');
+			panel.find('.section-collapse').html('expand <i class="icon-chevron-down"></i>');
         }
 	});
 	
@@ -200,13 +197,11 @@ function openExam(){
 		var exam_panel = $('.fcc-panel.exam-panel');
         panel.children('.content').slideUp("slow");
 		panel.addClass('collapsed');
-		panel.find('i').removeClass('icon-chevron-up');
-		panel.find('i').addClass('icon-chevron-down');
-        
+		panel.find('.section-collapse').html('expand <i class="icon-chevron-down"></i>');
+
     	exam_panel.children('.content').slideDown("slow");
 		exam_panel.removeClass('collapsed');
-		exam_panel.find('i').removeClass('icon-chevron-down');
-		exam_panel.find('i').addClass('icon-chevron-up');
+		exam_panel.find('.section-collapse').html('collapse <i class="icon-chevron-up"></i>');
  		
  		setTimeout(function(){ 
             $('html, body').animate({

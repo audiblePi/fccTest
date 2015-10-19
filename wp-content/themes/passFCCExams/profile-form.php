@@ -105,15 +105,29 @@ Theme My Login will always look in your theme's directory first, before using th
 		<h3><?php _e( 'About Yourself', 'theme-my-login' ); ?></h3>
 
 		<table class="form-table">
-		<tr>
+		<!-- <tr>
 			<th><label for="description"><?php _e( 'Occupation', 'theme-my-login' ); ?></label></th>
 			<td><input type="text" name="description" id="description" value="<?php echo esc_html( $profileuser->description ); ?>"><br />
-			<!-- <span class="description"><?php _e( 'Share a little biographical information to fill out your profile. This may be shown publicly.', 'theme-my-login' ); ?></span>--></td>
-		</tr>
+			<span class="description"><?php _e( 'Share a little biographical information to fill out your profile. This may be shown publicly.', 'theme-my-login' ); ?></span></td>
+		</tr> -->
 		<!-- <p>
 			<label for="user_phone<?php $template->the_instance(); ?>"><?php _e('Phone'); ?></label>
 			<input type="text" name="user_phone" id="user_phone<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value('user_phone'); ?>" size="20" />
 		</p> -->
+<!-- 		<tr>
+			<th><label for="user_occupation<?php $template->the_instance(); ?>"><?php _e('Ocuupation'); ?></label></th>
+			<td>
+				<input type="text" name="user_occupation" id="user_occupation<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value('user_occupation'); ?>" size="20" />
+				<select name="user_occupation" id="user_occupation">
+					<option value="Occupation 1">Occupation 1</option>
+					<option value="Occupation 2">Occupation 2</option>
+					<option value="Occupation 3">Occupation 3</option>
+					<option value="Occupation 4">Occupation 4</option>
+					<option value="Occupation 5">Occupation 5</option>
+					<option value="Occupation 6">Occupation 6</option>
+				</select>
+			</td>
+		</tr> -->
 
 		<?php
 		$show_password_fields = apply_filters( 'show_password_fields', true, $profileuser );

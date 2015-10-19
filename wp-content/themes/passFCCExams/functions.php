@@ -152,3 +152,38 @@ function google_map_css() {
 	}</style>';
 }
 add_action( 'wp_head', 'google_map_css' );
+
+function my_pmprorh_init()
+{
+    //don't break if Register Helper is not loaded
+    if(!function_exists("pmprorh_add_registration_field"))
+    {
+        return false;
+    }
+
+    //define the fields
+    $fields = array();
+    $fields[] = new PMProRH_Field(
+        "occupation",               
+        "select",             				
+        array(
+        	"profile"	=>true,
+        	"required"	=>true,   
+            "options"=>array(
+                "" 						=>"Please select",
+                "Avionic Technician"	=>"Avionic Technician",
+                "Electronic Technician"	=>"Electronic Technician",
+                "A&P Mechanic"			=>"A&P Mechanic",
+                "Instructor"			=>"Instructor",
+                "Student"				=>"Student",
+                "Other"					=>"Other"
+        )));
+
+    //add the fields into a new checkout_boxes are of the checkout page
+    foreach($fields as $field)
+        pmprorh_add_registration_field(
+            "after_email", // location on checkout page
+            $field            // PMProRH_Field object
+        );
+}
+add_action("init", "my_pmprorh_init");
