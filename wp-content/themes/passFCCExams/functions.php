@@ -168,7 +168,7 @@ function my_pmprorh_init()
         "select",             				
         array(
         	"profile"	=>true,
-        	"required"	=>true,   
+        	//"required"	=>true,   
             "options"=>array(
                 "" 						=>"Please select",
                 "Avionic Technician"	=>"Avionic Technician",

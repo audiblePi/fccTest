@@ -37,7 +37,6 @@ function fcc_load_scripts(){
     wp_enqueue_script( 'morris', '/wp-content/plugins/fccTest-custom/jquery.morris/morris.js' );
     wp_enqueue_script( 'flot', '/wp-content/plugins/fccTest-custom/flot/jquery.flot.min.js' );
     wp_enqueue_script( 'flotpie', '/wp-content/plugins/fccTest-custom/flot/jquery.flot.pie.js' );
-    //wp_enqueue_script( 'date', '/wp-content/plugins/fccTest-custom/date.js' );
 }
 
 function admin_init() {

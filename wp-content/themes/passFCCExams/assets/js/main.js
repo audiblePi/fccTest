@@ -8,6 +8,7 @@ jQuery(function($){
 	$(window).scroll(function() {fade();});
 	$('.sidebar-menu .menu-item-has-children > a, #menu-sidebar-menu .sub-menu .menu-item-has-children > a').attr('onclick', 'return false');
 	$('.sidebar-menu .menu-item-has-children > a').click(function(){$('.sidebar-menu .menu-item-has-children .sub-menu').slideToggle(200);});
+	$('#menu-sidebar-menu ul .menu-item-has-children > a').click(function(){$(this).siblings('.sub-menu').slideToggle(200);});
     $('.footer').css( 'opacity', 0 );
 	$('.mobile-menu-wrapper').sidr({side: 'right'});
     $('#user_login').attr('placeholder', 'Username');
@@ -67,6 +68,17 @@ jQuery(function($){
 		});
 	}
 
+	if($('#menu-sidebar-menu').length){
+		$('#menu-sidebar-menu > li').each(function(){
+			$(this).children('a').prepend( "<span class='menu-icon'><i class='"+sidebar_icons[0]+"'></i></span>" );
+		});
+		var i =1;
+		$('#menu-sidebar-menu > li > .sub-menu > li').each(function(){
+			$(this).children('a').prepend( "<span class='menu-icon'><i class='"+sidebar_icons[i]+"'></i></span>" );
+			i++;
+		});
+	}
+
 	if($('.header2').length){
 		var i =0;
 		$('.header2 li a').each(function(){
@@ -74,6 +86,34 @@ jQuery(function($){
 			i++;
 		});
 	}
+
+	var config2 = {
+		"id": '656459012754399232',
+		//"id": '345170787868762112',
+		"domId": 'twitter-wrap',
+		"maxTweets": 3,
+		"enableLinks": true,
+		"showUser": false,
+		"showTime": true,
+		"lang": 'en',
+		"showImages": false,
+  		"showRetweet": false,
+  		"showInteraction": false,
+		"dateFunction": dateFormatter,
+	};
+	twitterFetcher.fetch(config2);
+
+	function dateFormatter(date) {
+	 	return $.timeago(date);
+	}
+
+	setTimeout(function(){
+		$('#twitter-wrap ul li').each(function(){
+			timePosted = $(this).find('.timePosted');
+			tweet = $(this).find('.tweet');
+			tweet.before(timePosted);
+		});
+	}, 1000);
 	
     function fade() {
         if ($(window).width() > 767) {
@@ -203,10 +243,10 @@ function openExam(){
 		exam_panel.removeClass('collapsed');
 		exam_panel.find('.section-collapse').html('collapse <i class="icon-chevron-up"></i>');
  		
- 		setTimeout(function(){ 
-            $('html, body').animate({
-                scrollTop: $('.fcc-panel.exam-panel').offset().top - 100
-            }, 1000);
-        }, 1000);
+ 		// setTimeout(function(){ 
+   //          $('html, body').animate({
+   //              scrollTop: $('.fcc-panel.exam-panel').offset().top - 100
+   //          }, 1000);
+   //      }, 1000);
 	});
 }//global function for plugin access

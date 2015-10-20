@@ -15,6 +15,8 @@ function conure_load_scripts(){
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() .'/assets/bootstrap/js/bootstrap.min.js' );
 	wp_enqueue_script( 'sidrjs', get_template_directory_uri() . '/assets/js/sidr-package/jquery.sidr.min.js' );
 	wp_enqueue_script( 'bxsliderjs', get_template_directory_uri() . '/assets/js/jquery.bxslider/jquery.bxslider.js' );
+	wp_enqueue_script( 'twitterfetchjs', get_template_directory_uri() . '/assets/js/twitter-fetch/js/twitterFetcher_min.js' );
+	wp_enqueue_script( 'timeago', get_template_directory_uri() . '/assets/js/jquery.timeago.js' );
 }
 
 function conure_title( $title ){

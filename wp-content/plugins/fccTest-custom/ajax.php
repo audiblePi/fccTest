@@ -6,7 +6,7 @@ if (isset($_POST['myAction']))
 {    
     $action = $_POST['myAction'];
     switch($action) {
-        case 'start'            : start();break;//weak areas //missed retake //previous
+        case 'start'            : start();break;
         case 'init'             : mySave(0);break;
         case 'update'           : mySave(1);break;
         case 'getArray'         : getArray();break;
@@ -124,12 +124,16 @@ function start(){
             <div class="question exam-ended">
                 <div>Exam Ended</div>
                 <div class="new-high-score"></div>
+               <!--  <button class="try-again">Try Again?</button> -->
                 <button class="retake">Missed Retake</button>
             </div> 
         </div>
         <div class="exam-controls">
-            <a href="my-account/study-reports/element-<?php echo substr($newExam->element_id, 1) ?>"><button class="exit-exam">Exit</button></a>
-            <button class="next-question">Next</button>
+            <div>
+                <a href="my-account/study-reports/element-<?php echo substr($newExam->element_id, 1) ?>"><button class="exit-exam">Exit</button></a>
+                <!-- <span class="mobile-logo"><img src="/wp-content/themes/passFCCExams/assets/images/logo.png"></span> -->
+                <button class="next-question">Next</button>
+            </div>
         </div>
         <div class="exam-dashboard">
             <table>

@@ -299,6 +299,7 @@ jQuery(function($){
            data: post_data,
            dataType: "text",
            success: function (text) {
+                $.uniform.restore();
                 $('.pre-loader').css('display', 'none');
                 printExam(text);
                 if(resume==0){
