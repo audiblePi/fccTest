@@ -28,6 +28,9 @@ get_header(); ?>
 		<div class="login-links">
 			<ul>
 				<li>
+					<a href="/membership-levels">Register</a>
+				</li>
+				<li>
 					<a href="<?php echo site_url() ?>/lostpassword/">Forgot your password?</a>
 				</li>
 				<li>
