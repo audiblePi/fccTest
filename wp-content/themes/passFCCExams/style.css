@@ -124,17 +124,28 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 .fade-wrap{}
 .get-started{padding:50px !important;background:url(/wp-content/uploads/2015/10/satellite-dishes-banner.jpg);background-size: cover;border-top: 1px solid #fff;border-bottom: 1px solid #fff;}
 .get-started h1{margin-top:5px; margin-bottom:5px;text-transform:uppercase; color:#fff;}
-.get-started button{background:#9ABF01;color:#fff;border: none;border:none;padding:15px 40px;border-radius:4px;margin-top: 20px;}
+.get-started button{padding:15px 40px;margin-top: 20px;}
+.get-started button:hover {background: linear-gradient(to bottom, #8BAC01 0%, #9ABF01 100%);box-shadow: inset 0px -1px 0px 0px #A4C51A; }
 .get-started a{color:#FFF;}
 
 /*Page*/
-.page-template-dashboard #content-wrapper {padding:60px 0px 30px !important;}
-.page-template-default #content-wrapper {padding:0px 30px 30px !important;background: rgba(255, 255, 255, .8);}
+.page-template-dashboard #content-wrapper{padding:60px 0px 30px !important;}
+.page-template-default #content-wrapper, .error404 #content-wrapper  {padding:0px 30px 30px !important;background: rgba(255, 255, 255, .8);}
 .entry-content {color: #003366;}
 .entry-content h1{margin-bottom:20px;text-align:right;border-bottom: 10px solid #003366;padding-bottom:15px;}
 .entry-content p{color: #003366;}
 .entry-content ol, .entry-content ul {margin-left:30px; list-style-type: decimal;margin-bottom: 20px;}
 .entry-content ul li {list-style-type:disc;}
+
+.tp-button.green,
+.get-started button,
+.footer .front-page-contact-wrapper input[type=submit],
+.green-button {color:#fff !important;border-radius:4px;background: linear-gradient(to bottom, #9ABF01 0%, #8BAC01 100%); box-shadow: inset 0px 1px 0px 0px #A4C51A !important; text-shadow: 1px 1px 0px #5C7301 !important;border: 1px solid #8BAC01;}
+
+.tp-button.green:hover,
+.get-started button:hover,
+.footer .front-page-contact-wrapper input[type=submit]:hover,
+.green-button:hover{background: linear-gradient(to bottom, #8BAC01 0%, #9ABF01 100%);box-shadow: inset 0px -1px 0px 0px #A4C51A !important;}
 
 /*Page - About*/
 
@@ -167,9 +178,12 @@ form.pmpro_form .input {border: 1px solid #d0d0d0 !important; border-radius: 4px
 /*Page 404*/
 .error404 {}
 .error404 .footer {opacity:1 !important;}
-.error404 .error-message {text-align:center;margin: 100px 0px;color: #8B8B8B;opacity: .5;}
+.error404 .error-message {text-align:center;margin: 100px 0px;color: #8B8B8B;opacity: .8;}
 .error404 .error-message h1{font-size: 15em;}
 .error404 .error-message h3{font-size: 4em;}
+
+/*theme-my-login*/
+.tml-lostpassword {padding: 50px 20px 10px;}
 
 /*Login*/
 body.page-template-login{background: transparent url("assets/images/back-pattern.png") repeat scroll 0% 0%;}
@@ -340,7 +354,7 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 .footer .front-page-contact-wrapper .row .columns {margin-bottom:20px !important;}
 .footer .front-page-contact-wrapper input {width:100%;padding: 10px; border:none;}
 .footer .front-page-contact-wrapper textarea {width:100%;border:none;padding: 10px;height: 100px;}
-.footer .front-page-contact-wrapper input[type=submit] {width:25%;float:right;width: 25%;background: #9ABF01; color: #fff; border: none; padding: 10px 20px; border-radius: 4px;}
+.footer .front-page-contact-wrapper input[type=submit] {width:25%;float:right;padding: 10px 20px;}
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */ color:#6B9DD0; }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */ color:#6B9DD0; opacity:  1; }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */ color:#6B9DD0; opacity:  1; }

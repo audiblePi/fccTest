@@ -480,3 +480,133 @@
 [21-Oct-2015 14:17:45 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/shortcodes.php on line 422
 [21-Oct-2015 14:18:02 UTC] PHP Notice:  Undefined index: logout_type in /Users/newowner/workspace/fccTest/wp-content/plugins/theme-my-login/modules/custom-redirection/custom-redirection.php on line 118
 [21-Oct-2015 14:18:02 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/newowner/workspace/fccTest/wp-content/plugins/theme-my-login/modules/custom-redirection/custom-redirection.php:118) in /Users/newowner/workspace/fccTest/wp-includes/pluggable.php on line 1207
+[21-Oct-2015 14:27:50 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:27:50 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:27:50 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:28:50 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:28:50 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:28:50 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:28:50 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:29:53 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:29:53 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:29:53 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:29:53 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:31:31 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:31:31 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:31:31 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:31:31 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:31:45 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, function 'add_page' not found or invalid function name in /Users/newowner/workspace/fccTest/wp-includes/plugin.php on line 503
+[21-Oct-2015 14:31:57 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, function 'add_page' not found or invalid function name in /Users/newowner/workspace/fccTest/wp-includes/plugin.php on line 503
+[21-Oct-2015 14:31:57 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, function 'admin_init' not found or invalid function name in /Users/newowner/workspace/fccTest/wp-includes/plugin.php on line 503
+[21-Oct-2015 14:32:01 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, function 'add_page' not found or invalid function name in /Users/newowner/workspace/fccTest/wp-includes/plugin.php on line 503
+[21-Oct-2015 14:32:02 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, function 'admin_init' not found or invalid function name in /Users/newowner/workspace/fccTest/wp-includes/plugin.php on line 503
+[21-Oct-2015 14:33:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:33:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:33:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:33:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:35:18 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:35:18 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:35:18 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:35:18 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:37:03 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:37:03 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:37:03 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:37:03 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:39:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:39:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:39:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:39:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:41:38 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:41:38 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:41:38 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:41:38 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:42:38 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:42:38 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:42:38 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:42:38 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:44:32 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:44:32 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:44:32 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:44:32 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:50:19 UTC] PHP Notice:  Undefined index: site_logo in /Users/newowner/workspace/fccTest/wp-content/themes/passFCCExams/options/library/options-register.php on line 185
+[21-Oct-2015 14:50:19 UTC] PHP Notice:  Undefined index: home_page_slider_image1 in /Users/newowner/workspace/fccTest/wp-content/themes/passFCCExams/options/library/options-register.php on line 185
+[21-Oct-2015 14:50:19 UTC] PHP Notice:  Undefined index: home_page_slider_image2 in /Users/newowner/workspace/fccTest/wp-content/themes/passFCCExams/options/library/options-register.php on line 185
+[21-Oct-2015 14:50:19 UTC] PHP Notice:  Undefined index: home_page_slider_image3 in /Users/newowner/workspace/fccTest/wp-content/themes/passFCCExams/options/library/options-register.php on line 185
+[21-Oct-2015 14:50:19 UTC] PHP Notice:  Undefined index: office_location in /Users/newowner/workspace/fccTest/wp-content/themes/passFCCExams/options/library/options-register.php on line 185
+[21-Oct-2015 14:50:33 UTC] PHP Notice:  Undefined index: site_logo in /Users/newowner/workspace/fccTest/wp-content/themes/passFCCExams/options/library/options-register.php on line 185
+[21-Oct-2015 14:50:33 UTC] PHP Notice:  Undefined index: home_page_slider_image1 in /Users/newowner/workspace/fccTest/wp-content/themes/passFCCExams/options/library/options-register.php on line 185
+[21-Oct-2015 14:50:33 UTC] PHP Notice:  Undefined index: home_page_slider_image2 in /Users/newowner/workspace/fccTest/wp-content/themes/passFCCExams/options/library/options-register.php on line 185
+[21-Oct-2015 14:50:33 UTC] PHP Notice:  Undefined index: home_page_slider_image3 in /Users/newowner/workspace/fccTest/wp-content/themes/passFCCExams/options/library/options-register.php on line 185
+[21-Oct-2015 14:50:33 UTC] PHP Notice:  Undefined index: office_location in /Users/newowner/workspace/fccTest/wp-content/themes/passFCCExams/options/library/options-register.php on line 185
+[21-Oct-2015 14:50:39 UTC] PHP Notice:  Undefined index:  in /Users/newowner/workspace/fccTest/wp-content/themes/passFCCExams/options/library/options-sanitize.php on line 59
+[21-Oct-2015 14:50:39 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-content/themes/passFCCExams/options/library/options-sanitize.php on line 62
+[21-Oct-2015 14:50:39 UTC] PHP Notice:  Undefined variable: clean in /Users/newowner/workspace/fccTest/wp-content/themes/passFCCExams/options/library/options-sanitize.php on line 112
+[21-Oct-2015 14:50:39 UTC] PHP Notice:  Undefined variable: clean in /Users/newowner/workspace/fccTest/wp-content/themes/passFCCExams/options/library/options-sanitize.php on line 114
+[21-Oct-2015 14:50:39 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/newowner/workspace/fccTest/wp-content/themes/passFCCExams/options/library/options-sanitize.php:59) in /Users/newowner/workspace/fccTest/wp-includes/pluggable.php on line 1207
+[21-Oct-2015 14:51:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:51:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:51:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:51:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:53:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:53:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:53:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:53:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:54:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:54:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:54:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:54:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:55:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:55:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:55:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:55:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:56:45 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:56:45 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:56:45 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:56:45 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:58:46 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:58:46 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:58:46 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:58:46 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:59:46 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:59:46 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:59:46 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 14:59:46 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:02:11 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:02:11 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:02:11 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:02:11 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:03:26 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:03:26 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:03:26 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:03:26 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:05:27 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:05:27 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:05:27 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:05:27 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:07:27 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:07:27 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:07:27 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:07:27 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:09:28 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:09:28 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:09:28 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:09:28 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:10:49 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:10:49 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:11:00 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:11:00 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:11:00 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:11:23 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:11:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:14:33 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:14:33 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:14:33 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:14:35 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:14:35 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:14:35 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:14:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:14:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:14:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/newowner/workspace/fccTest/wp-admin/includes/plugin.php on line 1438
+[21-Oct-2015 15:28:23 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/shortcodes.php on line 422
+[21-Oct-2015 15:51:18 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/shortcodes.php on line 422
+[21-Oct-2015 16:05:20 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/shortcodes.php on line 422

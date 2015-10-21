@@ -107,9 +107,9 @@ function custom_login_logo(){
 
 /*Remove admin menu items*/
 function my_remove_menu_pages(){
-	// remove_menu_page('edit.php?post_type=acf');
+	remove_menu_page('edit.php?post_type=acf');
 	// remove_menu_page( 'index.php' );                  //Dashboard
-	remove_menu_page( 'edit.php' );                   //Posts
+	//remove_menu_page( 'edit.php' );                   //Posts
 	// remove_menu_page( 'upload.php' );                 //Media
 	// remove_menu_page( 'edit.php?post_type=page' );    //Pages
 	remove_menu_page( 'edit-comments.php' );          //Comments
