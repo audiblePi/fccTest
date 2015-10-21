@@ -439,7 +439,6 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 	.container-title h1 {width:100% !important;}
 	.page-template-default .fcc-panel .section-collapse {float:none;text-align:right;}
 	.question-container .question .answer-box {padding:15px 10px !important;}
-	.fcc-panel.exam-panel {min-height:500px;}
 }
 
 @media (max-width: 400px) {
