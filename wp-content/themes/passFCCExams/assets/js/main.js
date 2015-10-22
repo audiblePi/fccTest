@@ -3,8 +3,8 @@ jQuery(function($){
 	var main_menu_icons = ["icon-home", "icon-groups-friends", "icon-contact-businesscard", "icon-question-sign"];
 	var logoSlider = $('.logo-slider').bxSlider({});
 	var footerHeight;
-	$(window).resize(function() {adjustColumns();adjustSlider();fadeAdjust();});
-	$(window).load(function() {adjustColumns();adjustSlider();fade();fadeAdjust();});
+	$(window).resize(function() {adjustSlider();fadeAdjust();});
+	$(window).load(function() {adjustSlider();fade();fadeAdjust();});
 	$(window).scroll(function() {fade();});
 	$('.sidebar-menu .menu-item-has-children > a, #menu-sidebar-menu .sub-menu .menu-item-has-children > a').attr('onclick', 'return false');
 	$('.sidebar-menu .menu-item-has-children > a').click(function(){$('.sidebar-menu .menu-item-has-children .sub-menu').slideToggle(200);});
@@ -28,6 +28,15 @@ jQuery(function($){
 		pager: 1
 	});
 
+	//Custom Paypal In-Context Checkout Integration//
+	if( $('.pmpro_form').length ){
+		$('.pmpro_form').parent().after("<script>window.paypalCheckoutReady = function () {paypal.checkout.setup('NH4LPZLREH8A6', {environment: 'sandbox',container: 'new-button'});};</script><script src='//www.paypalobjects.com/api/checkout.js' async></script>");
+		$('.pmpro_submit').before("<div id='new-button'></div>");
+	}
+	if($('form.pmpro_form .pmpro_submit #pmpro_submit_span').css('display') == 'block'){
+		$('#new-button').hide();
+	}
+
 	if ( $('.pmpro_content_message').length ){
 		$('.pmpro_content_message').wrap('<div class="panel-wrapper"><div class="fcc-panel"><div class="content"><div class="row"></div></div></div>');
 		$('.pmpro_content_message').parent().parent().parent().prepend('<div class="title">Access Restricted</div>');
@@ -46,7 +55,7 @@ jQuery(function($){
 		$.sidr('close', 'sidr');
 	});
 
-	$('.section-collapse').click(function(){
+	$('.fcc-panel .title').click(function(){
 		var panel = $(this).closest('.fcc-panel');
 		if (panel.hasClass('collapsed')){
             panel.children('.content').slideToggle("slow");
@@ -69,9 +78,9 @@ jQuery(function($){
 	}
 
 	if($('#menu-sidebar-menu').length){
-		$('#menu-sidebar-menu > li').each(function(){
-			$(this).children('a').prepend( "<span class='menu-icon'><i class='"+sidebar_icons[0]+"'></i></span>" );
-		});
+		// $('#menu-sidebar-menu > li').each(function(){
+		// 	$(this).children('a').prepend( "<span class='menu-icon'><i class='"+sidebar_icons[0]+"'></i></span>" );
+		// });
 		var i =1;
 		$('#menu-sidebar-menu > li > .sub-menu > li').each(function(){
 			$(this).children('a').prepend( "<span class='menu-icon'><i class='"+sidebar_icons[i]+"'></i></span>" );
@@ -99,17 +108,19 @@ jQuery(function($){
 		"showImages": false,
   		"showRetweet": false,
   		"showInteraction": false,
-		"dateFunction": dateFormatter,
+		//"dateFunction": dateFormatter,
 	};
 	twitterFetcher.fetch(config2);
 
-	function dateFormatter(date) {
-	 	return $.timeago(date);
-	}
+	// function dateFormatter(date) {
+	// 	console.log(date);
+	//  	return $.timeago(date);
+	// }
 
 	setTimeout(function(){
 		$('#twitter-wrap ul li').each(function(){
 			timePosted = $(this).find('.timePosted');
+			timePosted.children('a').html(timePosted.children('a').html().substring(7));
 			tweet = $(this).find('.tweet');
 			tweet.before(timePosted);
 		});
@@ -154,21 +165,6 @@ jQuery(function($){
     		$('.fade-wrap').css('margin-bottom',footerHeight );
     	}
     }//end fadeAdjust()
-
-	function adjustColumns() {
-        if ($(window).width() <= 991) {
-            $('.dashboard-sidebar').removeClass('three columns');
-            $('.dashboard-sidebar').addClass('twelve columns');
-            $('.dashboard-main').removeClass('nine columns');
-            $('.dashboard-main').addClass('twelve columns');
-        }
-        else {
-            $('.dashboard-sidebar').removeClass('twelve columns');
-            $('.dashboard-sidebar').addClass('three columns');
-            $('.dashboard-main').removeClass('twelve columns');
-            $('.dashboard-main').addClass('nine columns');
-        }
-    }//end adjustColmns()
 
     function adjustSlider(){
     	if ($('.bx-wrapper').length){

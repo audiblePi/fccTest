@@ -33,9 +33,9 @@ jQuery(function($){
 
     $("select, input:checkbox, input:radio").uniform();
     $(window).resize(function(){
-        if($('#progress-report').length)
+        if($('#progress-report svg').length)
             window.m.redraw();
-        if($('#element-history').length)
+        if($('#element-history svg').length)
             window.l.redraw();
         if ($(window).width() > 600 )
             $('body').removeClass('mobile-exam-mode');
@@ -300,8 +300,11 @@ jQuery(function($){
            dataType: "text",
            success: function (text) {
                 $.uniform.restore();
+                //console.log('hide');
                 $('.pre-loader').css('display', 'none');
+                //console.log('print');
                 printExam(text);
+                //console.log('if statements');
                 if(resume==0){
                     $('.exam-panel .title .the-title').html($('.element-id option:selected').text());
                     saveExam(0); //0 = init
@@ -323,6 +326,7 @@ jQuery(function($){
                 }
            }
         });
+        // console.log('display');
         $('.pre-loader').css('display', 'block');
         $('.exam-details .current_question').html(current_question_index);
     }
@@ -409,7 +413,7 @@ jQuery(function($){
     }
 
     function printExam(data){
-        // console.log('printExam()');
+        //console.log('printExam()');
         $('.exam-container').html(data).fadeIn();
         if (show_answers == "0"){
             $('.exam-controls .next-question').css('display', 'none');
@@ -429,6 +433,7 @@ jQuery(function($){
         seen = $('.seen').text();
         createQuestionsArray();
         $("select, input:checkbox, input:radio").uniform();
+        //console.log('end print');
     }
 
     function updateHTML(){

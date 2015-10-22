@@ -43,6 +43,6 @@ body.mobile-exam-mode .header1, body.mobile-exam-mode .header2 {display:none;}
 body.mobile-exam-mode .dashboard-main {padding-left:0px; padding-right:0px;}
 body.mobile-exam-mode .panel-wrapper.exam {margin-top: 20px;}
 body.mobile-exam-mode .panel-wrapper.exam-options {display:none;}
-body.mobile-exam-mode .fcc-panel.exam-panel {border:none;min-height:500px;}
+body.mobile-exam-mode .fcc-panel.exam-panel {border:none;}
 body.mobile-exam-mode .fcc-panel.exam-panel .title{position:fixed;top:0;width:100%;z-index:1;}
 body.mobile-exam-mode .shadow {display:none;}

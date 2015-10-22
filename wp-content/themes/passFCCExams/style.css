@@ -62,16 +62,16 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 .sidr ul > li:hover {line-height:48px !important;}
 .sidr ul li:hover > a {box-shadow:none !important;}
 .sidr ul li a{background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);box-shadow: 0px 0px 0px 1px #FFF inset;}
-.sidr ul li ul li a {line-height:48px;}
+.sidr ul li ul li a {line-height:48px;padding-left: 35px !important;}
 .sidr ul li.current-menu-item > a {background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%);color: white;text-shadow: 1px 1px #436A8B;box-shadow:none;}
 .sidr ul li a:hover{background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%); color:white;text-shadow: 1px 1px #436A8B;box-shadow:none !important;}
 #menu-sidebar-menu .sub-menu .sub-menu{display:none;}
-#menu-sidebar-menu .sub-menu li a .menu-icon {display:inline-block;padding-left: 10px;}
-#menu-sidebar-menu .sub-menu .sub-menu li a {background:#DBE0E5;box-shadow:none;line-height:38px;border-top: 1px solid #CCC;padding-left: 60px;}
+#menu-sidebar-menu .sub-menu li a .menu-icon {display:inline-block;padding-left:0px;}
+#menu-sidebar-menu .sub-menu .sub-menu li a {background:#DBE0E5;box-shadow:none;line-height:40px;border-top: 1px solid #CCC;padding-left: 60px !important;}
 #menu-sidebar-menu .sub-menu .sub-menu li:last-of-type a {border-bottom: 1px solid #CCC;}
 #menu-sidebar-menu .sub-menu .sub-menu li a:hover, #menu-sidebar-menu .sub-menu .sub-menu li.current-menu-item a{background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%);}
 .parent-pageid-67 #menu-sidebar-menu .sub-menu .sub-menu, .parent-pageid-127 #menu-sidebar-menu .sub-menu .sub-menu{display:block;}
-#menu-sidebar-menu > li > a > span.menu-icon {display: inline-block;padding-left: 0px;}
+#menu-sidebar-menu > li > a > span.menu-icon {display: inline-block;/*padding-left: 0px;*/}
 
 /*slider container*/
 .slider-container {z-index:1;}
@@ -130,9 +130,9 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 
 /*Page*/
 .page-template-dashboard #content-wrapper{padding:60px 0px 30px !important;}
-.page-template-default #content-wrapper, .error404 #content-wrapper  {padding:0px 30px 30px !important;background: rgba(255, 255, 255, .8);}
+.page-template-default #content-wrapper, .error404 #content-wrapper  {padding:0px 20px 30px !important;background: rgba(255, 255, 255, .8);}
 .entry-content {color: #003366;}
-.entry-content h1{margin-bottom:20px;text-align:right;border-bottom: 10px solid #003366;padding-bottom:15px;}
+.entry-content h1{margin-bottom:20px;text-align:right;border-bottom: 8px solid #003366;padding-bottom:15px;}
 .entry-content p{color: #003366;}
 .entry-content ol, .entry-content ul {margin-left:30px; list-style-type: decimal;margin-bottom: 20px;}
 .entry-content ul li {list-style-type:disc;}
@@ -149,12 +149,16 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 .footer .front-page-contact-wrapper input[type=submit]:hover,
 .green-button:hover{background: linear-gradient(to bottom, #8BAC01 0%, #9ABF01 100%);box-shadow: inset 0px -1px 0px 0px #A4C51A !important;color:rgba(255, 255, 255, .8) !important;}
 
+#pmpro_paypalexpress_checkout {display:none;}
+#new-button {text-align:center;}
+
 /*Page - About*/
 
 /*Page - Membership Levels*/
 #pmpro_levels_table {margin:auto;width:100%;}
 .pmpro_btn-select {background: linear-gradient(to bottom, #9ABF01 0%, #8BAC01 100%) !important;font-weight:normal !important; font-size:inherit !important;}
 .pmpro_btn-select:hover {background: linear-gradient(to bottom, #8BAC01 0%, #9ABF01 100%) !important;}
+.pmpro_checkout tr.active td {background: #6B9DD0 !important;}
 
 /*PMPPro Custom Styles*/
 form.pmpro_form .input {border: 1px solid #d0d0d0 !important; border-radius: 4px; box-shadow: inset 0px 1px 3px 0 rgba(0,0,0,0.2), 1px 2px 3px 0 rgba(0,0,0,0.1); color: #565656; padding: 10px !important; }
@@ -213,7 +217,7 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 .page-template-login .login-wrapper .message {margin: 15px 15px -10px 15px;position: relative;}
 .page-template-login .login-wrapper #loginform .tml-rememberme-wrap {margin-top::;}
 .page-template-login .login-wrapper #loginform .tml-rememberme-wrap label{display:inline-block;color: #9C9C9C;font-weight:normal;}
-.page-template-login .login-wrapper #loginform .tml-rememberme-wrap div.checker {margin-top:-3px;}
+.page-template-login .login-wrapper #loginform .tml-rememberme-wrap div.checker {margin-top:-4px;}
 
 /*Dashboard*/
 .my-account-wrapper {}
@@ -244,7 +248,7 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 .fcc-panel {border: 1px solid #CCC; border-radius: 4px;color: #5A5A5A;background:#fff;}
 .fcc-panel.collapsed .title{border-radius:4px;margin-bottom:-1px;}
 .fcc-panel .row{padding:15px !important;}
-.fcc-panel .title{border-radius: 4px 4px 0px 0px;border-bottom: 1px solid #CCC;box-shadow: 0px 0px 0px 1px #FFF inset;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);padding: 15px;color: #5A5A5A;}
+.fcc-panel .title{cursor:pointer;border-radius: 4px 4px 0px 0px;border-bottom: 1px solid #CCC;box-shadow: 0px 0px 0px 1px #FFF inset;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);padding: 15px;color: #5A5A5A;}
 .fcc-panel .section-collapse {float:right;cursor:pointer;color:#999;}
 .fcc-panel .section-collapse:hover{color:#5A5A5A;}
 .fcc-panel .section-collapse i{display:inline-block;font-size: .7em;}
@@ -307,7 +311,7 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 .exam-history .content.line{display:none;}
 .exam-history #element-history {height:350px;}
 .exam-history #element-history .morris-hover .comment{color:green;font-size:15px;}
-.exam-history .exam-dashboard {width: 80%; margin: auto; text-align: center;border: 1px solid #CCC;border-radius: 6px;margin-bottom:-55px;}
+.exam-history .exam-dashboard {width: 80%; margin: auto; text-align: center;border: 1px solid #CCC;border-radius: 6px;margin-bottom:-55px;background: #fff;}
 .exam-history .exam-dashboard .number{font-weight: 600;font-size: 1.4em;color:#5a5a5a;}
 .exam-history .exam-dashboard .text{text-transform: uppercase;font-size: .7em;color:#5a5a5a;}
 .exam-history .exam-dashboard .percent.positive{font-weight: bold;color: #74AC12;}
@@ -370,6 +374,7 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 .footer #twitter-wrap ul li a {color: #9ABF01;}
 .footer .sub-footer {border-top:1px solid #FAFBFD;padding: 10px 0px 0px 0px;}
 .footer .sub-footer a{color:#fff;}
+.footer .sub-footer a:hover{color:#9ABF01;}
 .footer .sub-footer ul.social-icons {float:right;}
 .footer .sub-footer ul.social-icons li{display:inline;}
 
@@ -382,25 +387,20 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 
 @media (max-width: 1006px) {
 	.container {width:100% !important;}
-
 	.header2 .menu-wrapper{display:none;}
 	.header2 .mobile-menu-wrapper{display:block;}
 	.header2 .logo img{padding:0px;margin: 20px 0px;}
 	.container-title h1 {width:70% !important;}
-
 	.what-license .topics{width:100% !important;}
 	.what-license .topics ul{width:500px;margin:0px auto;}
 	.what-license .image{display:none;}
-
 	.testimonials .image img{width:100%;}
 	.testimonials .testimonials-wrapper {padding:40px 20px 0px 20px;}
-
-	.my-account-wrapper .sidebar-menu {padding-right:0px;display:none;}
-	
+	.my-account-wrapper .sidebar-menu {padding-right:0px;}
 	.fcc-panel {margin-left:0px;}
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
 	.header1 .admin-nav{float:none;margin:0px;text-align: center;}
 	.header1 .admin-nav .social-container {display: none;margin-bottom: 10px;}
 	.header2 .logo {width:200px;}
@@ -408,11 +408,12 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 	.header2 .logo img{float:left;}
 	.feature-callouts .callout {width:50% !important; float:left !important;margin-bottom:30px;}
 	.get-started {text-align:center;}
-	.page-template-default #content-wrapper {padding:0px !important;}
 	#footer {text-align:center;}
 	#footer .social-icons {float:inherit;}
 	.exam-container .exam-details .exam-dashboard .columns {width:33.3%;}
 	.footer {opacity:1 !important;}
+	.my-account-wrapper .sidebar-menu {display:none;}
+	.dashboard-main{width:100% !important;}
 	.footer .left-widget {text-align:left;padding-bottom:0px;}
 	.footer .right-widget {text-align:left;padding-bottom:20px;}
 	.home .footer {position:relative;z-index:0;}
@@ -420,13 +421,42 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 	#footer-logo{display:none;}
 	.footer .sub-footer {text-align:left;}
 	.footer .sub-footer .columns {margin-bottom:20px;}
+	#pmpro_levels_table td {display:table-cell !important;}
+	#new-button {text-align:left;}
+}
+
+@media (max-width: 640px) {
+	.page-template-default .fcc-panel .section-collapse {display:none;}
+	.fcc-panel.faq table, .fcc-panel.faq thead, .fcc-panel.faq tbody, .fcc-panel.faq th, .fcc-panel.faq td, .fcc-panel.faq tr {display: block;}
+	.fcc-panel.faq .table-header {position: absolute; top: -9999px; left: -9999px;}
+	.fcc-panel.faq tr {  }
+	.fcc-panel.faq td {  }
+	.page-template-default .faq .row .columns { position:relative; padding-left: 30% !important;border-bottom: 1px solid #eee;border-right: none;}
+	.page-template-default .faq.questions .row .columns { padding-left: 50% !important;}
+	.page-template-default .faq .row .one.columns {text-align:left;}
+	.fcc-panel.faq .row td:before {position: absolute; top: 10px; left: 10px; width: 45%; padding-right: 10px; white-space: nowrap; } 
+	.fcc-panel.faq .row td:nth-of-type(1):before { content: "Element"; }
+	.fcc-panel.faq .row td:nth-of-type(2):before { content: "1"; }
+	.fcc-panel.faq .row td:nth-of-type(3):before { content: "3"; }
+	.fcc-panel.faq .row td:nth-of-type(4):before { content: "6"; }
+	.fcc-panel.faq .row td:nth-of-type(5):before { content: "7"; }
+	.fcc-panel.faq .row td:nth-of-type(6):before { content: "7R"; }
+	.fcc-panel.faq .row td:nth-of-type(7):before { content: "8"; }
+	.fcc-panel.faq .row td:nth-of-type(8):before { content: "9"; }
+	.fcc-panel.faq.questions .row td:nth-of-type(1):before { content: "Element"; }
+	.fcc-panel.faq.questions .row td:nth-of-type(2):before { content: "Total"; }
+	.fcc-panel.faq.questions .row td:nth-of-type(3):before { content: "Required to pass"; }
+	.fcc-panel.faq.questions .row td:nth-of-type(4):before { content: "Questions in pool"; }
 }
 
 @media (max-width: 600px) {
+	.exam-features {padding: 15px !important;}
 	.exam-features .container-title {text-align:left;}
+	.what-license {padding: 15px !important;}
 	.what-license .container-title {text-align:left;}
 	.what-license .topics ul {width:100%;}
 	.what-license .topics li {text-indent: -46px;margin-left: 45px;}
+	.logo-slider-wrapper {padding: 15px !important;}
 	.page-template-dashboard #content-wrapper {padding-top:30px !important;}
 	.exam-container .exam-details .exam-controls {width:101%;position:fixed; bottom:46px;left:0;font-size: .8em;border-radius:0px;border: 1px solid #CCC;background: linear-gradient(to bottom, #fff 0%, #F2F2F2 100%);padding: 0px;}
 	.exam-container .exam-details .exam-controls > div {background: url('/wp-content/themes/passFCCExams/assets/images/logo.png') no-repeat center;background-size: 100px;}
@@ -452,9 +482,13 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 	.feature-callouts .callout h3{margin-top:0px;}
 	.feature-callouts .callout div:first-of-type{width: 100px;float: left;margin-right: 20px;}
 	.feature-callouts img {margin-bottom:50px;}
-	.container-title h1 {width:100% !important;}
+	.container-title h1 {width:100% !important;font-size: 2.2em;}
 	.page-template-default .fcc-panel .section-collapse {float:none;text-align:right;}
 	.question-container .question .answer-box {padding:15px 10px !important;}
+	#pmpro_levels_table td {display:block !important;}
+	#pmpro_levels_table .pmpro_btn {width: 50%;margin: auto;}
+	.footer .container {padding: 40px 10px 0px !important;}
+	.page-template-default #content-wrapper, .error404 #content-wrapper {padding: 0px 10px 30px !important;}
 }
 
 @media (max-width: 400px) {

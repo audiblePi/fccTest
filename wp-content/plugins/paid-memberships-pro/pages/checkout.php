@@ -734,13 +734,12 @@
 			?>
 		</span>
 	</div>
-
 </form>
 
 <?php do_action('pmpro_checkout_after_form'); ?>
 
 </div> <!-- end pmpro_level-ID -->
-
+ 
 <script>
 <!--
 	// Find ALL <form> tags on your page
