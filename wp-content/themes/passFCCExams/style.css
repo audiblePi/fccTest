@@ -71,7 +71,7 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 #menu-sidebar-menu .sub-menu .sub-menu li:last-of-type a {border-bottom: 1px solid #CCC;}
 #menu-sidebar-menu .sub-menu .sub-menu li a:hover, #menu-sidebar-menu .sub-menu .sub-menu li.current-menu-item a{background: linear-gradient(to bottom, #6B9DD0 0%, #5081B5 100%);}
 .parent-pageid-67 #menu-sidebar-menu .sub-menu .sub-menu, .parent-pageid-127 #menu-sidebar-menu .sub-menu .sub-menu{display:block;}
-#menu-sidebar-menu > li > a > span.menu-icon {display: inline-block;/*padding-left: 0px;*/}
+#menu-sidebar-menu > li > a > span.menu-icon {display: inline-block;}
 
 /*slider container*/
 .slider-container {z-index:1;}
@@ -136,21 +136,16 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 .entry-content p{color: #003366;}
 .entry-content ol, .entry-content ul {margin-left:30px; list-style-type: decimal;margin-bottom: 20px;}
 .entry-content ul li {list-style-type:disc;}
-
 .pmpro_btn-select,
 .tp-button.green,
 .get-started button,
 .footer .front-page-contact-wrapper input[type=submit],
 .green-button {padding:15px 40px;color:#fff !important;border-radius:4px;background: linear-gradient(to bottom, #9ABF01 0%, #8BAC01 100%); box-shadow: inset 0px 1px 0px 0px #A4C51A !important; text-shadow: 1px 1px 0px #5C7301 !important;border: 1px solid #8BAC01 !important;}
-
 .pmpro_btn-select:hover,
 .tp-button.green:hover,
 .get-started button:hover,
 .footer .front-page-contact-wrapper input[type=submit]:hover,
 .green-button:hover{background: linear-gradient(to bottom, #8BAC01 0%, #9ABF01 100%);box-shadow: inset 0px -1px 0px 0px #A4C51A !important;color:rgba(255, 255, 255, .8) !important;}
-
-#pmpro_paypalexpress_checkout {display:none;}
-#new-button {text-align:center;}
 
 /*Page - About*/
 
@@ -161,7 +156,9 @@ p{color:#000;line-height:1.375;margin-bottom:20px}
 .pmpro_checkout tr.active td {background: #6B9DD0 !important;}
 
 /*PMPPro Custom Styles*/
-form.pmpro_form .input {border: 1px solid #d0d0d0 !important; border-radius: 4px; box-shadow: inset 0px 1px 3px 0 rgba(0,0,0,0.2), 1px 2px 3px 0 rgba(0,0,0,0.1); color: #565656; padding: 10px !important; }
+form.pmpro_form .input {}
+#pmpro_paypalexpress_checkout {display:none;}
+#new-button {text-align:center;}
 
 /*Page - FAQ*/
 .page-template-default .panel-wrapper {margin-bottom:20px;}
@@ -398,6 +395,7 @@ body.page-template-login .panel-wrapper{width:280px; margin:auto;}
 	.testimonials .testimonials-wrapper {padding:40px 20px 0px 20px;}
 	.my-account-wrapper .sidebar-menu {padding-right:0px;}
 	.fcc-panel {margin-left:0px;}
+	.container.get-started {padding:50px 30px !important;}
 }
 
 @media (max-width: 768px) {

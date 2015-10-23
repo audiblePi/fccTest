@@ -247,8 +247,6 @@ function showProfileStats($atts) {
 									DESC;") 
 									OR DIE(mysqli_error($conn));
 	$row = $result->fetch_array();
-	//var_dump($row);
-	//echo $e_id;
 	?>
 	<div class="panel-wrapper line">
 		<div class="fcc-panel exam-history line">
@@ -417,10 +415,6 @@ function showProfile(){
 						<td class="five columns">E-mail</td>
 						<td class="seven columns"><?php echo $current_user->user_email ?></td>
 					</tr>
-					<!-- <tr class="row">
-						<td class="five columns">Website</td>
-						<td class="seven columns"><?php# echo $current_user->user_url ?></td>
-					</tr> -->
 					<tr class="row">
 						<td class="five columns">Occupation</td>
 						<td class="seven columns"><?php echo get_user_meta( $current_user_id, 'occupation', true );  ?></td>

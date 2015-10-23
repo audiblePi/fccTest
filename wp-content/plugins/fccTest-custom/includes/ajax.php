@@ -401,7 +401,6 @@ function getWeakAreas(){
         foreach ($temp as $v){
             $t = unserialize($v);
             foreach ($t as $s){
-                //var_dump($s);
                 if( $s['grade'] != -777){
                     $key = array_search($s['question_number'], array_column($seenQuestions, 'question_number'));
 
@@ -480,7 +479,6 @@ function getWeakAreas(){
         $subtopics[] = $temp;
     }
     $data[] = $subtopics;
-    //var_dump($seenQuestions);
     echo json_encode($data);
     exit();
 }

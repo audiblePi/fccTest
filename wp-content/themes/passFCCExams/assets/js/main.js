@@ -36,6 +36,7 @@ jQuery(function($){
 	if($('form.pmpro_form .pmpro_submit #pmpro_submit_span').css('display') == 'block'){
 		$('#new-button').hide();
 	}
+	
 
 	if ( $('.pmpro_content_message').length ){
 		$('.pmpro_content_message').wrap('<div class="panel-wrapper"><div class="fcc-panel"><div class="content"><div class="row"></div></div></div>');
@@ -239,10 +240,10 @@ function openExam(){
 		exam_panel.removeClass('collapsed');
 		exam_panel.find('.section-collapse').html('collapse <i class="icon-chevron-up"></i>');
  		
- 		// setTimeout(function(){ 
-   //          $('html, body').animate({
-   //              scrollTop: $('.fcc-panel.exam-panel').offset().top - 100
-   //          }, 1000);
-   //      }, 1000);
+ 		setTimeout(function(){ 
+            $('html, body').animate({
+                scrollTop: $('.fcc-panel.exam-panel').offset().top - 20
+            }, 1000);
+        }, 1000);
 	});
 }//global function for plugin access
