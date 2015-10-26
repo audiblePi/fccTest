@@ -340,6 +340,7 @@ function showLeaderBoard() {
 										WHERE simulated = 1
 										AND missed_retake = 0
 										AND element_id = '$e'
+										AND status = 1
 										ORDER BY score 
 										DESC LIMIT 5") 
 										OR DIE(mysqli_error($conn));

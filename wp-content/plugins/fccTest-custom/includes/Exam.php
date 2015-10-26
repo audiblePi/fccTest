@@ -1,4 +1,8 @@
 <?php
+/**
+ * The Exam class creates exams.
+ */
+
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 include(fccTest_PATH . "lib/array_column.php");
@@ -8,8 +12,8 @@ class Exam
 	public $exam_id = "-1";
 	public $user_id;
 	public $simulated;
-	public $element_id; //E1, E3, E6, E7, E7R, , E8, E9
-	public $subtopics = array(); //study focus areas
+	public $element_id;
+	public $subtopics = array();
 	public $show_numbers;
 	public $show_answers;
 	public $exam_size;
@@ -32,6 +36,23 @@ class Exam
 	public $scoreToBeat =0;
 	public $quick50; 
 
+
+	/**
+	 * Object constructor
+	 *
+	 * Sets input parameters, get exam questions, sets start date for this exam
+	 *
+	 * @param int $id 	Wordpress user id
+	 * @param string $e Element id E1, E7R etc
+	 * @param array $s 	Array of subtopics by letter
+	 * @param int $sim 	Simulated exam flag
+	 * @param int $wa 	Weak areas flag
+	 * @param int $mr 	Missed retake flag
+	 * @param int $r 	Resume exam flag
+	 * @param int $q 	Quick 50 flag
+	 *
+	 * @return void
+	 */
 	public function __construct($id, $e, $s, $sim, $wa, $mr, $r, $q){
 		$this->user_id = $id;
 		$this->element_id = $e;
@@ -43,7 +64,7 @@ class Exam
 		$this->quick50 = $q;
 		$this->getQuestions($e);
 		$this->date = date("Y/m/d");
-	}
+	}//end __contruct()
 
 	public function getQuestions($e){
 		if($this->missed_retake==1)
@@ -58,8 +79,14 @@ class Exam
 			$this->resumeExam();
 		else
 			$this->createStudyExam(0);
-	}
+	}//end getQuestions()
 
+
+	/**
+	 * Study Exams pull all the questions from an element, with the option to choose specific subtopics
+	 * 
+	 * @param int $flag 1 means we are creating a study exam from the determined weak areas 
+	 */
 	public function createStudyExam($flag){
 		$conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 		if ($this->subtopics[0] == "All"){
@@ -104,8 +131,12 @@ class Exam
 		$this->orderQuestions();
 		$this->determineSeenQuestions();
 		$this->sortQuestionsArray();
-	}
+	}//end createStudyExam()
 
+
+	/**
+	 * Missed Retaked grabs the users last exam question array, creates new exam from the missed questions
+	 */
 	public function missedRetake(){
 		$temp = array();
 		$conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
@@ -145,8 +176,14 @@ class Exam
 		else
 			 echo "No previous exam found";
 		$this->determineSeenQuestions();
-	}
+	}//end missedRetake()
 
+
+	/**
+	 * Resume exam retrieves the question array from the users last unfisnished STUDY exam, 
+	 * then retrieves each question with answers from the question table
+	 * then send that question array to loadExam()
+	 */
 	public function resumeExam(){
 		$conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 		$result = $conn->query("SELECT * FROM wp_fccTest_custom_exams 
@@ -175,10 +212,17 @@ class Exam
 		else
 			echo 'No previous exam found...';
 		$this->determineSeenQuestions();
-	}
+	}//end resumeExam()
 
-	/* can be updated to reflect % of each subelement */
-	/*quick50 same as simulated exam, with exam_size == 50*/
+
+	/**
+	 * Simulated Exams have a predifined length and predfined number of questions from each subtopic
+	 * This function determines how many questions are required for wach sub topics based on the user input element
+	 * Grabs random questions from each sub topic, shuffles, and finds scoreToBeat
+	 *
+	 * NOTE: *quick50 same as simulated exam, with exam_size == 50
+	 * can be updated to reflect the % of each sub topic
+	 */
 	public function createSimulatedExam(){
 		$num_subtopics;
 		switch($this->element_id) {
@@ -213,8 +257,12 @@ class Exam
 		}
 		$this->orderQuestions();
 		$this->getScoreToBeat();
-	}
+	}//end createSimulatedExam()
 
+
+	/**
+	 * Sets variables for the retrieved resumed exam
+	 */
 	public function loadExam($r){
 		$this->element_id = $r['element_id'];
 		$this->missed_retake = $r['missed_retake'];
@@ -231,27 +279,40 @@ class Exam
 		$this->status = $r['status'];
 		$this->weak_areas = $r['weak_areas'];
 		$this->prev_time = $r['total_time'];
-	}
+	}//end loadExam()
+
 
 	public function orderQuestions(){
 		shuffle($this->questions);
-	}
+	}//end orderQuestions()
+
 
 	public function sortQuestionsArray(){
 		if(!$this->seenQuestions)
 			$this->determineSeenQuestions();
 
   		usort($this->questions, array($this, 'sortBySeen'));
-	}
+	}//end sortQuestionArray()
 
+
+	/**
+	 *	Pulls unseen questions to the front on study exams
+	 */
 	public function sortBySeen($a, $b){
     	return strnatcmp($a['seen'], $b['seen']);
-  	}
+  	}//end sortBySeen()
+
 
 	public function setCurrentQuestion($i){
 		$current_question = $i;
-	}
+	}//end setcurrentQuestion()
 
+
+	/**
+	 * A weak area is a question that has been in answered incorrect 2 out of 3 three attempts
+	 * Technically < %67
+	 * This function populates the weak areas from questions that have been seen
+	 */
 	public function determineWeakAreas(){
 		foreach ($this->seenQuestions as $f){
 			if ($f['score'] < 70)
@@ -261,8 +322,15 @@ class Exam
 			$this->createStudyExam(1);
 		// else 
 		// 	echo "We do not have enough data to determine your weak areas.  Please practice some more questions.";
-	}
+	}//end determineWeakAreas()
 
+
+	/**
+	 * This function helps us determine what questions have not been seen, 
+	 * We will push unseen questions to the front of every study exam until all the questions have been seen
+	 * We will track the users grade for each seen questions to help up determine what questions are 'weak areas'
+	 * seenQuestions array [(question_number, correct, incorrect, skipped, score, seen)]
+	 */
 	public function determineSeenQuestions(){
 		$temp = array();
 		$conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
@@ -296,7 +364,7 @@ class Exam
 		                        case '-1': $sk = 1;break;
 		                    }
 		                    if ($c == 1)
-                            	$sc = 100;
+                            	$sc = 100; //otherwise score will not calculated until second attempt
 		            		$data = array (
 		            			'question_number' => $s['question_number'],
 		            			'correct' => $c,
@@ -305,9 +373,12 @@ class Exam
 		            			'score' => $sc,
 		            			'seen' => 1
 		            		);
-		            		$this->seenQuestions[] = $data ;
+		            		$this->seenQuestions[] = $data;
 		            	}
 		            	else if ($key >= 0){
+		            		/**
+		            		 * NOTE: *once the question has been seen, we will only calculate a score based on the last three attempts
+		            		 */
 		            		if($this->seenQuestions[$key]['seen'] < 3){
 								switch($s['grade']){
 				            		case '0' : $this->seenQuestions[$key]['incorrect']++;break;
@@ -324,6 +395,7 @@ class Exam
 	            	}
 	            }
 	        }
+	        /*counts the number of seen questions for selected element*/
 	        foreach ($this->seenQuestions as $sn){
 			    $key = array_search($sn['question_number'], array_column($this->questions, 'question_label'));
 			    if($key !== false){
@@ -334,13 +406,19 @@ class Exam
 		}
 		//else
 		//	 echo "determineSeenQuestions() -> No previous exams found";
-	}
+	}//end determineSeenQuestions()
+
 
 	public function focusOnWeakAreas(){
 		$this->determineSeenQuestions();
 		$this->determineWeakAreas();
-	}
+	}//end focusOnWeakAreas()
 
+
+	/**
+	 * Score to beat only applies to simulated exams.
+	 * It is the highest score on a completed simulated exam
+	 */
 	public function getScoreToBeat(){
 		$conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 		$result = $conn->query("SELECT * FROM wp_fccTest_custom_exams 
@@ -355,6 +433,6 @@ class Exam
 		$row = $result->fetch_array();
 		if($row)
 			$this->scoreToBeat = $row['score'];
-	}
+	}//end getScoreToBeat()
 }//end Class()
 ?>
