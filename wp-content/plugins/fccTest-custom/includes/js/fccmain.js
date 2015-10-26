@@ -332,7 +332,7 @@ jQuery(function($){
     }
 
     function saveExam(i){
-        // console.log('saveExam(' + i + ')');
+        //console.log('saveExam(' + i + ')');
         var action;
         if (i==0)
             action = "init";
@@ -597,7 +597,7 @@ jQuery(function($){
         incorrect = $('.exam-details .incorrect').html();
         exam_length = $('.exam-details .total_questions').html();
         skipped = $('.exam-details .skipped').html();
-        num_answered = parseInt(correct) + parseInt(incorrect);
+        num_answered = parseInt(correct) + parseInt(incorrect) + parseInt(skipped);
         $('.exam-details .num-answered').html(num_answered);
         current_score = $('.exam-details .current_score').html();
         current_question_index = $('.exam-details .current_question').html() - 1;
@@ -634,6 +634,8 @@ jQuery(function($){
 
         $('.question-container .question.0').css('display', 'none');
         $('.question-container .question.' + current_question_index).fadeIn(100);
+        if (show_numbers == 1)
+            $('.question-container .question-number').css('display', 'inline-block');
         if (show_answers == 1)
             $('.exam-controls .next-question').css('display', 'inline-block');
     }

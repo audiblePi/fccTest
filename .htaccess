@@ -10,3 +10,5 @@ RewriteRule . /index.php [L]
 </IfModule>
 
 # END WordPress
+
+php_value max_input_vars 2000
