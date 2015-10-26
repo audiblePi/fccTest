@@ -661,3 +661,15 @@
 [26-Oct-2015 18:23:55 UTC] PHP Notice:  Undefined variable: sql in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 247
 [26-Oct-2015 18:23:55 UTC] PHP Warning:  mysqli_query(): Empty query in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 247
 [26-Oct-2015 18:23:55 UTC] PHP Notice:  Undefined variable: sql in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 252
+[26-Oct-2015 20:21:11 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE), expecting ',' or ';' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 85
+[26-Oct-2015 20:21:37 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ':' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 85
+[26-Oct-2015 20:21:50 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ':' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 85
+[26-Oct-2015 20:21:52 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ':' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 85
+[26-Oct-2015 20:45:32 UTC] PHP Notice:  Undefined index: grade in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 431
+[26-Oct-2015 20:45:32 UTC] PHP Notice:  Undefined index: grade in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 440
+[26-Oct-2015 20:47:12 UTC] PHP Notice:  Undefined index: grade in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 431
+[26-Oct-2015 20:47:12 UTC] PHP Notice:  Undefined index: grade in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 440
+[26-Oct-2015 20:47:39 UTC] PHP Notice:  Undefined index: grade in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 431
+[26-Oct-2015 20:47:39 UTC] PHP Notice:  Undefined index: grade in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 440
+[26-Oct-2015 20:48:27 UTC] PHP Notice:  Undefined index: grade in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 431
+[26-Oct-2015 20:48:27 UTC] PHP Notice:  Undefined index: grade in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 440

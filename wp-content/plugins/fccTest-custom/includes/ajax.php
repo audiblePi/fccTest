@@ -17,6 +17,10 @@ if (isset($_POST['myAction']))
     }
 }
 
+
+
+# Creates an Exam object from ajax variables
+# Builds exam interface 
 function start(){
     $test = "123";
  	$user_id = $_POST['user_id'];
@@ -82,10 +86,10 @@ function start(){
                         <div class="question-text"><?php echo $v["question_text"] ?></div>
                     </div>
                     <form>
-                        <div class="answer-box" <?php if ($answer_array[0] == $correct_answer) echo "id='tzt'" ?>><span class="check-marks"><i class="icon-ok"></i><i class="icon-remove"></i></span><span class="answer"><input type="radio" name="answer" value="<?php echo $answer_array[0] ?>"><?php echo $answer_array[0] ?></span></div>
-                        <div class="answer-box" <?php if ($answer_array[1] == $correct_answer) echo "id='tzt'" ?>><span class="check-marks"><i class="icon-ok"></i><i class="icon-remove"></i></span><span class="answer"><input type="radio" name="answer" value="<?php echo $answer_array[1] ?>"><?php echo $answer_array[1] ?></span></div>
-                        <div class="answer-box" <?php if ($answer_array[2] == $correct_answer) echo "id='tzt'" ?>><span class="check-marks"><i class="icon-ok"></i><i class="icon-remove"></i></span><span class="answer"><input type="radio" name="answer" value="<?php echo $answer_array[2] ?>"><?php echo $answer_array[2] ?></span></div>
-                        <div class="answer-box" <?php if ($answer_array[3] == $correct_answer) echo "id='tzt'" ?>><span class="check-marks"><i class="icon-ok"></i><i class="icon-remove"></i></span><span class="answer"><input type="radio" name="answer" value="<?php echo $answer_array[3] ?>"><?php echo $answer_array[3] ?></span></div>
+                        <div class="answer-box" <?php if ($answer_array[0] == $correct_answer) echo "id='tzt'"; else echo "id='tgt'"; ?>><span class="check-marks"><i class="icon-ok"></i><i class="icon-remove"></i></span><span class="answer"><input type="radio" name="answer" value="<?php echo $answer_array[0] ?>"><?php echo $answer_array[0] ?></span></div>
+                        <div class="answer-box" <?php if ($answer_array[1] == $correct_answer) echo "id='tzt'"; else echo "id='tgt'"; ?>><span class="check-marks"><i class="icon-ok"></i><i class="icon-remove"></i></span><span class="answer"><input type="radio" name="answer" value="<?php echo $answer_array[1] ?>"><?php echo $answer_array[1] ?></span></div>
+                        <div class="answer-box" <?php if ($answer_array[2] == $correct_answer) echo "id='tzt'"; else echo "id='tgt'"; ?>><span class="check-marks"><i class="icon-ok"></i><i class="icon-remove"></i></span><span class="answer"><input type="radio" name="answer" value="<?php echo $answer_array[2] ?>"><?php echo $answer_array[2] ?></span></div>
+                        <div class="answer-box" <?php if ($answer_array[3] == $correct_answer) echo "id='tzt'"; else echo "id='tgt'"; ?>><span class="check-marks"><i class="icon-ok"></i><i class="icon-remove"></i></span><span class="answer"><input type="radio" name="answer" value="<?php echo $answer_array[3] ?>"><?php echo $answer_array[3] ?></span></div>
                     </form>
                     <div class="image-container">
                         <?php 
@@ -130,7 +134,6 @@ function start(){
         <div class="exam-controls">
             <div>
                 <a href="my-account/study-reports/element-<?php echo substr($newExam->element_id, 1) ?>"><button class="exit-exam">Exit</button></a>
-                <!-- <span class="mobile-logo"><img src="/wp-content/themes/passFCCExams/assets/images/logo.png"></span> -->
                 <button class="next-question">Next</button>
             </div>
         </div>
@@ -184,8 +187,12 @@ function start(){
         <div>
     <?php
     exit();
-}
+}//end startExam()
 
+
+
+# Creates new Exam entry in database
+# Or updates Exam entry by id
 function mySave($i){
     $conn = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME );
     $current_exam;
@@ -270,8 +277,11 @@ function mySave($i){
     
     mysqli_close($conn);
     exit();
-}
+}//end saveExam()
 
+
+
+# Closes out a pending exam once the user has chosen not to resume it
 function dontResume(){
     $exam_id = $_POST['exam_id'];
     $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
@@ -284,8 +294,11 @@ function dontResume(){
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     mysqli_close($conn);
     exit();
-}
+}//dontResume()
 
+
+
+# Grabs the question array from an existing exam by id
 function getArray(){
     $current_exam = $_POST['exam_id'];
     $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
@@ -299,8 +312,11 @@ function getArray(){
     $jsonArray = json_encode($sArray);
     echo $jsonArray;
     exit();
-}
+}//end getArray()
 
+
+
+# Get the last score of a completed simulated exam from each element
 function getProgressReport() {
     $current_user = $_POST['user_id'];
     $conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
@@ -331,8 +347,11 @@ function getProgressReport() {
     }
     echo json_encode($scores);
     exit();
-}
+}//end getProgressReport()
 
+
+
+# Retrieves past exam data for an element for use in line graph
 function getElementHistory() {
     $current_user = $_POST['user_id'];
     $element_id = $_POST['element_id'];
@@ -363,8 +382,17 @@ function getElementHistory() {
     }
     echo json_encode($scores);
     exit();
-}
+}//getElementHistory()
 
+
+
+# Determines all seem questions for an element,
+# Calculate score based on last three attempts
+# Weak areas have a score less than 70% (technically 67%)
+# Returns array of scores for each element based on total number correct out of answered per element
+# Also returns number of questions seen, total number of weak questions
+# To be displayed in Bar and Pie charts
+# NEEDS TO BE REFACTORED (DUPLICATE FUNCTION IN EXAM CLASS)
 function getWeakAreas(){
     $current_user = $_POST['user_id'];
     $element_id = $_POST['element_id'];
@@ -480,4 +508,4 @@ function getWeakAreas(){
     $data[] = $subtopics;
     echo json_encode($data);
     exit();
-}
+}//getWeakAreas()

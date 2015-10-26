@@ -205,7 +205,10 @@ function showInterface($atts){
 		<div class="shadow"></div>
 	</div>
 <?php
-}//end main()
+}//end showInterface()
+
+
+
 
 function checkForPendingExam($id){
 	$conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
@@ -232,6 +235,9 @@ function checkForPendingExam($id){
 		<?php }
 	}
 }//end checkForPendingExam()
+
+
+
 
 function showProfileStats($atts) {
 	$a = shortcode_atts( array('element' => 'something'), $atts );
@@ -332,6 +338,8 @@ function showProfileStats($atts) {
 	<?php
 }//end showProfileStats()
 
+
+
 function showLeaderBoard() {
 	$conn = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 	$elements =  array("E1", "E3", "E6", "E7", "E7R", "E8", "E9");
@@ -377,6 +385,8 @@ function showLeaderBoard() {
 		echo "</table></div></div><div class='shadow'></div></div>";
 	}
 }//end showLeaderboard()
+
+
 
 function showProfile(){
 	$current_user = wp_get_current_user();
@@ -515,5 +525,5 @@ function showProfile(){
 		});
 	</script>
 	<?php
-}
+}//end showProfile()
 ?>

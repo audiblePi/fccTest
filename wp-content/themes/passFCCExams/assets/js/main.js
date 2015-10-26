@@ -47,7 +47,7 @@ jQuery(function($){
 
 	if ($('body').hasClass('pmpro-levels') ){
 		if ( $('body').hasClass('logged-in') ){
-			$('.pmpro_checkout tr:nth-child(5)').css('display', 'none');
+			$('.pmpro_checkout tr:nth-child(5)').remove();
 		}
 	}
 
