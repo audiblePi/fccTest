@@ -82,12 +82,11 @@ function start(){
                         <div class="question-text"><?php echo $v["question_text"] ?></div>
                     </div>
                     <form>
-                        <div class="answer-box" <?php if ($answer_array[0] == $correct_answer) echo "id='correct'" ?>><span class="check-marks"><i class="icon-ok"></i><i class="icon-remove"></i></span><span class="answer"><input type="radio" name="answer" value="<?php echo $answer_array[0] ?>"><?php echo $answer_array[0] ?></span></div>
-                        <div class="answer-box" <?php if ($answer_array[1] == $correct_answer) echo "id='correct'" ?>><span class="check-marks"><i class="icon-ok"></i><i class="icon-remove"></i></span><span class="answer"><input type="radio" name="answer" value="<?php echo $answer_array[1] ?>"><?php echo $answer_array[1] ?></span></div>
-                        <div class="answer-box" <?php if ($answer_array[2] == $correct_answer) echo "id='correct'" ?>><span class="check-marks"><i class="icon-ok"></i><i class="icon-remove"></i></span><span class="answer"><input type="radio" name="answer" value="<?php echo $answer_array[2] ?>"><?php echo $answer_array[2] ?></span></div>
-                        <div class="answer-box" <?php if ($answer_array[3] == $correct_answer) echo "id='correct'" ?>><span class="check-marks"><i class="icon-ok"></i><i class="icon-remove"></i></span><span class="answer"><input type="radio" name="answer" value="<?php echo $answer_array[3] ?>"><?php echo $answer_array[3] ?></span></div>
+                        <div class="answer-box" <?php if ($answer_array[0] == $correct_answer) echo "id='tzt'" ?>><span class="check-marks"><i class="icon-ok"></i><i class="icon-remove"></i></span><span class="answer"><input type="radio" name="answer" value="<?php echo $answer_array[0] ?>"><?php echo $answer_array[0] ?></span></div>
+                        <div class="answer-box" <?php if ($answer_array[1] == $correct_answer) echo "id='tzt'" ?>><span class="check-marks"><i class="icon-ok"></i><i class="icon-remove"></i></span><span class="answer"><input type="radio" name="answer" value="<?php echo $answer_array[1] ?>"><?php echo $answer_array[1] ?></span></div>
+                        <div class="answer-box" <?php if ($answer_array[2] == $correct_answer) echo "id='tzt'" ?>><span class="check-marks"><i class="icon-ok"></i><i class="icon-remove"></i></span><span class="answer"><input type="radio" name="answer" value="<?php echo $answer_array[2] ?>"><?php echo $answer_array[2] ?></span></div>
+                        <div class="answer-box" <?php if ($answer_array[3] == $correct_answer) echo "id='tzt'" ?>><span class="check-marks"><i class="icon-ok"></i><i class="icon-remove"></i></span><span class="answer"><input type="radio" name="answer" value="<?php echo $answer_array[3] ?>"><?php echo $answer_array[3] ?></span></div>
                     </form>
-                    <div class="correct-answer"><?php echo $correct_answer ?></div>
                     <div class="image-container">
                         <?php 
                         $image = "<img src='/wp-content/plugins/fccTest-custom/images/fig-";

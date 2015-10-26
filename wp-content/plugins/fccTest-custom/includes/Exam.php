@@ -1,6 +1,6 @@
 <?php
 /**
- * The Exam class creates exams.
+ * The Exam class
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;

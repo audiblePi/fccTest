@@ -460,8 +460,8 @@ jQuery(function($){
     function checkAnswer(){
         //console.log('checkAnswer()');
         var temp = $('.question-container .question.' + current_question_index + " input[name=answer]:checked").val();
-        var correct_answer = $('.question-container .question.' + current_question_index + ' .correct-answer').text();
-        if (temp == correct_answer)
+        var temp2 = $('.question-container .question.' + current_question_index + " input[name=answer]:checked").closest('.answer-box').attr('id');
+        if (temp2 == 'tzt')//id for the correct answer
             return 1;        
         else if(temp)
             return 0;
@@ -532,12 +532,11 @@ jQuery(function($){
 
     function showAnswer(o){
         // console.log('showAnswer()');
-        if(o.is('#correct'))
+        if(o.is('#tzt'))
             o.children().children('.icon-ok').fadeIn(100).css("display","inline-block");
         else{
-            //$(".question-container .question." + current_question_index + " form div#correct.answer-box .answer").css('border-color', 'green');
             o.children().children('.icon-remove').fadeIn(100).css("display","inline-block");
-            $(".question-container .question." + current_question_index + " form div#correct.answer-box .icon-ok ").fadeIn(100).css("display","inline-block");
+            $(".question-container .question." + current_question_index + " form div#tzt.answer-box .icon-ok ").fadeIn(100).css("display","inline-block");
         }
     }
 

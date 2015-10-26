@@ -1,7 +1,6 @@
 /*shortcodes options interface*/
 .pre-loader{position: relative; left: 0px; top: 0px; width: 100%; height: 415px;/*display:none;*/ background: url(/wp-content/plugins/fccTest-custom/images/loadera64.gif) center no-repeat #fff;}
 .exam-options .row{padding:10px;}
-.exam-options .study-mode-options {/*display:none;*/}
 .exam-options .study-mode-options .settings-option .E1.subtopic{display:block;}
 .exam-options .study-mode-options .settings-option .subtopic{display:none;}
 .exam-options .study-mode-options .subtopics-wrapper {border:2px solid #fff;}
@@ -9,7 +8,6 @@
 .exam-options .settings-option input[type=checkbox]{margin-right:5px;}
 .exam-options .hidden-id{display:none;}
 div.selector span {color:#000 !important;width:100% !important;}
-div.selector {}
 div.radio {display:inline !important; margin-right: 9px !important;}
 div.radio span{position: relative;top: 2px;}
 
@@ -20,7 +18,6 @@ div.radio span{position: relative;top: 2px;}
 .question-container .question{display:none;}
 .question-container .question:first-of-type{display:block;}
 .question-container .question form{padding:0px 20px 0px 40px;}
-.question-container .correct-answer {display:none;}
 .question-container .question .question-number{margin-right:10px;}
 .question-container .question .question-text{font-weight: 600; font-size: 1.2em;}
 .question-container .question .answer-box{cursor:pointer;text-indent: -30px;margin-left: 10px; padding:15px 10px;}

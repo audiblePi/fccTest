@@ -657,3 +657,7 @@
 [26-Oct-2015 16:32:49 UTC] PHP Notice:  Undefined variable: sql in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 247
 [26-Oct-2015 16:32:49 UTC] PHP Warning:  mysqli_query(): Empty query in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 247
 [26-Oct-2015 16:32:49 UTC] PHP Notice:  Undefined variable: sql in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 252
+[26-Oct-2015 18:23:55 UTC] PHP Notice:  Undefined index: questions in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 214
+[26-Oct-2015 18:23:55 UTC] PHP Notice:  Undefined variable: sql in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 247
+[26-Oct-2015 18:23:55 UTC] PHP Warning:  mysqli_query(): Empty query in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 247
+[26-Oct-2015 18:23:55 UTC] PHP Notice:  Undefined variable: sql in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 252
