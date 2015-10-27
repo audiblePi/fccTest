@@ -1,3 +1,0 @@
-[26-Oct-2015 21:40:11 UTC] PHP Notice:  Undefined index: grade in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 431
-[26-Oct-2015 21:40:11 UTC] PHP Notice:  Undefined index: grade in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 440
-[26-Oct-2015 21:57:43 UTC] PHP Parse error:  syntax error, unexpected ';' in /Users/newowner/workspace/fccTest/wp-content/plugins/fccTest-custom/includes/ajax.php on line 224

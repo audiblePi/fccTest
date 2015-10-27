@@ -22,8 +22,8 @@ div.radio span{position: relative;top: 2px;}
 .question-container .question .question-text{font-weight: 600; font-size: 1.2em;}
 .question-container .question .answer-box{cursor:pointer;text-indent: -30px;margin-left: 10px; padding:15px 10px;}
 .question-container .question .answer-box .answer{border:2px solid white;}
-.question-container .question .answer-box:hover {/*color:green;*/}
-.question-container .question .answer-box input{margin: 0px; margin-left:-10px;}
+.question-container .question .answer-box:hover {/*color:#74AC12;*/}
+.question-container .question .answer-box input{margin: 0px 10px 0px 4px;}
 .question-container .question .answer-box .check-marks {width:25px; font-size:.9em;}
 .question-container .question .answer-box .check-marks .icon-ok{display:none; color:green;top:0px;left:10px;}
 .question-container .question .answer-box .check-marks .icon-remove{display:none; color:red;top:0px;left:10px;}

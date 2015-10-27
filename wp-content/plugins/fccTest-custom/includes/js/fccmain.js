@@ -299,12 +299,8 @@ jQuery(function($){
            data: post_data,
            dataType: "text",
            success: function (text) {
-                $.uniform.restore();
-                //console.log('hide');
                 $('.pre-loader').css('display', 'none');
-                //console.log('print');
                 printExam(text);
-                //console.log('if statements');
                 if(resume==0){
                     $('.exam-panel .title .the-title').html($('.element-id option:selected').text());
                     saveExam(0); //0 = init
@@ -324,9 +320,11 @@ jQuery(function($){
                         else 
                             $('.question.exam-ended').html("<div>No questions found..</div>");
                 }
+                //$("select, input:checkbox, input:radio").uniform();
+                //$.uniform.restore();
+
            }
         });
-        // console.log('display');
         $('.pre-loader').css('display', 'block');
         $('.exam-details .current_question').html(current_question_index);
     }
@@ -432,8 +430,7 @@ jQuery(function($){
         }
         seen = $('.seen').text();
         createQuestionsArray();
-        $("select, input:checkbox, input:radio").uniform();
-        //console.log('end print');
+       // $("select, input:checkbox, input:radio").uniform();
     }
 
     function updateHTML(){
